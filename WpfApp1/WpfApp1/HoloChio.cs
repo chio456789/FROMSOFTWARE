@@ -14,6 +14,11 @@ namespace WpfApp1
             Console.WriteLine("jejejjeje");
         }
         
-
+        public void mensajeChio2()
+        {
+            Console.WriteLine("Hola chio como estas");
+            Console.WriteLine("hohohohohoho");
+        }
+        
     }
 }
