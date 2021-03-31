@@ -10,7 +10,7 @@ namespace WpfApp1
     {
         public void mensajeChio()
         {
-            Console.WriteLine("Hola chio como estas");
+            Console.WriteLine("Hola chio como estassssss");
             Console.WriteLine("jejejjeje");
         }
 
