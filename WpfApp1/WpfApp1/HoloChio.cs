@@ -13,6 +13,7 @@ namespace WpfApp1
             Console.WriteLine("Hola chio como estassssss");
             Console.WriteLine("jejejjejeeeeeee");
             Console.WriteLine("jijijjij...verificando cambios");
+            Console.WriteLine("jijijjij...verificando cambios2");
 
         }
 
