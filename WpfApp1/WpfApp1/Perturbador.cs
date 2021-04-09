@@ -11,6 +11,9 @@ namespace WpfApp1
         public void ss()
         {
             Console.WriteLine("este es mi perturbador");
+            Console.WriteLine("aflkasnk,asmfñamsdmñlmasñ,masdñmñmaslñdmasds");
+            Console.WriteLine("sadasdsa");
+            Console.WriteLine("asdasdadfslmoawdgkñjlansdgjñahsngl");
         }
         
     }
