@@ -20,6 +20,7 @@ namespace WpfApp1
             Console.WriteLine("sfdghjklñ{{tryuighojpk´l+´+´póñtlirkueyjrtesxdcfygupíp{oñiyltuyt");
             Console.WriteLine("JAJAJAJAJAJJAJAJAJJAJA");
             Console.WriteLine("kjbjhglvhkvluhvjh.kgb");
+            Console.WriteLine("PUT YOUR RECORDS ON");
         }
     }
 }
