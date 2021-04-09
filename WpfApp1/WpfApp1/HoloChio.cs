@@ -15,6 +15,7 @@ namespace WpfApp1
             Console.WriteLine("jijijjij...verificando cambios");
             Console.WriteLine("jijijjij...verificando cambios2")
                Console.WriteLine("jajajajajjjjjaj");
+            Console.WriteLine("committ");
 
         }
 
