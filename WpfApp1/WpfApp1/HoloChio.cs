@@ -8,6 +8,9 @@ namespace WpfApp1
 {
     class HoloChio
     {
+        public Chiyo(){
+            Console.WriteLine("nani?");
+        }
 
 
     }
