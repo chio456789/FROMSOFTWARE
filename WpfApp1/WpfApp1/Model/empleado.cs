@@ -7,32 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class promocion
+    public partial class empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public promocion()
+        public empleado()
         {
-            this.ordenPromocion = new HashSet<ordenPromocion>();
-            this.promocionesProductos = new HashSet<promocionesProductos>();
+            this.usuario = new HashSet<usuario>();
         }
     
-        public int codPromocion { get; set; }
-        public string idPromocion { get; set; }
-        public string nomProm { get; set; }
-        public Nullable<bool> estadoProm { get; set; }
-        public string detalleProm { get; set; }
-        public Nullable<decimal> precioProm { get; set; }
-        public byte[] imagenProm { get; set; }
+        public string ciEmpleado { get; set; }
+        public string nombreEmp { get; set; }
+        public string apellidoPtEmp { get; set; }
+        public string apellidoMtEmp { get; set; }
+        public string sexo { get; set; }
+        public string direccionEmp { get; set; }
+        public string correoEmp { get; set; }
+        public Nullable<int> codCargoFK { get; set; }
         public Nullable<bool> eliminar { get; set; }
     
+        public virtual cargoLaboral cargoLaboral { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ordenPromocion> ordenPromocion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<promocionesProductos> promocionesProductos { get; set; }
+        public virtual ICollection<usuario> usuario { get; set; }
     }
 }

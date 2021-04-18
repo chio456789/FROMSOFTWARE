@@ -7,31 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class empleado
+    public partial class categorias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public empleado()
+        public categorias()
         {
-            this.usuario = new HashSet<usuario>();
+            this.productos = new HashSet<productos>();
         }
     
-        public string ciEmpleado { get; set; }
-        public string nombreEmp { get; set; }
-        public string apellidoPtEmp { get; set; }
-        public string apellidoMtEmp { get; set; }
-        public string sexo { get; set; }
-        public string direccionEmp { get; set; }
-        public string correoEmp { get; set; }
-        public Nullable<int> codCargoFK { get; set; }
+        public int codCategoria { get; set; }
+        public string nombreCtg { get; set; }
+        public string descripcionCtg { get; set; }
         public Nullable<bool> eliminar { get; set; }
     
-        public virtual cargoLaboral cargoLaboral { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuario> usuario { get; set; }
+        public virtual ICollection<productos> productos { get; set; }
     }
 }

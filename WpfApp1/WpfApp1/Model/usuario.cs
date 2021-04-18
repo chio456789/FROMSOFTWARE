@@ -7,25 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class categorias
+    public partial class usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public categorias()
+        public usuario()
         {
-            this.productos = new HashSet<productos>();
+            this.orden = new HashSet<orden>();
         }
     
-        public int codCategoria { get; set; }
-        public string nombreCtg { get; set; }
-        public string descripcionCtg { get; set; }
+        public int codUsuario { get; set; }
+        public string nombreUs { get; set; }
+        public string passwordUs { get; set; }
+        public string ciEmpleadoFK { get; set; }
         public Nullable<bool> eliminar { get; set; }
     
+        public virtual empleado empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<productos> productos { get; set; }
+        public virtual ICollection<orden> orden { get; set; }
     }
 }
