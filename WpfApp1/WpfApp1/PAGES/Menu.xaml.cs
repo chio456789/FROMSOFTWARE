@@ -34,9 +34,7 @@ namespace WpfApp1
                 lst = (from d in pop.clientes
                        select new PersonViewModel
                        {
-                           ID = d.nitCliente,
-                           Nombre = d.nombreCliente,
-                           Apellido = d.apellidoCliente
+                           CI = d.nitCliente,                          
                        }).ToList();
             }
             DG.ItemsSource = lst;
@@ -44,7 +42,7 @@ namespace WpfApp1
 
         public class PersonViewModel 
         { 
-             public string ID { get; set; }
+             public string CI { get; set; }
             public string Nombre { get; set; }
             public string Apellido { get; set; }
 
