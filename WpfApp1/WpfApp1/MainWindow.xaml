@@ -5,24 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Black"
+        Title="MainWindow" Height="450" Width="800" Background="White"
         >
-    <Grid Background="Black">
-        <Grid Background="Beige">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Button Grid.Column="1" Grid.Row="0" Background="Black" Height="150" Width="150" BorderBrush="Aqua" FontSize="36" Foreground="Black" Visibility="Visible" Margin="2"
-                    Padding="2">
-                <Button.Content>CHIO123
-                </Button.Content>
-            </Button>
-        </Grid>
-        <TextBox>holo CHIO</TextBox>
-    </Grid>
+    <Grid>
+        <Frame></Frame>
+     </Grid>
 </Window>
