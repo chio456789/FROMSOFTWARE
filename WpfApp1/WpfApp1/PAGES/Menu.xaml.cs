@@ -40,6 +40,7 @@ namespace WpfApp1
                        }).ToList();
             }
             DG.ItemsSource = lst;
+            /// se ve mi comentario
         }
 
         public class PersonViewModel 
