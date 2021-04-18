@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Data.Entity;

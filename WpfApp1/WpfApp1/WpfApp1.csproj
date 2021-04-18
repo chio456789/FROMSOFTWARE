@@ -75,55 +75,55 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DB\cargoLaboral.cs">
+    <Compile Include="Model\cargoLaboral.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\categorias.cs">
+    <Compile Include="Model\categorias.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\clientes.cs">
+    <Compile Include="Model\clientes.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\DB.Context.cs">
+    <Compile Include="Model\DB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\DB.cs">
+    <Compile Include="Model\DB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\DB.Designer.cs">
+    <Compile Include="Model\DB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DB\empleado.cs">
+    <Compile Include="Model\empleado.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\factura.cs">
+    <Compile Include="Model\factura.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\orden.cs">
+    <Compile Include="Model\orden.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ordenProductos.cs">
+    <Compile Include="Model\ordenProductos.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\ordenPromocion.cs">
+    <Compile Include="Model\ordenPromocion.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\productos.cs">
+    <Compile Include="Model\productos.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\promocion.cs">
+    <Compile Include="Model\promocion.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\promocionesProductos.cs">
+    <Compile Include="Model\promocionesProductos.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\usuario.cs">
+    <Compile Include="Model\usuario.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="HoloChio.cs" />
@@ -131,14 +131,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PAGES\Page1Menu.xaml">
+    <Page Include="PAGES\Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PAGES\Page1Menu.xaml.cs">
-      <DependentUpon>Page1Menu.xaml</DependentUpon>
+    <Compile Include="PAGES\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -157,11 +157,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DB\DB.edmx">
+    <EntityDeploy Include="Model\DB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DB\DB.edmx.diagram">
+    <None Include="Model\DB.edmx.diagram">
       <DependentUpon>DB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -174,12 +174,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\DB.Context.tt">
+    <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\DB.tt">
+    <Content Include="Model\DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>

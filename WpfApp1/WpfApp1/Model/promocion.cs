@@ -7,25 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class clientes
+    public partial class promocion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public clientes()
+        public promocion()
         {
-            this.orden = new HashSet<orden>();
+            this.ordenPromocion = new HashSet<ordenPromocion>();
+            this.promocionesProductos = new HashSet<promocionesProductos>();
         }
     
-        public string nitCliente { get; set; }
-        public string nombreCliente { get; set; }
-        public string apellidoCliente { get; set; }
+        public int codPromocion { get; set; }
+        public string idPromocion { get; set; }
+        public string nomProm { get; set; }
+        public Nullable<bool> estadoProm { get; set; }
+        public string detalleProm { get; set; }
+        public Nullable<decimal> precioProm { get; set; }
+        public byte[] imagenProm { get; set; }
         public Nullable<bool> eliminar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orden> orden { get; set; }
+        public virtual ICollection<ordenPromocion> ordenPromocion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<promocionesProductos> promocionesProductos { get; set; }
     }
 }

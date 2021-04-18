@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class promocionesProductos
+    public partial class factura
     {
-        public int idPromProd { get; set; }
-        public Nullable<int> codPromocionFK { get; set; }
-        public Nullable<int> codProductoFK { get; set; }
+        public int codFactura { get; set; }
+        public Nullable<int> codOrdenFK { get; set; }
+        public Nullable<decimal> totalFactura { get; set; }
+        public Nullable<bool> eliminar { get; set; }
     
-        public virtual promocion promocion { get; set; }
-        public virtual productos productos { get; set; }
+        public virtual orden orden { get; set; }
     }
 }

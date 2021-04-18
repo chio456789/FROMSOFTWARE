@@ -7,25 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfApp1.DB
+namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class cargoLaboral
+    public partial class clientes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cargoLaboral()
+        public clientes()
         {
-            this.empleado = new HashSet<empleado>();
+            this.orden = new HashSet<orden>();
         }
     
-        public int codCargo { get; set; }
-        public string nombreCg { get; set; }
-        public string descripcionCg { get; set; }
+        public string nitCliente { get; set; }
+        public string nombreCliente { get; set; }
+        public string apellidoCliente { get; set; }
         public Nullable<bool> eliminar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<empleado> empleado { get; set; }
+        public virtual ICollection<orden> orden { get; set; }
     }
 }
