@@ -31,6 +31,7 @@ namespace WpfApp1
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
             {
+                //F si no da
                 lst = (from d in pop.clientes
                        select new PersonViewModel
                        {
