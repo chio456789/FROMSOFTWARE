@@ -23,28 +23,29 @@ namespace WpfApp1
         public Page1Menu()
         {
             InitializeComponent();
-
             Refresh();
         }
+
         private void Refresh() 
         {
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
-            {
+            {                
                 lst = (from d in pop.clientes
                        select new PersonViewModel
                        {
-                           ID = d.nitCliente,
+                           CI = d.nitCliente,
                            Nombre = d.nombreCliente,
                            Apellido = d.apellidoCliente
                        }).ToList();
+                //LINKQ
             }
             DG.ItemsSource = lst;            
         }
 
         public class PersonViewModel 
         { 
-             public string ID { get; set; }
+             public string CI { get; set; }
             public string Nombre { get; set; }
             public string Apellido { get; set; }
 
