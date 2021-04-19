@@ -32,6 +32,7 @@ namespace WpfApp1
             using (Model.RonalLaCago pop = new Model.RonalLaCago())
             {
                 //F si no da
+                //Ojalaa no lo cague otra vez el Ronal
                 lst = (from d in pop.clientes
                        select new PersonViewModel
                        {
