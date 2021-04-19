@@ -634,7 +634,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="puntoDeVentaDB_testEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RonalLaCago" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ordenProductos" EntityType="Self.ordenProductos" />
           <EntitySet Name="ordenPromocion" EntityType="Self.ordenPromocion" />
           <EntitySet Name="promocionesProductos" EntityType="Self.promocionesProductos" />
@@ -701,7 +701,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="puntoDeVentaDB_testModelStoreContainer" CdmEntityContainer="puntoDeVentaDB_testEntities">
+        <EntityContainerMapping StorageEntityContainer="puntoDeVentaDB_testModelStoreContainer" CdmEntityContainer="RonalLaCago">
           <EntitySetMapping Name="ordenProductos">
             <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.ordenProductos">
               <MappingFragment StoreEntitySet="ordenProductos">
