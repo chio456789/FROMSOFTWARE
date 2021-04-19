@@ -38,7 +38,6 @@ namespace WpfApp1
                            Nombre = d.nombreCliente,
                            Apellido = d.apellidoCliente
                        }).ToList();
-                //LINKQ
             }
             DG.ItemsSource = lst;            
         }
