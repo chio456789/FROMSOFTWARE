@@ -20,8 +20,8 @@
         <DataGrid x:Name="DG" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
             <DataGrid.Columns>
             <DataGridTextColumn Header="CI" Binding="{Binding CI}" ></DataGridTextColumn>
-            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" ></DataGridTextColumn>
-            <DataGridTextColumn Header="Rojas" Binding="{Binding Apellido}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Nombre"></DataGridTextColumn>
+            <DataGridTextColumn Header="Rojas"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
