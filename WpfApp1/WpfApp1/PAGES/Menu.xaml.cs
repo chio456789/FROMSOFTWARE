@@ -38,7 +38,7 @@ namespace WpfApp1
                            Nombre = d.nombreCliente,
                            Apellido = d.apellidoCliente
                        }).ToList();
-                //ahm
+                
             }
             DG.ItemsSource = lst;            
         }
