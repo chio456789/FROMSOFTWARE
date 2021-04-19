@@ -39,10 +39,7 @@ namespace WpfApp1
                            Apellido = d.apellidoCliente
                        }).ToList();
             }
-            DG.ItemsSource = lst;
-            /// se ve mi comentario
-            /// Viva la marihuana
-            /// FFFF
+            DG.ItemsSource = lst;            
         }
 
         public class PersonViewModel 
