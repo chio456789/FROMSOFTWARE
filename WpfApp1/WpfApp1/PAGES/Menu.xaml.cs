@@ -29,7 +29,7 @@ namespace WpfApp1
         private void Refresh() 
         {
             List<PersonViewModel> lst = new List<PersonViewModel>();
-            using (Model.RonalLaCago pop = new Model.RonalLaCago())
+            using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
             {
                 //F si no da
                 //Ojalaa no lo cague otra vez el Ronal
