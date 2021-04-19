@@ -39,6 +39,7 @@ namespace WpfApp1
             }
             DG.ItemsSource = lst;
             /// se ve mi comentario
+            /// Viva la marihuana
         }
 
         public class PersonViewModel 
