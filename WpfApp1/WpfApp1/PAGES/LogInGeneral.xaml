@@ -1,0 +1,53 @@
+﻿<Page x:Class="WpfApp1.Pages.LogInGeneral"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="800" d:DesignWidth="600" 
+      Title="LogInGeneral">
+
+    <Grid>
+        <Border CornerRadius="5" Background="White"></Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Foreground="#FEBA34" FontSize="70" FontFamily="Impact" VerticalAlignment="Center" HorizontalAlignment="Center">CHICKEN HUNTER
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="2" Direction="200" BlurRadius="5" >
+
+                    </DropShadowEffect>
+                </TextBlock.Effect>
+            </TextBlock>
+            <Grid Grid.Row="2" MaxWidth="320">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox materialDesign:HintAssist.Hint="Ingresa tu nombre de usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" MaxHeight="45"/>
+                <PasswordBox x:Name="PasswordBoxLogin" Grid.Row="1" materialDesign:HintAssist.Hint="Ingresa tu contraseña" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             VerticalAlignment="Center" MaxHeight="45" materialDesign:HintAssist.HelperText=""/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="200" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" BorderBrush="#727272" FontSize="18">Ingresa al sistema
+                    <Button.Effect>
+                        <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
+                    </Button.Effect>
+                </Button>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">Recupera tu contraseña</TextBlock>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -76,6 +76,9 @@
     <Compile Include="Pages\EliminarPromoEmergenteAdm.xaml.cs">
       <DependentUpon>EliminarPromoEmergenteAdm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LogInGeneral.xaml.cs">
+      <DependentUpon>LogInGeneral.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductosAdm.xaml.cs">
       <DependentUpon>ProductosAdm.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\EliminarPromoEmergenteAdm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LogInGeneral.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
