@@ -41,8 +41,6 @@ namespace WpfApp1.View_model
             }
 
         }
-
-        public 
         
 
 
