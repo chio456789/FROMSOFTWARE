@@ -1,0 +1,222 @@
+﻿<Page x:Class="WpfApp1.Pages.Usuario"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="930" d:DesignWidth="1557"
+      Title="Usuario">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="76"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Background="#585858" Margin="5" CornerRadius="2">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Cuenta" TextAlignment="Left" VerticalAlignment="Center" Margin="10,8,10,0" FontSize="42" Foreground="White" FontFamily="Roboto"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="0,0,125,0" HorizontalAlignment="Right" Width="292">
+                    
+                        <StackPanel
+                          Margin="0,15,-29,0"
+                          Orientation="Horizontal"
+                          materialDesign:RippleAssist.IsCentered="True">
+
+                            <materialDesign:ColorZone
+                            Mode="Standard"
+                            Padding="8 4 8 4"
+                            CornerRadius="2"
+                            Panel.ZIndex="1"
+                            Margin="16 0 0 0"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="300">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                        Width="Auto" />
+                                        <ColumnDefinition
+                                        Width="*" />
+                                        <ColumnDefinition
+                                        Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox
+                                    Grid.Column="1"
+                                    Margin="8 0 0 0"
+                                    materialDesign:HintAssist.Hint="Buscar usuario"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0"
+                                    MinWidth="200"
+                                    VerticalAlignment="Center" />
+                                    <Button
+                                    Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="253,0,0,0">
+                                        <materialDesign:PackIcon
+                                      Kind="Magnify"
+                                      Opacity=".56" />
+                                    </Button>
+
+                                </Grid>
+                            </materialDesign:ColorZone>
+                        </StackPanel>
+
+                    
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock VerticalAlignment="Center" Text="Registro de Usuarios" TextAlignment="Center" Margin="18" FontFamily="Roboto" FontSize="26" TextDecorations="Underline"/>
+        </StackPanel>
+        <StackPanel  Grid.Column="1" Grid.Row="1">
+
+            <TextBox x:Name="tbNombre"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Nombre"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="tbApellido"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Apellido"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="tbCI"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="CI"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <TextBox x:Name="tbTelefono"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Teléfono"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <TextBox x:Name="tbDireccion"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Dirección"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <TextBox x:Name="tbCorreo"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Correo"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <ComboBox x:Name="tbCargo"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Cargo"
+                     materialDesign:TextFieldAssist.HasClearButton="True"
+                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                     materialDesign:TextFieldAssist.SuffixText="Limpiar"
+                     materialDesign:HintAssist.HelperText="Selecione un Cargo">
+                <ComboBoxItem>cargo_1</ComboBoxItem>
+                <ComboBoxItem>Cargo_2</ComboBoxItem>
+
+            </ComboBox>
+
+            <TextBox x:Name="tbNomUsuario"
+                     Margin="15,10,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Nombre del Usuario"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <PasswordBox x:Name="tbPassword"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Contraseña"
+                     materialDesign:HintAssist.Foreground="Green"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                     VerticalAlignment="Center" />
+
+            <Button
+                Style="{StaticResource MaterialDesignOutlinedButton}"
+                ToolTip="MaterialDesignOutlinedButton"
+                Width="180"
+                Margin="0,40,0,0"
+                Foreground="#F2A533"
+                BorderBrush="#F2A533">
+                Crear Usuario
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+
+            <!--<materialDesign:ColorZone>
+                    <StackPanel
+                      Orientation="Horizontal"
+                      materialDesign:RippleAssist.IsCentered="True">        
+
+                        <materialDesign:ColorZone
+                            Mode="Standard"
+                            Padding="8 4 8 4"
+                            CornerRadius="2"
+                            Panel.ZIndex="1"
+                            Margin="16 0 0 0"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="300">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                    <ColumnDefinition
+                                        Width="*" />
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <TextBox
+                                    Grid.Column="1"
+                                    Margin="8 0 0 0"
+                                    materialDesign:HintAssist.Hint="Buscar"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0"
+                                    MinWidth="200"
+                                    VerticalAlignment="Center" />
+                                <Button
+                                    Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="184,0,0,0">
+                                    <materialDesign:PackIcon
+                                      Kind="Magnify"
+                                      Opacity=".56" />
+                                </Button>
+
+                            </Grid>
+                        </materialDesign:ColorZone>
+                    </StackPanel>
+                
+            </materialDesign:ColorZone>-->
+
+
+
+        </StackPanel>
+    </Grid>
+</Page>
