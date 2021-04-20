@@ -76,7 +76,6 @@
     <Compile Include="Pages\readUser.xaml.cs">
       <DependentUpon>readUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Class1.cs" />
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
