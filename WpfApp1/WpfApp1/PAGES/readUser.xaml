@@ -21,14 +21,15 @@
         <Border Grid.Row="0" Grid.Column="0" Background="#585858" Margin="5" CornerRadius="2">
 
             <Grid>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
                     <TextBlock Text="Cuenta" TextAlignment="Left" VerticalAlignment="Center" Margin="10,8,10,0" FontSize="42" Foreground="White" FontFamily="Roboto"/>
                 </StackPanel>
-                <StackPanel Grid.Column="1" Margin="0,0,125,0" HorizontalAlignment="Right" Width="292">
+                <StackPanel  Grid.Column="1" Margin="0,0,125,0" HorizontalAlignment="Right" Width="287">
 
                     <StackPanel
                           Margin="0,15,-29,0"
@@ -128,13 +129,18 @@
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      VerticalAlignment="Center" />
 
-            <TextBox x:Name="tbCargo"
+            <ComboBox x:Name="tbCargo"
                      Margin="15,0,15,0"
                      Height="40"
                      Padding="4" FontFamily="Roboto" FontSize="15"
                      materialDesign:HintAssist.Hint="Cargo"
-                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                     VerticalAlignment="Center" />
+                     materialDesign:TextFieldAssist.HasClearButton="True"
+                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                     materialDesign:TextFieldAssist.SuffixText="Limpiar"
+                     materialDesign:HintAssist.HelperText="Seleccione un cargo">
+                <ComboBoxItem>Cargo_1</ComboBoxItem>
+                <ComboBoxItem>Cargo_2</ComboBoxItem>
+            </ComboBox>
 
             <TextBox x:Name="tbNomUsuario"
                      Margin="15,0,15,0"
@@ -176,7 +182,7 @@
                                     Header="Direccion" Width="Auto" />
                     <DataGridTextColumn Binding="{Binding Path=Correo}" Header="Correo" Width="Auto" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding Path=Cargo}"  
- Header="Cargo" Width="Auto" IsReadOnly="True" />
+                        Header="Cargo" Width="Auto" IsReadOnly="True" />
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -194,51 +200,6 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-
-            <!--<materialDesign:ColorZone>
-                    <StackPanel
-                      Orientation="Horizontal"
-                      materialDesign:RippleAssist.IsCentered="True">        
-
-                        <materialDesign:ColorZone
-                            Mode="Standard"
-                            Padding="8 4 8 4"
-                            CornerRadius="2"
-                            Panel.ZIndex="1"
-                            Margin="16 0 0 0"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="300">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition
-                                        Width="Auto" />
-                                    <ColumnDefinition
-                                        Width="*" />
-                                    <ColumnDefinition
-                                        Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                
-                                <TextBox
-                                    Grid.Column="1"
-                                    Margin="8 0 0 0"
-                                    materialDesign:HintAssist.Hint="Buscar"
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    BorderThickness="0"
-                                    MinWidth="200"
-                                    VerticalAlignment="Center" />
-                                <Button
-                                    Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="184,0,0,0">
-                                    <materialDesign:PackIcon
-                                      Kind="Magnify"
-                                      Opacity=".56" />
-                                </Button>
-
-                            </Grid>
-                        </materialDesign:ColorZone>
-                    </StackPanel>
-                
-            </materialDesign:ColorZone>-->
-
-
 
         </StackPanel>
     </Grid>

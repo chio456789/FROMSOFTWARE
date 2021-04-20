@@ -10,7 +10,7 @@ namespace WpfApp1.View_model
 {
     class PerfilUser
     {
-       
+
 
 
         public static IList Listar()
@@ -36,7 +36,7 @@ namespace WpfApp1.View_model
                        );
 
                 return query.ToList();
-                
+
 
             }
 
