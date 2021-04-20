@@ -6,10 +6,74 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
-        Title="MainWindow" Height="450" Width="800" Background="White"
+        Title="MainWindow" Height="1080" Width="1920" Background="White"
         >
     <Grid>
-        <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" > </Frame>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="323"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Background="#3E3E3E">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="90" ></RowDefinition>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="90"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="190"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Line Grid.Row="1" Width="220" Height="1"></Line>
+                </Grid>
+                
+                <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="250"
+                        Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                        materialDesign:ButtonAssist.CornerRadius="3"
+                        ToolTip="MaterialDesignRaisedButton with Round Corners">Menu
+                </Button>
+                <Button Grid.Row="3" Background="Transparent" BorderBrush="#AAAAAA" Width="250"
+                        Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                        materialDesign:ButtonAssist.CornerRadius="3"
+                        ToolTip="MaterialDesignRaisedButton with Round Corners">Ordenes
+                </Button>
+                <Button Grid.Row="6" Background="Transparent" BorderBrush="#AAAAAA" Width="250"
+                        Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                        materialDesign:ButtonAssist.CornerRadius="3"
+                        ToolTip="MaterialDesignRaisedButton with Round Corners">Cerrar sesión
+                </Button>
+            </Grid>
+            
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="110"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Background="#FEBA34">
+                    <TextBlock FontFamily="impact" FontSize="70" Foreground="White" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" >CHICKEN HUNTER
+                        <TextBlock.Effect>
+                            <DropShadowEffect ShadowDepth="3" Direction="185" BlurRadius="5 ">
+                            </DropShadowEffect>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </Grid>
+                <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" Background="AliceBlue"
+                       Grid.Row="1"></Frame>
+            </Grid>
+        </Grid>
+        
         
      </Grid>
 </Window>
