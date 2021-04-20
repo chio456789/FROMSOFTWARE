@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
-        Title="MainWindow" MaxHeight="1366" MaxWidth="1080" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
-        WindowStyle="None" d:DesignHeight="650" d:DesignWidth="1080" 
+        Title="MainWindow" MinHeight="1366" MinWidth="13366" Background="White" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
+        WindowStyle="None" d:DesignHeight="650" d:DesignWidth="1080"  
         >
     <Grid>
         <Grid>
