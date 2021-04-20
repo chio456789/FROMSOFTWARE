@@ -11,6 +11,7 @@ namespace WpfApp1.View_model
         //esta funcion permite visualizar la base de datos dentro del datagrid y actualiza los
         //datos cuando se eliminen actualicen y  borren
         // pobre chiyo
+        // Lo volvió a cagar
         public List<PersonViewModel> Refresh()
         {
             List<PersonViewModel> lst = new List<PersonViewModel>();
