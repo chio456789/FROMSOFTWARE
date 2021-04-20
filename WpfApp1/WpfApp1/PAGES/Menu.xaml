@@ -21,7 +21,7 @@
             HorizontalAlignment="Center"
               Width="140"
               materialDesign:HintAssist.Hint="Pick Date"
-            Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+               />
         
         <Button  Height="30" Grid.Column="0" Grid.Row="0"  Width="100" HorizontalAlignment="Left">Nuevo</Button>
         <DataGrid x:Name="DG" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >

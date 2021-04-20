@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static WpfApp1.View_model.Items;
 
 namespace WpfApp1
 {
@@ -23,13 +22,33 @@ namespace WpfApp1
     {
         public Page1Menu()
         {
-            InitializeComponent();           
-            WpfApp1.View_model.Items cars = new View_model.Items();
-            var lst = cars.Refresh();
-            DG.ItemsSource = lst;
+            InitializeComponent();
+            Refresh();
         }
-        
 
+        private void Refresh() 
+        {
+            List<PersonViewModel> lst = new List<PersonViewModel>();
+            using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
+            {                
+                lst = (from d in pop.clientes
+                       select new PersonViewModel
+                       {
+                           CI = d.nitCliente,
+                           Nombre = d.nombreCliente,
+                           Apellido = d.apellidoCliente
+                       }).ToList();
+            }
+            DG.ItemsSource = lst;            
+        }
+
+        public class PersonViewModel 
+        { 
+             public string CI { get; set; }
+            public string Nombre { get; set; }
+            public string Apellido { get; set; }
+
+        }
     }
 
 }
