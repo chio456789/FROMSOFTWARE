@@ -12,7 +12,7 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="323"></ColumnDefinition>
+                <ColumnDefinition MaxWidth="323" MinWidth="160"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -21,9 +21,9 @@
 
             <Grid Grid.Column="0" Background="#3E3E3E">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="300"></RowDefinition>
-                    <RowDefinition Height="90"></RowDefinition>
-                    <RowDefinition Height="90" ></RowDefinition>
+                    <RowDefinition Height="300" MinHeight="200"></RowDefinition>
+                    <RowDefinition Height="90" MinHeight="60"></RowDefinition>
+                    <RowDefinition Height="90" MinHeight="60"></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -39,17 +39,17 @@
                     <Line Grid.Row="1" Width="220" Height="1"></Line>
                 </Grid>
                 
-                <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="250"
+                <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="250" MinWidth="190"
                         Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners">Menu
                 </Button>
-                <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="250"
+                <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="250" MinWidth="190"
                         Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners">Ordenes
                 </Button>
-                <Button Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="250"
+                <Button Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="250" MinWidth="190"
                         Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners">Cerrar sesión
