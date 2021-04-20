@@ -104,6 +104,6 @@ namespace WpfApp1.View_model
             public bool DisponibilidadProduct { get; set; }            
 
         }
-
+       
     }
 }
