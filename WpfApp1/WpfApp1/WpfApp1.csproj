@@ -78,7 +78,6 @@
     </Compile>
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Items.cs" />
-    <Compile Include="ViewModel\Users.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

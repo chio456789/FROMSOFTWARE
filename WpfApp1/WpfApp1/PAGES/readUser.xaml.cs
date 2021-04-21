@@ -37,16 +37,65 @@ namespace WpfApp1
         {
             try
             {
+                
                 puntoDeVentaDB_testEntities db2 = new puntoDeVentaDB_testEntities();
-                
-                empleado employer = MyDataGrid.SelectedItem as empleado;
-                
+
+                empleado employer = (empleado)MyDataGrid.SelectedItem;
+
+                string mm = employer.ciEmpleado;
+                empleado p = db2.empleado.Find(mm);
+
+                tbNombre.Text = p.nombreEmp;
+
+
+
             }
+
+
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
                 return;
             }
+        }
+
+
+      
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var context = new puntoDeVentaDB_testEntities())
+            {
+                var emp = new empleado()
+                {
+                    nombreEmp = tbNombre.Text,
+                    apellidoPtEmp = tbApellido.Text,
+                    ciEmpleado = tbCI.Text,
+                    direccionEmp= tbDireccion.Text,
+                    correoEmp = tbCorreo.Text
+                };
+                context.empleado.Add(emp);
+
+                var emp2 = new usuario()
+                {
+                    nombreUs = tbNomUsuario.Text,
+                    passwordUs = tbPassword.Password
+                };
+                context.usuario.Add(emp2);
+
+                context.SaveChanges();
+            }
+
+            tbNombre.Text = "";
+            tbDireccion.Text = "";
+            tbCI.Text = "";
+            tbApellido.Text = "";
+            tbPassword.Password = "";
+            tbTelefono.Text = "";
+            tbNomUsuario.Text = "";
+            
+
+            
         }
     }
 }
