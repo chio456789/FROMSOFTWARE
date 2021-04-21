@@ -16,7 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Border BorderBrush="Black" BorderThickness="1"></Border>
+        <Border BorderBrush="#585858" BorderThickness="1" Opacity=".5"></Border>
         <Grid Margin="20">
             
             <Grid.ColumnDefinitions>
