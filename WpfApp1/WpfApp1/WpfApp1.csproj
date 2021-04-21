@@ -76,6 +76,9 @@
     <Compile Include="AgregarEditarProductoNuevo.xaml.cs">
       <DependentUpon>AgregarEditarProductoNuevo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditarUsuario.xaml.cs">
+      <DependentUpon>EditarUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Items.cs" />
     <Page Include="AgregarEditarProductoNuevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
