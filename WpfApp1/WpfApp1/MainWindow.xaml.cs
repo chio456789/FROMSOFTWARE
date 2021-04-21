@@ -25,16 +25,25 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             Login log = new Login();
             this.Close();
             log.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnMainWinMenu_Click(object sender, RoutedEventArgs e)
         {
+            BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(88,88,88));
+            BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            MainFrame.NavigationService.Navigate(new Uri("/Pages/Menu.xaml" ,UriKind.Relative));
+        }
 
+        private void BtnMainWinOrdenes_Click(object sender, RoutedEventArgs e)
+        {
+            BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
+            BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            MainFrame.NavigationService.Navigate(new Uri("/Pages/Menu.xaml", UriKind.Relative));
         }
     }
 }
