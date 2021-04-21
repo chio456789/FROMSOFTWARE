@@ -33,6 +33,11 @@ namespace WpfApp1
 
         }
 
+        public void refresh()
+        {
+            MyDataGrid.ItemsSource = PerfilUser.Listar();
+        }
+
         private void Edit(object sender, RoutedEventArgs e)
         {
             try
@@ -47,8 +52,6 @@ namespace WpfApp1
 
                 tbNombre.Text = p.nombreEmp;
 
-
-
             }
 
 
@@ -59,8 +62,18 @@ namespace WpfApp1
             }
         }
 
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            using (var context = new puntoDeVentaDB_testEntities())
+            {
+                //var std = context.Students.First<Student>();
+                //context.Students.Remove(std);
 
-      
+                //context.SaveChanges();
+            }
+        }
+
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -72,14 +85,16 @@ namespace WpfApp1
                     apellidoPtEmp = tbApellido.Text,
                     ciEmpleado = tbCI.Text,
                     direccionEmp= tbDireccion.Text,
-                    correoEmp = tbCorreo.Text
+                    correoEmp = tbCorreo.Text,
+                    codCargoFK = 2
                 };
                 context.empleado.Add(emp);
 
                 var emp2 = new usuario()
                 {
                     nombreUs = tbNomUsuario.Text,
-                    passwordUs = tbPassword.Password
+                    passwordUs = tbPassword.Password,
+                    ciEmpleadoFK = tbCI.Text
                 };
                 context.usuario.Add(emp2);
 
@@ -93,9 +108,9 @@ namespace WpfApp1
             tbPassword.Password = "";
             tbTelefono.Text = "";
             tbNomUsuario.Text = "";
-            
 
-            
+
+            refresh();
         }
     }
 }
