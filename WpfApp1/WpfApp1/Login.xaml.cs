@@ -26,7 +26,25 @@ namespace WpfApp1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainVentana = new MainWindow();
 
+            if (TbNombreUsuarioLogin.Text == "Daryl" && PasswordBoxLogin.Password == "Chio123")
+            {
+                MessageBox.Show("Bienvenido "+ TbNombreUsuarioLogin.Text);
+                mainVentana.Show();
+                this.Close();
+            }
+            else
+            {
+                TblDatosIncorrectos.Text = "Usuario o contraseña incorrectos" ;
+                TbNombreUsuarioLogin.Text = "";
+                PasswordBoxLogin.Password = "";
+            }
+        }
+
+        private void BtnSalirLogin_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
         }
     }
 }
