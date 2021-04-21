@@ -10,12 +10,6 @@
       Title="ProductosAdm" Background="White">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions> 
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
         <Border BorderBrush="#585858" BorderThickness="1" Opacity=".5"></Border>
         <Grid>
             

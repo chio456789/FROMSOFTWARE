@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.View_model;
 using WpfApp1.Model;
+using System.Data;
 
 namespace WpfApp1
 {
@@ -52,44 +53,6 @@ namespace WpfApp1
         }
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
-
-            try
-            {
-                
-                puntoDeVentaDB_testEntities db2 = new puntoDeVentaDB_testEntities();
-
-                empleado employer = (empleado)MyDataGrid.SelectedItem;
-
-                string mm = employer.ciEmpleado;
-                empleado p = db2.empleado.Find(mm);
-
-                tbNombre.Text = p.nombreEmp;
-
-            }
-
-
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-                return;
-            }
-        }
-
-        private void Button_Click_Delete(object sender, RoutedEventArgs e)
-        {
-            using (var context = new puntoDeVentaDB_testEntities())
-            {
-                //var std = context.Students.First<Student>();
-                //context.Students.Remove(std);
-
-                //context.SaveChanges();
-            }
-        }
-
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
             using (var context = new puntoDeVentaDB_testEntities())
             {
                 var emp = new empleado()
@@ -97,7 +60,7 @@ namespace WpfApp1
                     nombreEmp = tbNombre.Text,
                     apellidoPtEmp = tbApellido.Text,
                     ciEmpleado = tbCI.Text,
-                    direccionEmp= tbDireccion.Text,
+                    direccionEmp = tbDireccion.Text,
                     correoEmp = tbCorreo.Text,
                     codCargoFK = 2
                 };
@@ -124,6 +87,45 @@ namespace WpfApp1
 
 
             refresh();
+
         }
+
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            using (var context = new puntoDeVentaDB_testEntities())
+            {
+
+                DataRowView row = (DataRowView)MyDataGrid.SelectedItems[0];
+                string jh = row["Nombre"].ToString();
+
+
+
+
+                var std = context.empleado.Find(context.cargoLaboral);
+
+                var sd = context.usuario.First<usuario>();
+
+
+                context.empleado.Remove(std);
+                context.usuario.Remove(sd);
+                context.SaveChanges();
+            }
+        }
+
+        public class Item
+        {
+            public string Nombre { get; set; }
+            public string Apellido { get; set; }
+            public string CI { get; set; }
+            public string Direccion { get; set; }
+            public string Correo { get; set; }
+            public string Cargo { get; set; }
+
+          
+
+        }
+
+
+
     }
 }

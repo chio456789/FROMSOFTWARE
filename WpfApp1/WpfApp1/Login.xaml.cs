@@ -28,7 +28,7 @@ namespace WpfApp1
         {
             MainWindow mainVentana = new MainWindow();
 
-            if (TbNombreUsuarioLogin.Text == "Daryl" && PasswordBoxLogin.Password == "Chio123")
+            if (TbNombreUsuarioLogin.Text == "1" && PasswordBoxLogin.Password == "1")
             {
                 MessageBox.Show("Bienvenido "+ TbNombreUsuarioLogin.Text);
                 mainVentana.Show();

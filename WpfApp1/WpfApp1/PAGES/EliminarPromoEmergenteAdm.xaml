@@ -17,9 +17,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock FontFamily="Roboto" Foreground="#585858" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                ¿Estas seguro de eliminar <LineBreak></LineBreak> la promoción para siempre?
-                </TextBlock>
+                <TextBlock FontFamily="Roboto" Foreground="#585858" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" ><Run Text="  "/><Run Text="¿Estas seguro de eliminar"/><LineBreak/><Run Text="la promoción definitivamente?"/></TextBlock>
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
