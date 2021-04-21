@@ -73,11 +73,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AgregarEditarProductoNuevo.xaml.cs">
+      <DependentUpon>AgregarEditarProductoNuevo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EliminarPromoEmergenteAdm.xaml.cs">
+      <DependentUpon>EliminarPromoEmergenteAdm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LogInGeneral.xaml.cs">
+      <DependentUpon>LogInGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductosAdm.xaml.cs">
+      <DependentUpon>ProductosAdm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\readUser.xaml.cs">
       <DependentUpon>readUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Items.cs" />
+    <Page Include="AgregarEditarProductoNuevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +114,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EliminarPromoEmergenteAdm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LogInGeneral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductosAdm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\readUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
