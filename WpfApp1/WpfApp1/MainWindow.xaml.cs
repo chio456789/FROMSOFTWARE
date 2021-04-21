@@ -36,12 +36,14 @@ namespace WpfApp1
         {
             BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(88,88,88));
             BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            MainFrame.NavigationService.Navigate(new Uri("/Pages/Menu.xaml" ,UriKind.Relative));
         }
 
         private void BtnMainWinOrdenes_Click(object sender, RoutedEventArgs e)
         {
             BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
             BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            MainFrame.NavigationService.Navigate(new Uri("/Pages/Menu.xaml", UriKind.Relative));
         }
     }
 }
