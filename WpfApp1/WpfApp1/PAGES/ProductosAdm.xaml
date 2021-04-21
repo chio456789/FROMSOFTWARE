@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp1.Pages"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="930" d:DesignWidth="1557"
+      d:DesignHeight="620    " d:DesignWidth="1038"
       Title="ProductosAdm" Background="White">
 
     <Grid>
@@ -17,34 +17,33 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="#585858" BorderThickness="1" Opacity=".5"></Border>
-        <Grid Margin="20">
+        <Grid>
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition MaxWidth="266"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
             <Grid Grid.Column="0">
-                <Grid Margin="0,0,10,0">
+                <Grid Margin="6">
                     <Grid.RowDefinitions>
-                        <RowDefinition MaxHeight="80"></RowDefinition>
+                        <RowDefinition MaxHeight="54"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Background="#585858" Height="76">
+                    <Grid Grid.Row="0" Background="#585858" Height="50">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" FontFamily="Roboto" FontSize="42" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0">PROMOCIONES</TextBlock>
-                        <Grid Grid.Column="1" Margin="15">
-
-                            <TextBox x:Name="SearchTextBox" Grid.Column="1" Height="47" Background="White" materialDesign:HintAssist.Hint="Busque un producto" FontSize="18" materialDesign:TextFieldAssist.TextFieldCornerRadius="3"/>
+                        <TextBlock Grid.Column="0" FontFamily="Roboto" FontSize="28" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="13,0,0,0">PROMOCIONES</TextBlock>
+                        <Grid Grid.Column="1" Margin="10">
+                            <TextBox x:Name="SearchTextBox" Grid.Column="1" Height="31" Background="White" materialDesign:HintAssist.Hint="Busca un producto" FontSize="16" materialDesign:TextFieldAssist.TextFieldCornerRadius="3"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition MaxWidth="50"></ColumnDefinition>
+                                    <ColumnDefinition MaxWidth="40"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <materialDesign:PackIcon Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="Search" Height="30" Width="30" Foreground="#727272"></materialDesign:PackIcon>
+                                <materialDesign:PackIcon Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="Search" Height="20" Width="20" Foreground="#727272"></materialDesign:PackIcon>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -56,29 +55,29 @@
             </Grid>
             <Grid Grid.Column="1" Background="White">
                 <Grid.Effect>
-                    <DropShadowEffect ShadowDepth="4" Direction="240" BlurRadius="12" Opacity=".8"></DropShadowEffect>
+                    <DropShadowEffect ShadowDepth="4" Direction="240" BlurRadius="10" Opacity=".8"></DropShadowEffect>
                 </Grid.Effect>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition MaxHeight="110"></RowDefinition>
-                        <RowDefinition MaxHeight="80"></RowDefinition>
-                        <RowDefinition MaxHeight="42"></RowDefinition>
-                        <RowDefinition MaxHeight="440"></RowDefinition>
-                        <RowDefinition MaxHeight="100"></RowDefinition>
+                        <RowDefinition MaxHeight="73"></RowDefinition>
+                        <RowDefinition MaxHeight="58"></RowDefinition>
+                        <RowDefinition MaxHeight="36"></RowDefinition>
+                        <RowDefinition MaxHeight="340" Height="320"></RowDefinition>
+                        <RowDefinition MaxHeight="70"></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBlock FontFamily="Roboto" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Crea una nueva promoción</TextBlock>
+                    <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Crea una nueva promoción</TextBlock>
                     <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre promoción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             VerticalAlignment="Center" MaxWidth="370" Height="47" FontSize="16"/>
-                    <Button Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" FontSize="20">Crar promoción
+                             VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
+                    <Button Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="34" Height="34" MaxWidth="180" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" FontSize="18">Crear promoción
                         <Button.Effect>
-                            <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
+                            <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="6" Opacity=".4"></DropShadowEffect>
                         </Button.Effect>
                     </Button>
-                    <DataGrid Grid.Row="3" Margin="10"></DataGrid>
-                    <Button Grid.Row="4" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#F2A533" BorderBrush="#727272" FontSize="20">Crar promoción
+                    <DataGrid Grid.Row="3" Margin="6,10,6,6"></DataGrid>
+                    <Button Grid.Row="4" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="34" Height="34" MaxWidth="180" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#F2A533" BorderBrush="#727272" FontSize="18">Agregar producto
                         <Button.Effect>
                             <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
                         </Button.Effect>
