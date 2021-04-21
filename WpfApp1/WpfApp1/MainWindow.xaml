@@ -72,7 +72,7 @@
                         </TextBlock.Effect>
                     </TextBlock>
                 </Grid>
-                <Frame x:Name="MainFrame" Source="\Pages\readUser.xaml" Background="AliceBlue"
+                <Frame x:Name="MainFrame" Source="\Pages\ProductosAdm.xaml" Background="AliceBlue"
                        Grid.Row="1" Padding="20" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>

@@ -49,6 +49,11 @@ namespace WpfApp1
             public string Apellido { get; set; }
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

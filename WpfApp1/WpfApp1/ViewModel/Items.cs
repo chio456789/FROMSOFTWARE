@@ -20,8 +20,22 @@ namespace WpfApp1.View_model
                lst = (from d in product.productos
                        select new PersonViewModel
                        {
-                           
 
+                           /* 
+                             * var query = (from us in db.usuario
+                           join emp in db.empleado on us.ciEmpleadoFK equals emp.ciEmpleado
+                           join cargo in db.cargoLaboral on emp.codCargoFK equals cargo.codCargo
+                           select new
+                           {
+                               Nombre = emp.nombreEmp,
+                               Apellido = emp.apellidoPtEmp,
+                               CI = emp.ciEmpleado,
+
+                               Direccion = emp.direccionEmp,
+                               Correo = emp.correoEmp,
+                               Cargo = cargo.nombreCg,
+                             */
+                            
                            IDProduct = d.idProducto,
                            NombreProduct = d.nombreProd,
                            DescripcionProduct = d.descripcionProd,
@@ -45,25 +59,11 @@ namespace WpfApp1.View_model
                 Addproduct.precioProd = precio;
                 Addproduct.costoProd = costo;
                 Addproduct.disponibilidadProd = disponibilidad;
-
                 agregar.productos.Add(Addproduct);
                 agregar.SaveChanges();
             }
 
-            /* 
-        * var query = (from us in db.usuario
-                            join emp in db.empleado on us.ciEmpleadoFK equals emp.ciEmpleado
-                            join cargo in db.cargoLaboral on emp.codCargoFK equals cargo.codCargo
-                            select new
-                            {
-                                Nombre = emp.nombreEmp,
-                                Apellido = emp.apellidoPtEmp,
-                                CI = emp.ciEmpleado,
-
-                                Direccion = emp.direccionEmp,
-                                Correo = emp.correoEmp,
-                                Cargo = cargo.nombreCg,
-       */
+           
 
             // es recomendable despues de que el metodo se haya ejecutado en el botton llamar otra vez al metodo Refresh()
         }
