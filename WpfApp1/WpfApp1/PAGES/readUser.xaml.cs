@@ -35,18 +35,13 @@ namespace WpfApp1
 
         private void Edit(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                puntoDeVentaDB_testEntities db2 = new puntoDeVentaDB_testEntities();
-                
-                empleado employer = MyDataGrid.SelectedItem as empleado;
-                
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-                return;
-            }
+            EditarUsuario ventanaEditar = new EditarUsuario();
+            ventanaEditar.Show();   
+        }
+
+        private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

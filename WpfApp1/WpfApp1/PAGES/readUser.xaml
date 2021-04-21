@@ -162,12 +162,13 @@
                      VerticalAlignment="Center" />
 
             <Button
+                x:Name="btCrearUsuario"
                 Style="{StaticResource MaterialDesignOutlinedButton}"
                 ToolTip="MaterialDesignOutlinedButton"
                 Width="180"
                 Margin="0,40,0,0"
                 Foreground="#F2A533"
-                BorderBrush="#F2A533">
+                BorderBrush="#F2A533" Click="btCrearUsuario_Click">
                 Crear Usuario
             </Button>
         </StackPanel>
