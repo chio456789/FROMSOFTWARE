@@ -16,7 +16,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition MaxHeight="100"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Foreground="#FEBA34" FontSize="70" FontFamily="Impact" VerticalAlignment="Center" HorizontalAlignment="Center">CHICKEN HUNTER
                 <TextBlock.Effect>
@@ -29,10 +29,12 @@
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBox materialDesign:HintAssist.Hint="Ingresa tu nombre de usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" MaxHeight="45"/>
-                <PasswordBox x:Name="PasswordBoxLogin" Grid.Row="1" materialDesign:HintAssist.Hint="Ingresa tu contraseña" materialDesign:HintAssist.Foreground="Green" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
-                             VerticalAlignment="Center" MaxHeight="45" materialDesign:HintAssist.HelperText=""/>
+                <TextBox x:Name="TbNombreUsuarioLogin" materialDesign:HintAssist.Hint="Ingresa tu nombre de usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" MaxHeight="45" Height="40" Padding="4" FontSize="14"/>
+                <PasswordBox x:Name="PasswordBoxLogin" Grid.Row="1" materialDesign:HintAssist.Hint="Ingresa tu contraseña" materialDesign:HintAssist.Foreground="#FEBA34" materialDesign:TextFieldAssist.UnderlineBrush="Green" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             VerticalAlignment="Center" MaxHeight="45" Height="40" Padding="4" FontSize="14"/>
+                <TextBlock x:Name="TblDatosIncorrectos" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Red"></TextBlock>
             </Grid>
             <Grid Grid.Row="3">
                 <Grid.RowDefinitions>
@@ -40,7 +42,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="200" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" BorderBrush="#727272" FontSize="18" Click="Button_Click">Ingresa al sistema
+                            ToolTip="Revisa si tus datos están correctos" Background="#06D51B" BorderBrush="#727272" FontSize="18" Click="Button_Click">Ingresa al sistema
                     <Button.Effect>
                         <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"/>
                     </Button.Effect>
@@ -48,7 +50,9 @@
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">Recupera tu contraseña</TextBlock>
             </Grid>
             <Grid Grid.Row="4">
-                <materialDesign:PackIcon Kind="ArrowRightBoldBoxOutline" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="15" Width="auto" Height="35" ToolTip="Salir al escritorio" Foreground="#707070"></materialDesign:PackIcon>
+                <Button x:Name="BtnSalirLogin" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="15" Width="35" Height="35" ToolTip="Salir al escritorio" Padding="0" Click="BtnSalirLogin_Click">
+                    <materialDesign:PackIcon Kind="ArrowRightBoldBoxOutline"  Foreground="#707070" Height="35" Width="auto"></materialDesign:PackIcon>
+                </Button>
             </Grid>
         </Grid>
     </Grid>
