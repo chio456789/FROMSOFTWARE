@@ -42,7 +42,7 @@
                 <Button Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="200" materialDesign:ButtonAssist.CornerRadius="3" 
                             ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" BorderBrush="#727272" FontSize="18">Ingresa al sistema
                     <Button.Effect>
-                        <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
+                        <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"/>
                     </Button.Effect>
                 </Button>
                 <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">Recupera tu contraseña</TextBlock>

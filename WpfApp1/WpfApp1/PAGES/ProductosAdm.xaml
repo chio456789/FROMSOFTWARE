@@ -71,14 +71,14 @@
                     <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre promoción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              VerticalAlignment="Center" MaxWidth="370" Height="47" FontSize="16"/>
                     <Button Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" FontSize="20">Crar promoción
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" FontSize="20">Crear promoción
                         <Button.Effect>
                             <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
                         </Button.Effect>
                     </Button>
                     <DataGrid Grid.Row="3" Margin="10"></DataGrid>
                     <Button Grid.Row="4" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#F2A533" BorderBrush="#727272" FontSize="20">Crar promoción
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#F2A533" BorderBrush="#727272" FontSize="20">Agregar producto
                         <Button.Effect>
                             <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
                         </Button.Effect>
