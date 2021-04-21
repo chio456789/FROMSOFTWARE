@@ -27,21 +27,103 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-         
+            
+               
             MyDataGrid.ItemsSource = PerfilUser.Listar();
 
 
         }
 
+        public void refresh()
+        {
+            MyDataGrid.ItemsSource = PerfilUser.Listar();
+        }
+
         private void Edit(object sender, RoutedEventArgs e)
         {
             EditarUsuario ventanaEditar = new EditarUsuario();
-            ventanaEditar.Show();   
+            ventanaEditar.Show(); 
         }
 
+        private void btnBorrar(object sender, RoutedEventArgs e)
+        {
+            EliminarUsuario ventanaBorrar = new EliminarUsuario();
+            ventanaBorrar.Show(); 
+        }
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                
+                puntoDeVentaDB_testEntities db2 = new puntoDeVentaDB_testEntities();
+
+                empleado employer = (empleado)MyDataGrid.SelectedItem;
+
+                string mm = employer.ciEmpleado;
+                empleado p = db2.empleado.Find(mm);
+
+                tbNombre.Text = p.nombreEmp;
+
+            }
+
+
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                return;
+            }
+        }
+
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            using (var context = new puntoDeVentaDB_testEntities())
+            {
+                //var std = context.Students.First<Student>();
+                //context.Students.Remove(std);
+
+                //context.SaveChanges();
+            }
+        }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (var context = new puntoDeVentaDB_testEntities())
+            {
+                var emp = new empleado()
+                {
+                    nombreEmp = tbNombre.Text,
+                    apellidoPtEmp = tbApellido.Text,
+                    ciEmpleado = tbCI.Text,
+                    direccionEmp= tbDireccion.Text,
+                    correoEmp = tbCorreo.Text,
+                    codCargoFK = 2
+                };
+                context.empleado.Add(emp);
+
+                var emp2 = new usuario()
+                {
+                    nombreUs = tbNomUsuario.Text,
+                    passwordUs = tbPassword.Password,
+                    ciEmpleadoFK = tbCI.Text
+                };
+                context.usuario.Add(emp2);
+
+                context.SaveChanges();
+            }
+
+            tbNombre.Text = "";
+            tbDireccion.Text = "";
+            tbCI.Text = "";
+            tbApellido.Text = "";
+            tbPassword.Password = "";
+            tbTelefono.Text = "";
+            tbNomUsuario.Text = "";
+
+
+            refresh();
         }
     }
 }
