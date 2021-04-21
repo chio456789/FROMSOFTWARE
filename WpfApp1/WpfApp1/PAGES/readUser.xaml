@@ -195,7 +195,7 @@
                     <DataGridTemplateColumn Header="Quitar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Borrar" Click="btnBorrar"/>
+                                <Button Content="Borrar" Click="Button_Click_Delete" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
