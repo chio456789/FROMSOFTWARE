@@ -44,7 +44,7 @@
                 <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">Menu
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="Button_Click_1">Menu
                 </Button>
                 <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"

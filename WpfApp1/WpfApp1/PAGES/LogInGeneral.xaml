@@ -21,7 +21,7 @@
             </Grid.RowDefinitions>
             <TextBlock Foreground="#FEBA34" FontSize="70" FontFamily="Impact" VerticalAlignment="Center" HorizontalAlignment="Center">CHICKEN HUNTER
                 <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="2" Direction="200" BlurRadius="5" >
+                    <DropShadowEffect ShadowDepth="2" Direction="200" BlurRadius="5">
 
                     </DropShadowEffect>
                 </TextBlock.Effect>
