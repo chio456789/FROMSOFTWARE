@@ -15,18 +15,23 @@ using System.Windows.Shapes;
 namespace WpfApp1
 {
     /// <summary>
-    /// Lógica de interacción para Login.xaml
+    /// Interaction logic for EditarUsuario.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class EditarUsuario : Window
     {
-        public Login()
+        public EditarUsuario()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btActualizarUsuario_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

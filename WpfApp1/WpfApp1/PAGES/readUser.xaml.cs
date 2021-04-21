@@ -40,6 +40,13 @@ namespace WpfApp1
 
         private void Edit(object sender, RoutedEventArgs e)
         {
+            EditarUsuario ventanaEditar = new EditarUsuario();
+            ventanaEditar.Show();   
+        }
+
+        private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
             try
             {
                 
