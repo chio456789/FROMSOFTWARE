@@ -17,6 +17,13 @@ namespace WpfApp1.View_model
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities product = new Model.puntoDeVentaDB_testEntities())
             {
+
+              /*  var codfk = (from db in product.categorias { 
+                        from 
+                
+                
+                })*/
+
                lst = (from d in product.productos
                        select new PersonViewModel
                        {
@@ -86,6 +93,7 @@ namespace WpfApp1.View_model
                 editar.Entry(ProductoEdit).State = System.Data.Entity.EntityState.Modified;
                 editar.SaveChanges();
             }
+
             // es recomendable despues de que el metodo se haya ejecutado en el botton llamar otra vez al metodo Refresh()
 
         }

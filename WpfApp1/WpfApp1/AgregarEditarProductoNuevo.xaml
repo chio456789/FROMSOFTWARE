@@ -31,15 +31,15 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBox materialDesign:HintAssist.Hint="Nombre del producto" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxNP" materialDesign:HintAssist.Hint="Nombre del producto" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40" />
-                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Descripción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxdescrip" Grid.Row="1" materialDesign:HintAssist.Hint="Descripción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40"/>
-                <TextBox Grid.Row="2" materialDesign:HintAssist.Hint="Costo de producción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxcp" Grid.Row="2" materialDesign:HintAssist.Hint="Costo de producción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40"/>
-                <TextBox Grid.Row="3" materialDesign:HintAssist.Hint="Precio de venta" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxpv" Grid.Row="3" materialDesign:HintAssist.Hint="Precio de venta" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40"/>
-                <ComboBox Grid.Row="4" materialDesign:HintAssist.Hint="Categoria" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:TextFieldAssist.SuffixText="quitar" materialDesign:HintAssist.HelperText="Selecciona una categoría"
+                <ComboBox x:Name="textcat" Grid.Row="4" materialDesign:HintAssist.Hint="Categoria" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:TextFieldAssist.SuffixText="quitar" materialDesign:HintAssist.HelperText="Selecciona una categoría"
                           MaxHeight="40" Height="40">
                     <ComboBoxItem>
                         Bebidas
