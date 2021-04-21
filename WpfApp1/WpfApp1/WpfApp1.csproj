@@ -79,6 +79,9 @@
     <Compile Include="EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EliminarUsuario.xaml.cs">
+      <DependentUpon>EliminarUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EliminarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
