@@ -17,9 +17,11 @@ namespace WpfApp1.View_model
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities product = new Model.puntoDeVentaDB_testEntities())
             {
-              return lst = (from d in product.productos
+               lst = (from d in product.productos
                        select new PersonViewModel
                        {
+                           
+
                            IDProduct = d.idProducto,
                            NombreProduct = d.nombreProd,
                            DescripcionProduct = d.descripcionProd,
@@ -27,7 +29,9 @@ namespace WpfApp1.View_model
                            CostoProduct = (decimal)d.codProducto,
                            DisponibilidadProduct = (bool)d.disponibilidadProd
                        }).ToList();
-            }       
+            }
+
+            return lst;
         }
         public void agregar(string nombre,string descripcion,decimal precio,decimal costo,bool disponibilidad)
         {
@@ -35,7 +39,7 @@ namespace WpfApp1.View_model
 
             using (Model.puntoDeVentaDB_testEntities agregar = new Model.puntoDeVentaDB_testEntities())
             {
-                var Addproduct = new Model.productos();
+                var Addproduct  =  new Model.productos();                                
                 Addproduct.nombreProd = nombre;
                 Addproduct.descripcionProd = descripcion;
                 Addproduct.precioProd = precio;
@@ -45,6 +49,21 @@ namespace WpfApp1.View_model
                 agregar.productos.Add(Addproduct);
                 agregar.SaveChanges();
             }
+
+            /* 
+        * var query = (from us in db.usuario
+                            join emp in db.empleado on us.ciEmpleadoFK equals emp.ciEmpleado
+                            join cargo in db.cargoLaboral on emp.codCargoFK equals cargo.codCargo
+                            select new
+                            {
+                                Nombre = emp.nombreEmp,
+                                Apellido = emp.apellidoPtEmp,
+                                CI = emp.ciEmpleado,
+
+                                Direccion = emp.direccionEmp,
+                                Correo = emp.correoEmp,
+                                Cargo = cargo.nombreCg,
+       */
 
             // es recomendable despues de que el metodo se haya ejecutado en el botton llamar otra vez al metodo Refresh()
         }
@@ -92,6 +111,10 @@ namespace WpfApp1.View_model
             }
             // es recomendable despues de que el metodo se haya ejecutado en el botton llamar otra vez al metodo Refresh()
         }
+        
+        
+       
+
 
         //Esto no se si dejarlo aqui o que tenga su clase individual(Antes de que se siga moviendo para que no genere error)
         public class PersonViewModel
