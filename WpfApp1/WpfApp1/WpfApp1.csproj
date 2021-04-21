@@ -102,6 +102,9 @@
     </Compile>
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Items.cs" />
+    <Compile Include="WindowAdministrador.xaml.cs">
+      <DependentUpon>WindowAdministrador.xaml</DependentUpon>
+    </Compile>
     <Page Include="AgregarEditarProductoNuevo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Reportes.xaml">
+    <Page Include="WindowAdministrador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

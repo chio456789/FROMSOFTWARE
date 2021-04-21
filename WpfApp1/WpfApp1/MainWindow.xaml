@@ -41,20 +41,20 @@
                     <Line Grid.Row="1" Width="220" Height="1"></Line>
                 </Grid>
                 
-                <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">Menu
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinMenu_Click">Menu
                 </Button>
-                <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                <Button x:Name="BtnMainWinOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">Ordenes
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinOrdenes_Click">Ordenes
                 </Button>
                 <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="Button_Click">Cerrar sesión
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnCerrarSesion_Click">Cerrar sesión
                 </Button>
             </Grid>
             
@@ -72,7 +72,7 @@
                         </TextBlock.Effect>
                     </TextBlock>
                 </Grid>
-                <Frame x:Name="MainFrame" Source="\Pages\Reportes.xaml" Background="AliceBlue"
+                <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" Background="AliceBlue"
                        Grid.Row="1" Padding="20" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
