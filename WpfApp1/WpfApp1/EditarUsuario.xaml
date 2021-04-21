@@ -69,17 +69,14 @@
                      Padding="4" FontFamily="Roboto" FontSize="15"
                      materialDesign:HintAssist.Hint="Cargo"
                      materialDesign:TextFieldAssist.HasClearButton="True"
-                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                     
-                     materialDesign:HintAssist.HelperText="Seleccione un cargo">
-                <!--materialDesign:TextFieldAssist.SuffixText="Limpiar"-->
+                     Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                 <ComboBoxItem>Administrador</ComboBoxItem>
                 <ComboBoxItem>Cajero</ComboBoxItem>
                 <ComboBoxItem>Despachador</ComboBoxItem>
             </ComboBox>
 
             <TextBox x:Name="tbNomUsuario"
-                     Margin="15,15,15,0"
+                     Margin="76,0,76,0"
                      Height="40"
                      Width="300"
                      Padding="4" FontFamily="Roboto" FontSize="15"
