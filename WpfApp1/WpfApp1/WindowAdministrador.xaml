@@ -40,25 +40,25 @@
                         <Line Grid.Row="1" Width="220" Height="1"></Line>
                     </Grid>
 
-                    <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                    <Button x:Name="BtnAdmProductos" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="Button_Click_1">Productos
+                        ToolTip="MaterialDesignRaisedButton with Round Corners">Produtos
                     </Button>
-                    <Button x:Name="TbMenuOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                    <Button x:Name="BtnAdmReportes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="TbMenuOrdenes_Click">Reportes
+                        ToolTip="MaterialDesignRaisedButton with Round Corners">Reportes
                     </Button>
-                    <Button x:Name="TbMenuCuentas" Grid.Row="3" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                    <Button x:Name="BtnAdmCuentas" Grid.Row="3" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="TbMenuOrdenes_Click">Cuentas
+                        ToolTip="MaterialDesignRaisedButton with Round Corners">Cuentas
                     </Button>
-                    <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                    <Button x:Name="BtnAdmCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="Button_Click">Cerrar sesión
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmCerrarSesion_Click">Cerrar sesión
                     </Button>
                 </Grid>
 

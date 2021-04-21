@@ -54,7 +54,7 @@
                 <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="Button_Click">Cerrar sesión
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnCerrarSesion_Click">Cerrar sesión
                 </Button>
             </Grid>
             

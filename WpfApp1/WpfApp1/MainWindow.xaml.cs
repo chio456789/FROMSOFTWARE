@@ -25,21 +25,11 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             Login log = new Login();
             this.Close();
             log.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TbMenuOrdenes_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
