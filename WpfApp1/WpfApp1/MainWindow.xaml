@@ -6,20 +6,22 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
-        Title="MainWindow" Height="Auto" MaxHeight="728" Width="Auto" MaxWidth="1366" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="768" MinHeight="768" Width="1366" MinWidth="1024" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         WindowStyle="None"
         >
+    <!-- Height="1039"   Width="1920"-->
     <Grid>
         <Grid>
+            
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="323" MinWidth="160"></ColumnDefinition>
+                <ColumnDefinition MaxWidth="323" MinWidth="260"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0" Background="#3E3E3E">
+            <Grid Grid.Column="0" Background="#3E3E3E" Margin="0,0,74,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="300" MinHeight="200"></RowDefinition>
                     <RowDefinition Height="90" MinHeight="60"></RowDefinition>
@@ -39,30 +41,30 @@
                     <Line Grid.Row="1" Width="220" Height="1"></Line>
                 </Grid>
                 
-                <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="250" MinWidth="190"
-                        Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                        Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners">Menu
                 </Button>
-                <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="250" MinWidth="190"
-                        Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                <Button Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                        Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners">Ordenes
                 </Button>
-                <Button Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="250" MinWidth="190"
-                        Height="60" FontSize="28" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                <Button Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                        Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners">Cerrar sesión
                 </Button>
             </Grid>
             
-            <Grid Grid.Column="1">
+            <Grid Grid.ColumnSpan="2" Margin="249,0,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="110"></RowDefinition>
+                    <RowDefinition Height="77"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Background="#FEBA34">
-                    <TextBlock FontFamily="impact" FontSize="70" Foreground="White" HorizontalAlignment="Center" 
+                    <TextBlock FontFamily="impact" FontSize="49" Foreground="White" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" >CHICKEN HUNTER
                         <TextBlock.Effect>
                             <DropShadowEffect ShadowDepth="3" Direction="185" BlurRadius="5 ">
@@ -70,8 +72,8 @@
                         </TextBlock.Effect>
                     </TextBlock>
                 </Grid>
-                <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" Background="AliceBlue"
-                       Grid.Row="1" Padding="20" NavigationUIVisibility="Hidden"></Frame>
+                <Frame x:Name="MainFrame" Source="\Pages\readUser.xaml" Background="AliceBlue"
+                       Grid.Row="1" Padding="20" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
         

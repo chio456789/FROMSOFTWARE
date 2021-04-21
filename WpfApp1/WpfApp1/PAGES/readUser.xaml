@@ -6,19 +6,20 @@
       xmlns:local="clr-namespace:WpfApp1"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="930" d:DesignWidth="1557"
+      d:DesignHeight="687" d:DesignWidth="1107"
       Title="Page1Menu">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="287"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="76"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" Background="#585858" Margin="5" CornerRadius="2">
+
+        <Border Grid.Row="0" Grid.Column="0" Background="#585858" Margin="20,20,20,0" CornerRadius="2">
 
             <Grid>
 
@@ -27,12 +28,12 @@
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock Text="Cuenta" TextAlignment="Left" VerticalAlignment="Center" Margin="10,8,10,0" FontSize="42" Foreground="White" FontFamily="Roboto"/>
+                    <TextBlock Text="Cuentas" TextAlignment="Left" VerticalAlignment="Center" Margin="10,10,10,0" FontSize="29" Foreground="White" FontFamily="Roboto"/>
                 </StackPanel>
                 <StackPanel  Grid.Column="1" Margin="0,0,125,0" HorizontalAlignment="Right" Width="287">
 
                     <StackPanel
-                          Margin="0,15,-29,0"
+                          Margin="0,14,-108,0"
                           Orientation="Horizontal"
                           materialDesign:RippleAssist.IsCentered="True">
 
@@ -42,7 +43,7 @@
                             CornerRadius="2"
                             Panel.ZIndex="1"
                             Margin="16 0 0 0"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="300">
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="368" Height="29">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition
@@ -55,14 +56,12 @@
 
                                 <TextBox
                                     Grid.Column="1"
-                                    Margin="8 0 0 0"
                                     materialDesign:HintAssist.Hint="Buscar"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0"
-                                    MinWidth="200"
-                                    VerticalAlignment="Center" />
+                                    MinWidth="200" />
                                 <Button
-                                    Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="253,0,0,0">
+                                    Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="328,0,0,0" Height="Auto">
                                     <materialDesign:PackIcon
                                       Kind="Magnify"
                                       Opacity=".56" />
@@ -78,10 +77,10 @@
 
         </Border>
 
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <TextBlock VerticalAlignment="Center" Text="Registro de Usuarios" TextAlignment="Center" Margin="18" FontFamily="Roboto" FontSize="26" TextDecorations="Underline"/>
+        <StackPanel Grid.Row="0" Grid.Column="1"  Margin="0,20,20,0">
+            <TextBlock VerticalAlignment="Center" Text="Registro de Usuarios" TextAlignment="Center" Margin="0,12,0,0" FontFamily="Roboto" FontSize="18" TextDecorations="Underline"/>
         </StackPanel>
-        <StackPanel  Grid.Column="1" Grid.Row="1">
+        <StackPanel  Grid.Column="1" Grid.Row="1" Margin="0,0,20,20">
 
             <TextBox x:Name="tbNombre"
                      Margin="15,0,15,0"
@@ -136,14 +135,16 @@
                      materialDesign:HintAssist.Hint="Cargo"
                      materialDesign:TextFieldAssist.HasClearButton="True"
                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                     materialDesign:TextFieldAssist.SuffixText="Limpiar"
+                     
                      materialDesign:HintAssist.HelperText="Seleccione un cargo">
-                <ComboBoxItem>Cargo_1</ComboBoxItem>
-                <ComboBoxItem>Cargo_2</ComboBoxItem>
+                <!--materialDesign:TextFieldAssist.SuffixText="Limpiar"-->
+                <ComboBoxItem>Administrador</ComboBoxItem>
+                <ComboBoxItem>Cajero</ComboBoxItem>
+                <ComboBoxItem>Despachador</ComboBoxItem>
             </ComboBox>
 
             <TextBox x:Name="tbNomUsuario"
-                     Margin="15,0,15,0"
+                     Margin="15,15,15,0"
                      Height="40"
                      Padding="4" FontFamily="Roboto" FontSize="15"
                      materialDesign:HintAssist.Hint="Nombre del Usuario"
@@ -170,7 +171,7 @@
                 Crear Usuario
             </Button>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="0">
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20">
 
             <DataGrid x:Name="MyDataGrid" x:Uid="MyDataGrid" AutoGenerateColumns="False"
                        AlternationCount="2" SelectionMode="Single" Margin="0,31,0,0" Height="321">
