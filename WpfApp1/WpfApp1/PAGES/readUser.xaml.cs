@@ -27,7 +27,8 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-         
+            
+               
             MyDataGrid.ItemsSource = PerfilUser.Listar();
 
 
