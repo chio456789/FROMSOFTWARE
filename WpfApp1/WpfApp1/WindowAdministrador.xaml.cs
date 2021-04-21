@@ -30,5 +30,26 @@ namespace WpfApp1
             this.Close();
             log.Show();
         }
+
+        private void BtnAdmProductos_Click(object sender, RoutedEventArgs e)
+        {
+            BtnAdmProductos.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
+            BtnAdmCuentas.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            BtnAdmReportes.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+        }
+
+        private void BtnAdmReportes_Click(object sender, RoutedEventArgs e)
+        {
+            BtnAdmReportes.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
+            BtnAdmProductos.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            BtnAdmCuentas.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+        }
+
+        private void BtnAdmCuentas_Click(object sender, RoutedEventArgs e)
+        {
+            BtnAdmCuentas.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
+            BtnAdmProductos.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+            BtnAdmReportes.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+        }
     }
 }

@@ -43,17 +43,17 @@
                     <Button x:Name="BtnAdmProductos" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">Produtos
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmProductos_Click">Produtos
                     </Button>
                     <Button x:Name="BtnAdmReportes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">Reportes
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmReportes_Click">Reportes
                     </Button>
                     <Button x:Name="BtnAdmCuentas" Grid.Row="3" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">Cuentas
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmCuentas_Click">Cuentas
                     </Button>
                     <Button x:Name="BtnAdmCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"

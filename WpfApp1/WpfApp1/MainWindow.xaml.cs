@@ -31,5 +31,17 @@ namespace WpfApp1
             this.Close();
             log.Show();
         }
+
+        private void BtnMainWinMenu_Click(object sender, RoutedEventArgs e)
+        {
+            BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(88,88,88));
+            BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+        }
+
+        private void BtnMainWinOrdenes_Click(object sender, RoutedEventArgs e)
+        {
+            BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
+            BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
+        }
     }
 }

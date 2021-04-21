@@ -41,15 +41,15 @@
                     <Line Grid.Row="1" Width="220" Height="1"></Line>
                 </Grid>
                 
-                <Button Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="Button_Click_1">Menu
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinMenu_Click">Menu
                 </Button>
-                <Button x:Name="TbMenuOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
+                <Button x:Name="BtnMainWinOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="TbMenuOrdenes_Click">Ordenes
+                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinOrdenes_Click">Ordenes
                 </Button>
                 <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
