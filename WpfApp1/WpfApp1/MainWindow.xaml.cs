@@ -36,5 +36,10 @@ namespace WpfApp1
         {
 
         }
+
+        private void TbMenuOrdenes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -97,7 +97,7 @@
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
+                            <DataGrid x:Name="DG" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
                                 <DataGrid.Columns>
 
                                 </DataGrid.Columns>

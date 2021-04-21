@@ -40,6 +40,8 @@ namespace WpfApp1
                 TbNombreUsuarioLogin.Text = "";
                 PasswordBoxLogin.Password = "";
             }
+
+            
         }
 
         private void BtnSalirLogin_Click(object sender, RoutedEventArgs e)
