@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace WpfApp1.View_model
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities product = new Model.puntoDeVentaDB_testEntities())
             {
+                product.categorias  = new categorias();
+
 
               /*  var codfk = (from db in product.categorias { 
                         from 
@@ -136,5 +139,9 @@ namespace WpfApp1.View_model
 
         }
        
+    }
+
+    internal class categorias : DbSet<Model.categorias>
+    {
     }
 }
