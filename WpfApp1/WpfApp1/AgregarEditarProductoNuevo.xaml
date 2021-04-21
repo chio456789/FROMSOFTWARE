@@ -11,7 +11,7 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition MaxHeight="100"></RowDefinition>
+                <RowDefinition MaxHeight="100" Height="80"></RowDefinition>
                 <RowDefinition MaxHeight="260" Height="260"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition MaxHeight="100"></RowDefinition>
@@ -64,17 +64,35 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                
-
                 <Button Width="180" Height="180" Background="Transparent" BorderBrush="Transparent" Padding="0">
-
                     <Button.Content>
                         <Grid>
-                            
-                            <Rectangle Stroke="#707070" Width="179" Height="179" StrokeThickness="1" StrokeDashArray="8" SnapsToDevicePixels="True"/>
-                            
+                            <Grid>
+                                <Rectangle Stroke="#707070" Width="179" Height="179" StrokeThickness="1" StrokeDashArray="8" SnapsToDevicePixels="True"/>
+                            </Grid>
+                            <materialDesign:PackIcon Kind="Food" Foreground="#AAAAAA" HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="auto"></materialDesign:PackIcon>
+                            <TextBlock Foreground="#AAAAAA" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontWeight="Regular">Agregar imagen</TextBlock>
                         </Grid>
                     </Button.Content>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" BorderBrush="#727272" FontSize="20">Guardar datos
+                    <Button.Effect>
+                        <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
+                    </Button.Effect>
+                </Button>
+                <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="Transparent" BorderBrush="#FB1414" Foreground="#FB1414" FontSize="20">Cancelar y cerrar
+                    <Button.Effect>
+                        <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
+                    </Button.Effect>
                 </Button>
             </Grid>
         </Grid>

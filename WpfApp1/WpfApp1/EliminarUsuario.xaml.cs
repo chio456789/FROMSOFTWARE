@@ -10,26 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Interaction logic for EliminarUsuario.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EliminarUsuario : Window
     {
-        public MainWindow()
+        public EliminarUsuario()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            Login log = new Login();
             this.Close();
-            log.Show();
+        }
+
+        private void btEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -10,26 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Interaction logic for EditarUsuario.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditarUsuario : Window
     {
-        public MainWindow()
+        public EditarUsuario()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btActualizarUsuario_Click(object sender, RoutedEventArgs e)
         {
-            Login log = new Login();
+
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
-            log.Show();
         }
     }
 }

@@ -1,0 +1,123 @@
+﻿<Window x:Class="WpfApp1.EditarUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="EditarUsuario" Height="495" Width="452" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Editar Usuario" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Roboto" Padding="10"/>
+            <TextBox x:Name="tbNombre"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Nombre"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="tbApellido"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Apellido"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+            <TextBox x:Name="tbCI"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="CI"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <TextBox x:Name="tbTelefono"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Teléfono"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <TextBox x:Name="tbDireccion"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Dirección"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <TextBox x:Name="tbCorreo"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Correo"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <ComboBox x:Name="tbCargo"
+                     Margin="15,0,15,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Cargo"
+                     materialDesign:TextFieldAssist.HasClearButton="True"
+                     Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                <ComboBoxItem>Administrador</ComboBoxItem>
+                <ComboBoxItem>Cajero</ComboBoxItem>
+                <ComboBoxItem>Despachador</ComboBoxItem>
+            </ComboBox>
+
+            <TextBox x:Name="tbNomUsuario"
+                     Margin="76,0,76,0"
+                     Height="40"
+                     Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Nombre del Usuario"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     VerticalAlignment="Center" />
+
+            <PasswordBox x:Name="tbPassword"
+                     Margin="76,0"
+                     Height="40"
+                         Width="300"
+                     Padding="4" FontFamily="Roboto" FontSize="15"
+                     materialDesign:HintAssist.Hint="Password"
+                     materialDesign:HintAssist.Foreground="Green"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                     VerticalAlignment="Center" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="0"
+                    x:Name="btAceptualizar"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="MaterialDesignOutlinedButton"
+                    Margin="83,20,18,0"
+                    Foreground="#36DE84"
+                    BorderBrush="#36DE84" Click="btActualizarUsuario_Click" Content="Actualizar"/>
+                <Button
+                    Grid.Column="1"
+                    x:Name="btCancelar"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="MaterialDesignOutlinedButton"
+                    Margin="18,20,83,0"
+                    Foreground="#F83A3A"
+                    BorderBrush="#F83A3A" Click="btCancelar_Click" Content="Cancelar"/>
+            </Grid>
+
+
+        </StackPanel>
+    </Grid>
+</Window>
