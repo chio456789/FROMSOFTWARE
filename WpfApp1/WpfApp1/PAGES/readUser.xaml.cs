@@ -43,9 +43,14 @@ namespace WpfApp1
         private void Edit(object sender, RoutedEventArgs e)
         {
             EditarUsuario ventanaEditar = new EditarUsuario();
-            ventanaEditar.Show();   
+            ventanaEditar.Show(); 
         }
 
+        private void btnBorrar(object sender, RoutedEventArgs e)
+        {
+            EliminarUsuario ventanaBorrar = new EliminarUsuario();
+            ventanaBorrar.Show(); 
+        }
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
             using (var context = new puntoDeVentaDB_testEntities())
