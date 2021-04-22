@@ -97,8 +97,12 @@
     <Compile Include="Pages\readUser.xaml.cs">
       <DependentUpon>readUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Cargo.cs" />
+    <Compile Include="ViewModel\Empleado.cs" />
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Items.cs" />
+    <Compile Include="ViewModel\Usuarios.cs" />
+    <Compile Include="ViewModel\Usuario_emp.cs" />
     <Compile Include="WindowAdministrador.xaml.cs">
       <DependentUpon>WindowAdministrador.xaml</DependentUpon>
     </Compile>

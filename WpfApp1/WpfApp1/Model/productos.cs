@@ -11,7 +11,8 @@ namespace WpfApp1.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data.Entity;
+
     public partial class productos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -37,5 +38,10 @@ namespace WpfApp1.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<promocionesProductos> promocionesProductos { get; set; }
         public virtual categorias categorias { get; set; }
+
+        public static implicit operator DbSet<object>(productos v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

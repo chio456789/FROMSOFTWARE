@@ -152,11 +152,10 @@
                      materialDesign:HintAssist.Hint="Cargo"
                      materialDesign:TextFieldAssist.HasClearButton="True"
                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"
-                     Grid.Row="7">
-
-                    <ComboBoxItem>Administrador</ComboBoxItem>
-                    <ComboBoxItem>Cajero</ComboBoxItem>
-                    <ComboBoxItem>Despachador</ComboBoxItem>
+                     Grid.Row="7"
+                          DisplayMemberPath="NombreCargo" SelectedValuePath="CodCargo">
+                     
+                    
                 </ComboBox>
 
                 <TextBox x:Name="tbNomUsuario"
@@ -205,14 +204,14 @@
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Editar" Click="Edit"/>
+                                <Button Content="Editar" CommandParameter="{Binding Path=CI}"  Click="Edit"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Quitar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Borrar" Click="btnBorrar" />
+                                <Button Content="Borrar" CommandParameter="{Binding Path=CI}" Click="btnBorrar" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
