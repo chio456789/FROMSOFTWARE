@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
         Title="MainWindow" Height="768" MinHeight="768" Width="1366" MinWidth="1024" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="Favicon.png"
         WindowStyle="None"
         >
     <!-- Height="1039"   Width="1920"-->
@@ -14,18 +15,18 @@
         <Grid>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="323" MinWidth="260"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>-->
 
-            <Grid Grid.Column="0" Background="#3E3E3E" Margin="0,0,74,0">
+            <Grid Grid.Column="0" Background="#3E3E3E" Width="216">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="300" MinHeight="200"></RowDefinition>
-                    <RowDefinition Height="90" MinHeight="60"></RowDefinition>
-                    <RowDefinition Height="90" MinHeight="60"></RowDefinition>
+                    <RowDefinition Height="220" MinHeight="200"></RowDefinition>
+                    <RowDefinition Height="70" MinHeight="60"></RowDefinition>
+                    <RowDefinition Height="70" MinHeight="60"></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -34,33 +35,43 @@
                 </Grid.RowDefinitions>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="190"></RowDefinition>
-                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Line Grid.Row="1" Width="220" Height="1"></Line>
+                    <Image Source="Favicon.png" Width="100" Height="100" Margin="20"></Image>
+                    <Grid Grid.Row="1" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="10"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Emma" Foreground="White" FontSize="18" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0"></TextBlock>
+                        <TextBlock Text="-" Grid.Column="1" Foreground="White" FontSize="18" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="Cajero" Grid.Column="2" Foreground="White" FontSize="18" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0"></TextBlock>
+                    </Grid>
                 </Grid>
                 
-                <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
-                        Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
+                        Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinMenu_Click">Menu
                 </Button>
-                <Button x:Name="BtnMainWinOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
-                        Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                <Button x:Name="BtnMainWinOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
+                        Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinOrdenes_Click">Ordenes
                 </Button>
-                <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="173" MinWidth="135"
-                        Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
+                <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
+                        Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnCerrarSesion_Click">Cerrar sesión
                 </Button>
             </Grid>
             
-            <Grid Grid.ColumnSpan="2" Margin="249,0,0,0">
+            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="77"></RowDefinition>
+                    <RowDefinition Height="74" MaxHeight="110"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Background="#FEBA34">
@@ -72,8 +83,7 @@
                         </TextBlock.Effect>
                     </TextBlock>
                 </Grid>
-                <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" Background="AliceBlue"
-                       Grid.Row="1" Padding="20" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="MainFrame" Source="\Pages\Ordenes.xaml" Grid.Row="1" Padding="14" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
         

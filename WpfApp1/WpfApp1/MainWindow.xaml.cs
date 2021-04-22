@@ -43,7 +43,7 @@ namespace WpfApp1
         {
             BtnMainWinOrdenes.Background = new SolidColorBrush(Color.FromRgb(88, 88, 88));
             BtnMainWinMenu.Background = new SolidColorBrush(Color.FromRgb(62, 62, 62));
-            MainFrame.NavigationService.Navigate(new Uri("/Pages/Menu.xaml", UriKind.Relative));
+            MainFrame.NavigationService.Navigate(new Uri("/Pages/Ordenes.xaml", UriKind.Relative));
         }
     }
 }

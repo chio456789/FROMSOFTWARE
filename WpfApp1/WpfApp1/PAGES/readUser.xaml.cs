@@ -204,7 +204,55 @@ namespace WpfApp1
 
             refresh();
 
-        */
+        }
+
+        private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        {
+            using (var context = new puntoDeVentaDB_testEntities())
+            {
+
+                DataRowView row = (DataRowView)MyDataGrid.SelectedItems[0];
+                string jh = row["Nombre"].ToString();
+
+
+
+
+                var std = context.empleado.Find(context.cargoLaboral);
+
+                var sd = context.usuario.First<usuario>();
+
+
+                context.empleado.Remove(std);
+                context.usuario.Remove(sd);
+                context.SaveChanges();
+            }
+        }
+
+        //Datos del cliente 
+
+        
+        private void EditCliente(object sender, RoutedEventArgs e)
+        {
+            EditarCliente ventanaEditarCliente = new EditarCliente();
+            ventanaEditarCliente.Show();
+        }
+        
+        private void btnBorraClienter(object sender, RoutedEventArgs e)
+        {
+            BorrarCliente ventanaBorrarCliente = new BorrarCliente();
+            ventanaBorrarCliente.Show();
+        }
+        //fin de datos del cliente
+        public class Item
+        {
+            public string Nombre { get; set; }
+            public string Apellido { get; set; }
+            public string CI { get; set; }
+            public string Direccion { get; set; }
+            public string Correo { get; set; }
+            public string Cargo { get; set; }
+
+          
 
         }
 

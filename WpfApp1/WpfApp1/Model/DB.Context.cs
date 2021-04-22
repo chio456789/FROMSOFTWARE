@@ -31,11 +31,11 @@ namespace WpfApp1.Model
         public virtual DbSet<cargoLaboral> cargoLaboral { get; set; }
         public virtual DbSet<empleado> empleado { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
-        public virtual DbSet<clientes> clientes { get; set; }
         public virtual DbSet<factura> factura { get; set; }
         public virtual DbSet<orden> orden { get; set; }
         public virtual DbSet<categorias> categorias { get; set; }
         public virtual DbSet<productos> productos { get; set; }
         public virtual DbSet<promocion> promocion { get; set; }
+        public virtual DbSet<clientes> clientes { get; set; }
     }
 }

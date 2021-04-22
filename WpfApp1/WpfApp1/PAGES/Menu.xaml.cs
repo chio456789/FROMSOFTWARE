@@ -23,10 +23,10 @@ namespace WpfApp1
         public Page1Menu()
         {
             InitializeComponent();
-            Refresh();
+            Visualizar();
         }
 
-        private void Refresh() 
+        private void Visualizar() 
         {
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
@@ -47,6 +47,11 @@ namespace WpfApp1
              public string CI { get; set; }
             public string Nombre { get; set; }
             public string Apellido { get; set; }
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

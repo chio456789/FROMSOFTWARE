@@ -76,12 +76,19 @@
     <Compile Include="AgregarEditarProductoNuevo.xaml.cs">
       <DependentUpon>AgregarEditarProductoNuevo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BorrarCliente.xaml.cs">
+      <DependentUpon>BorrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarCliente.xaml.cs">
+      <DependentUpon>EditarCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="EliminarUsuario.xaml.cs">
       <DependentUpon>EliminarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Images\Img.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -91,11 +98,17 @@
     <Compile Include="Pages\LogInGeneral.xaml.cs">
       <DependentUpon>LogInGeneral.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Ordenes.xaml.cs">
+      <DependentUpon>Ordenes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ProductosAdm.xaml.cs">
       <DependentUpon>ProductosAdm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\readUser.xaml.cs">
       <DependentUpon>readUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Reportes.xaml.cs">
+      <DependentUpon>Reportes.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Cargo.cs" />
     <Compile Include="ViewModel\Empleado.cs" />
@@ -107,6 +120,14 @@
       <DependentUpon>WindowAdministrador.xaml</DependentUpon>
     </Compile>
     <Page Include="AgregarEditarProductoNuevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BorrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Ordenes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProductosAdm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +177,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Reportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,6 +281,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Favicon.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
@@ -263,9 +293,7 @@
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
