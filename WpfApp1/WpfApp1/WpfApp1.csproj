@@ -76,6 +76,12 @@
     <Compile Include="AgregarEditarProductoNuevo.xaml.cs">
       <DependentUpon>AgregarEditarProductoNuevo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BorrarCliente.xaml.cs">
+      <DependentUpon>BorrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarCliente.xaml.cs">
+      <DependentUpon>EditarCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
     </Compile>
@@ -97,12 +103,23 @@
     <Compile Include="Pages\readUser.xaml.cs">
       <DependentUpon>readUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Reportes.xaml.cs">
+      <DependentUpon>Reportes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Items.cs" />
     <Compile Include="WindowAdministrador.xaml.cs">
       <DependentUpon>WindowAdministrador.xaml</DependentUpon>
     </Compile>
     <Page Include="AgregarEditarProductoNuevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BorrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +165,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Reportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

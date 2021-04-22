@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c0ba0280a5af4d4b805e641ffc05dcf3" Name="Diagram1">
+      <Diagram DiagramId="c0ba0280a5af4d4b805e641ffc05dcf3" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.ordenProductos" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.ordenPromocion" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.promocionesProductos" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.cargoLaboral" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.empleado" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.usuario" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="puntoDeVentaDB_testModel.clientes" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.factura" Width="1.5" PointX="9.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.orden" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="puntoDeVentaDB_testModel.categorias" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
@@ -26,9 +25,10 @@
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__empleado__codCar__3F466844" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__usuario__ciEmple__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__codUsuari__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__nitClient__4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__factura__codOrde__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__productos__codCa__3C69FB99" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="puntoDeVentaDB_testModel.clientes" Width="1.5" PointX="0.75" PointY="7.875" />
+        <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__nitClient__3A81B327" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
