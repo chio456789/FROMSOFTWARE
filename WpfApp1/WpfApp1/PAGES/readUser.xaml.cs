@@ -82,25 +82,7 @@ namespace WpfApp1
 
             refresh();
         }
-        /*
-        using (var context = new puntoDeVentaDB_testEntities())
-        {
-
-            string id = (string)((Button)sender).CommandParameter;
-
-            var std = context.empleado.Find(id);
-
-            var mm = context.usuario.Where(s => s.ciEmpleadoFK == id).FirstOrDefault<usuario>();
-            context.usuario.Remove(mm);
-            context.empleado.Remove(std);
-
-            context.SaveChanges();
-        }
-
-
-        EliminarUsuario ventanaBorrar = new EliminarUsuario();
-        ventanaBorrar.Show(); 
-        */
+       
 
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -156,45 +138,6 @@ namespace WpfApp1
         }
             
 
-            /*
-            using (var context = new puntoDeVentaDB_testEntities())
-            {
-
-                    var emp = new empleado()
-                {
-                    nombreEmp = tbNombre.Text,
-                    apellidoPtEmp = tbApellido.Text,
-                    ciEmpleado = tbCI.Text,
-                    direccionEmp = tbDireccion.Text,
-                    correoEmp = tbCorreo.Text,
-                    codCargoFK = 2
-                };
-                context.empleado.Add(emp);
-
-                var emp2 = new usuario()
-                {
-                    nombreUs = tbNomUsuario.Text,
-                    passwordUs = tbPassword.Password,
-                    ciEmpleadoFK = tbCI.Text
-                };
-                context.usuario.Add(emp2);
-
-                context.SaveChanges();
-            }
-
-            tbNombre.Text = "";
-            tbDireccion.Text = "";
-            tbCI.Text = "";
-            tbApellido.Text = "";
-            tbPassword.Password = "";
-            tbTelefono.Text = "";
-            tbNomUsuario.Text = "";
-
-
-            refresh();
-
-        }
-            */
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
             using (var context = new puntoDeVentaDB_testEntities())
