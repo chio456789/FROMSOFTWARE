@@ -40,13 +40,7 @@
                           Orientation="Horizontal"
                           materialDesign:RippleAssist.IsCentered="True">
 
-                        <materialDesign:ColorZone
-                            Mode="Standard"
-                            Padding="8 4 8 4"
-                            CornerRadius="2"
-                            Panel.ZIndex="1"
-                            Margin="16 0 0 0"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="368" Height="29">
+                        <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2" Panel.ZIndex="1" Margin="16 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="368" Height="29">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition
