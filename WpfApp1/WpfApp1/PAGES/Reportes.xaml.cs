@@ -22,7 +22,8 @@ namespace WpfApp1.Pages
     {
         public Reportes()
         {
-            InitializeComponent();
+           // LO TUVE QUE COMENTAR POR QUE ME SALIA ERROR ATTE WALTER :3
+            // InitializeComponent();
         }
 
         private void btImprimir_Click(object sender, RoutedEventArgs e)
