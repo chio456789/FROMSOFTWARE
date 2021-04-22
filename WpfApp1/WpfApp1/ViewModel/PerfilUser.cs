@@ -26,7 +26,6 @@ namespace WpfApp1.View_model
                                  Nombre = emp.nombreEmp,
                                  Apellido = emp.apellidoPtEmp,
                                  CI = emp.ciEmpleado,
-
                                  Direccion = emp.direccionEmp,
                                  Correo = emp.correoEmp,
                                  Cargo = cargo.nombreCg,
