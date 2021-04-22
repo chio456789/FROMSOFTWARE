@@ -80,7 +80,7 @@
             </Grid>
 
         </Border>
-        <Grid Grid.Column="1" Background="White" Margin="0,0,0,0" Grid.RowSpan="2">
+        <Grid Grid.Column="1" Background="White" Grid.RowSpan="4">
             <!--Margin="0,7,20,20"-->
             <Grid.Effect>
                 <DropShadowEffect ShadowDepth="4" Direction="240" BlurRadius="10" Opacity=".8"></DropShadowEffect>
@@ -287,7 +287,7 @@
                     <DataGridTextColumn Binding="{Binding Path=CI}" Header="Nit-CI" Width="Auto" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding  Path=Nombre}" IsReadOnly="True" Header="Nombre" Width="Auto" />
                     <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido" Width="Auto" IsReadOnly="True" />
-                    
+
 
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
