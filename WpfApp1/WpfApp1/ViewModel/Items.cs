@@ -66,7 +66,7 @@ namespace WpfApp1.View_model
         /* public void agregar(string nombre,string descripcion,decimal precio,decimal costo,bool disponibilidad)
          {           
                     using (Model.puntoDeVentaDB_testEntities agregar = new Model.puntoDeVentaDB_testEntities())
-             {
+             {        
                  var Addproduct  =  new Model.productos();                                
                  Addproduct.nombreProd = nombre;
                  Addproduct.descripcionProd = descripcion;

@@ -48,7 +48,7 @@ namespace WpfApp1
         private void Edit(object sender, RoutedEventArgs e)
         {
 
-           
+
             string id = (string)((Button)sender).CommandParameter;
 
 
@@ -57,7 +57,7 @@ namespace WpfApp1
             refresh();
 
             ventanaEditar.Show();
-          
+
 
             /*
             using (var context = new puntoDeVentaDB_testEntities())
@@ -78,15 +78,15 @@ namespace WpfApp1
         {
             string id = (string)((Button)sender).CommandParameter;
 
-            
-                if ( dd.DeleteUser(id) && dd.DeleteEmpleado(id))
-                {
-                
-                        MessageBox.Show("Registro correctamente eliminado");
- 
-                }
-                
-          else
+
+            if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
+            {
+
+                MessageBox.Show("Registro correctamente eliminado");
+
+            }
+
+            else
             {
                 MessageBox.Show("No fue eliminado exitosamente");
 
@@ -114,15 +114,15 @@ namespace WpfApp1
         EliminarUsuario ventanaBorrar = new EliminarUsuario();
         ventanaBorrar.Show(); 
         */
-    
+
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
 
             Empleado emp12 = new Empleado();
             Usuarios usuariop = new Usuarios();
 
-            if (tbNombre.Text !="" && tbApellido.Text != "" && tbDireccion.Text !="" && tbCorreo.Text !=""
-                && tbCI.Text != "" && tbCargo.Text !="" && tbNomUsuario.Text != "" && tbPassword.Password !="")
+            if (tbNombre.Text != "" && tbApellido.Text != "" && tbDireccion.Text != "" && tbCorreo.Text != ""
+                && tbCI.Text != "" && tbCargo.Text != "" && tbNomUsuario.Text != "" && tbPassword.Password != "")
             {
                 emp12.Nombre = tbNombre.Text;
                 emp12.ApellidoPaterno = tbApellido.Text;
@@ -165,9 +165,11 @@ namespace WpfApp1
 
             }
 
-            
+        
+    
 
-            /*
+
+            
             using (var context = new puntoDeVentaDB_testEntities())
             {
 
