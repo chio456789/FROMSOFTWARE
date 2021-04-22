@@ -23,10 +23,10 @@ namespace WpfApp1
         public Page1Menu()
         {
             InitializeComponent();
-            Refresh();
+            Visualizar();
         }
 
-        private void Refresh() 
+        private void Visualizar() 
         {
             List<PersonViewModel> lst = new List<PersonViewModel>();
             using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
