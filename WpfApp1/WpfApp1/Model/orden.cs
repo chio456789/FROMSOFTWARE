@@ -34,8 +34,8 @@ namespace WpfApp1.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ordenPromocion> ordenPromocion { get; set; }
         public virtual usuario usuario { get; set; }
-        public virtual clientes clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<factura> factura { get; set; }
+        public virtual clientes clientes { get; set; }
     }
 }

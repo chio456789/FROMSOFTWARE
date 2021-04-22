@@ -25,5 +25,55 @@ namespace WpfApp1.Pages
            // LO TUVE QUE COMENTAR POR QUE ME SALIA ERROR ATTE WALTER :3
             // InitializeComponent();
         }
+
+        private void btImprimir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCrearReporte_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btImprimirDia_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCrearReporteDia_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btImprimirSemana_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCrearReporteSemana_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btImprimirMes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCrearReporteMes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btImprimirRango_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCrearReporteRango_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
