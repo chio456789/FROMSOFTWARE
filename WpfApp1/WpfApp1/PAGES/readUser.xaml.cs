@@ -59,34 +59,21 @@ namespace WpfApp1
             ventanaEditar.Show();
 
 
-            /*
-            using (var context = new puntoDeVentaDB_testEntities())
-            {
-
-             
-
-                var std = context.empleado.Find(id);
-
-                var mm = context.usuario.Where(s => s.ciEmpleadoFK == id).FirstOrDefault<usuario>();
-            }
-            */
-
-
         }
 
         private void btnBorrar(object sender, RoutedEventArgs e)
         {
             string id = (string)((Button)sender).CommandParameter;
 
-
-            if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
-            {
-
-                MessageBox.Show("Registro correctamente eliminado");
-
-            }
-
-            else
+            
+                if ( dd.DeleteUser(id) && dd.DeleteEmpleado(id))
+                {
+                
+                        MessageBox.Show("Registro correctamente eliminado");
+ ///lklklklkll
+                }
+                
+          else
             {
                 MessageBox.Show("No fue eliminado exitosamente");
 
@@ -118,12 +105,14 @@ namespace WpfApp1
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
 
+
             Empleado emp12 = new Empleado();
             Usuarios usuariop = new Usuarios();
 
             if (tbNombre.Text != "" && tbApellido.Text != "" && tbDireccion.Text != "" && tbCorreo.Text != ""
                 && tbCI.Text != "" && tbCargo.Text != "" && tbNomUsuario.Text != "" && tbPassword.Password != "")
             {
+
                 emp12.Nombre = tbNombre.Text;
                 emp12.ApellidoPaterno = tbApellido.Text;
                 emp12.Direccion = tbDireccion.Text;
@@ -165,11 +154,9 @@ namespace WpfApp1
 
             }
 
-        
-    
-
-
             
+
+            /*
             using (var context = new puntoDeVentaDB_testEntities())
             {
 
@@ -207,7 +194,7 @@ namespace WpfApp1
             refresh();
 
         }
-
+            */
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
             using (var context = new puntoDeVentaDB_testEntities())
