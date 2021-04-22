@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
         Title="MainWindow" Height="768" MinHeight="768" Width="1366" MinWidth="1024" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="Favicon.png"
         WindowStyle="None"
         >
     <!-- Height="1039"   Width="1920"-->
@@ -23,9 +24,9 @@
 
             <Grid Grid.Column="0" Background="#3E3E3E" Width="216">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="220" MaxHeight="300"></RowDefinition>
-                    <RowDefinition Height="70" MaxHeight="90"></RowDefinition>
-                    <RowDefinition Height="70" MaxHeight="90"></RowDefinition>
+                    <RowDefinition Height="220" MinHeight="200"></RowDefinition>
+                    <RowDefinition Height="70" MinHeight="60"></RowDefinition>
+                    <RowDefinition Height="70" MinHeight="60"></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -34,11 +35,21 @@
                 </Grid.RowDefinitions>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="190"></RowDefinition>
-                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Line Grid.Row="1" Width="220" Height="1"></Line>
+                    <Image Source="Favicon.png" Width="100" Height="100" Margin="20"></Image>
+                    <Grid Grid.Row="1" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="10"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Emma" Foreground="White" FontSize="18" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0"></TextBlock>
+                        <TextBlock Text="-" Grid.Column="1" Foreground="White" FontSize="18" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock Text="Cajero" Grid.Column="2" Foreground="White" FontSize="18" FontFamily="Roboto" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0"></TextBlock>
+                    </Grid>
                 </Grid>
                 
                 <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
@@ -72,7 +83,7 @@
                         </TextBlock.Effect>
                     </TextBlock>
                 </Grid>
-                <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" Grid.Row="1" Padding="14" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="MainFrame" Source="\Pages\Ordenes.xaml" Grid.Row="1" Padding="14" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
         
