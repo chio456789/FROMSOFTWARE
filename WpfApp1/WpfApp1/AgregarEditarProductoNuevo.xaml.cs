@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using WpfApp1.Model;
 using WpfApp1.ViewModel;
 using WpfApp1.Pages;
+using Microsoft.Win32;
 
 namespace WpfApp1
 {  
@@ -82,6 +83,16 @@ namespace WpfApp1
                 }
                
             }                                   
+        }
+
+        private void BtnImgEditProd_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Uri fileUri = new Uri(openFileDialog.FileName);
+                ImgProducto.Source = new BitmapImage(fileUri);
+            }
         }
         //Act.actualizar();
     }
