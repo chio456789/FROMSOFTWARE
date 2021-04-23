@@ -19,8 +19,8 @@ namespace WpfApp1
 {  
     public partial class AgregarEditarProductoNuevo : Window
     {
-       // ProductosAdm Act = new ProductosAdm();
-       puntoDeVentaDB_testEntities Datab = new puntoDeVentaDB_testEntities();
+        ProductosAdm Actu = new ProductosAdm();
+        puntoDeVentaDB_testEntities Datab = new puntoDeVentaDB_testEntities();
         productos pro = new productos();
         categorias categ = new categorias();
         public AgregarEditarProductoNuevo()
@@ -30,8 +30,8 @@ namespace WpfApp1
         public AgregarEditarProductoNuevo(int id)
         {
             InitializeComponent();
-            pro = Datab.productos.Where(x => x.codProducto == id).First();
-            categ = Datab.categorias.Find(id);
+           // pro = Datab.productos.Where(x => x.codProducto == id).First();
+            //categ = Datab.categorias.Find(id);
             textboxNP.Text = pro.nombreProd;
             textboxdescrip.Text = pro.descripcionProd;
             textboxcp.Text = Convert.ToString(pro.costoProd);
@@ -53,6 +53,20 @@ namespace WpfApp1
             {
                 MessageBox.Show("Llene todos los datos");
             }
+            //if (Convert.ToInt32(categ)!=0)
+            //{
+
+            //    using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            //    { 
+            //        var newproducto1 = new Model.productos();
+            //    newproducto1.nombreProd = textboxNP.Text;
+            //    newproducto1.descripcionProd = textboxdescrip.Text;
+            //    newproducto1.costoProd = Convert.ToDecimal(textboxcp.Text);
+            //    newproducto1.precioProd = Convert.ToDecimal(textboxpv.Text);
+            //    contexto.productos.Add(newproducto1);
+            //    contexto.SaveChanges();
+            //    }
+            //}
             else
             {
                 using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
@@ -61,13 +75,14 @@ namespace WpfApp1
                                 newproducto.nombreProd = textboxNP.Text;
                                 newproducto.descripcionProd = textboxdescrip.Text;
                                 newproducto.costoProd = Convert.ToDecimal(textboxcp.Text);
-                                newproducto.precioProd = Convert.ToDecimal(textboxpv.Text);
-            
+                                newproducto.precioProd = Convert.ToDecimal(textboxpv.Text);            
                                 contexto.productos.Add(newproducto);
                                 contexto.SaveChanges();
-                                //Act.actualizar();
+                                
                 }
-            }                           
+               
+            }                                   
         }
+        //Act.actualizar();
     }
 }

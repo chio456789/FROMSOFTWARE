@@ -80,7 +80,7 @@
                                 <DataGridTemplateColumn Header="EditarProducto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button  Background="#FFF2A533" Click="BotonEditar" >
+                                            <Button CommandParameter="{Binding idproducto}"  Background="#FFF2A533" Click="BotonEditar" >
                                                 <materialDesign:PackIcon Kind="PlaylistEdit" />
                                             </Button>
                                         </DataTemplate>
@@ -89,7 +89,7 @@
                                 <DataGridTemplateColumn Header="BorrarProducto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Click="BotonEliminar" Background="#FFF2A533" >
+                                            <Button CommandParameter="{Binding codProducto}"  Click="BotonEliminar" Background="#FFF2A533" >
                                                 <Button.Content>
                                                     <materialDesign:PackIcon Kind="Delete"/>
                                                 </Button.Content>

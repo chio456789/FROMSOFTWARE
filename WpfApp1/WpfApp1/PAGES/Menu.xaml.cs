@@ -51,7 +51,17 @@ namespace WpfApp1
             public decimal PrecioProducto { get; set; }
          //   public bool DisponibilidadProducto { get; set; }
         }
-       
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
+        {
+            ConfirmarOrden terminarO = new ConfirmarOrden();
+            terminarO.ShowDialog();
+        }
     }
 
 }

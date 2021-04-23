@@ -48,22 +48,24 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           // int id = (int)((Button)sender).CommandParameter;
+
             AgregarEditarProductoNuevo ventanaProducto = new AgregarEditarProductoNuevo();
+           
             ventanaProducto.Show();
-        }
-
-       
-
+        }      
         private void BotonEliminar(object sender, RoutedEventArgs e)
         {
             int id =(int)((Button)sender).CommandParameter;
+
             using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
             {
-                contexto.Entry(id).State = System.Data.Entity.EntityState.Deleted;
+                var produto = contexto.productos.Find(id);
+                contexto.productos.Remove(produto);
                 contexto.SaveChanges();
             }
+            actualizar();
         }
-
         public class ProductViewModel
             {
             public string IdProducto { get; set; }
@@ -72,13 +74,12 @@ namespace WpfApp1.Pages
             public decimal PrecioProducto { get; set; }
             public decimal CostoProducto { get; set; }
             //public bool DisponibilidadProducto { get; set; }
-            public int Categoria { get; set; }
+           // public int Categoria { get; set; }
         }
-
         private void BotonEditar(object sender, RoutedEventArgs e)
         {
-            int id = (int)((Button)sender).CommandParameter;
-            AgregarEditarProductoNuevo Editarproduct = new AgregarEditarProductoNuevo(id);
+            int tol = (int)((Button)sender).CommandParameter;
+            AgregarEditarProductoNuevo Editarproduct = new AgregarEditarProductoNuevo(tol);           
             Editarproduct.Show();
             actualizar();
         }
