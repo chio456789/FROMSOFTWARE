@@ -290,6 +290,7 @@
   <ItemGroup>
     <Resource Include="Pages\folco-masi-EkzeCqcx_Zc-unsplash.png" />
     <Resource Include="Favicon.png" />
+    <Resource Include="Chicken hunter.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
