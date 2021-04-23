@@ -79,6 +79,9 @@
     <Compile Include="BorrarCliente.xaml.cs">
       <DependentUpon>BorrarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmarOrden.xaml.cs">
+      <DependentUpon>ConfirmarOrden.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarCliente.xaml.cs">
       <DependentUpon>EditarCliente.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BorrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfirmarOrden.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

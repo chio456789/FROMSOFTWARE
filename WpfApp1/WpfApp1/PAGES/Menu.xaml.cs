@@ -54,6 +54,12 @@ namespace WpfApp1
         {
 
         }
+
+        private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
+        {
+            ConfirmarOrden terminarO = new ConfirmarOrden();
+            terminarO.ShowDialog();
+        }
     }
 
 }
