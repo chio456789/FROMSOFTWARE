@@ -17,7 +17,6 @@ namespace WpfApp1.ViewModel
                 var query = (from pd in db.productos
                              join op in db.ordenProductos on pd.codProducto equals op.codProductoFK
                              join ct in db.categorias on pd.codCategoriaFK equals ct.codCategoria
-
                              select new
                              {
                                  Producto = pd.nombreProd,
