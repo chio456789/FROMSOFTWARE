@@ -21,33 +21,35 @@ namespace WpfApp1
     public partial class Page1Menu : Page
     {
         public Page1Menu()
-        {
+        {           
             InitializeComponent();
-            Visualizar();
+            refresh();           
         }
-
-        private void Visualizar() 
+        private void refresh()
         {
-            List<PersonViewModel> lst = new List<PersonViewModel>();
-            using (Model.puntoDeVentaDB_testEntities pop = new Model.puntoDeVentaDB_testEntities())
-            {                
-                lst = (from d in pop.clientes
-                       select new PersonViewModel
-                       {
-                           CI = d.nitCliente,
-                           Nombre = d.nombreCliente,
-                           Apellido = d.apellidoCliente
-                       }).ToList();
+            List<ProductViewModel> lista = new List<ProductViewModel>();
+            DGMenu.ItemsSource = lista;
+            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            {
+                lista = (from d in contexto.productos
+                         select new ProductViewModel
+                         {
+                             IdProducto = d.idProducto,
+                             NombreProducto = d.nombreProd,
+                             DescripcionProducto = d.descripcionProd,
+                             PrecioProducto = (decimal)d.precioProd,
+                            // DisponibilidadProducto = (bool)d.disponibilidadProd
+                         }).ToList();    
             }
-            DG.ItemsSource = lst;            
+            DGMenu.ItemsSource = lista;
         }
-
-        public class PersonViewModel 
-        { 
-             public string CI { get; set; }
-            public string Nombre { get; set; }
-            public string Apellido { get; set; }
-
+            public class ProductViewModel
+        {
+            public string IdProducto { get; set; }
+            public string NombreProducto { get; set; }
+            public string DescripcionProducto { get; set; }
+            public decimal PrecioProducto { get; set; }
+         //   public bool DisponibilidadProducto { get; set; }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

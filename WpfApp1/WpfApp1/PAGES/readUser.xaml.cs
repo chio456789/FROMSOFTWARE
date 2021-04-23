@@ -59,19 +59,6 @@ namespace WpfApp1
             ventanaEditar.Show();
 
 
-            /*
-            using (var context = new puntoDeVentaDB_testEntities())
-            {
-
-             
-
-                var std = context.empleado.Find(id);
-
-                var mm = context.usuario.Where(s => s.ciEmpleadoFK == id).FirstOrDefault<usuario>();
-            }
-            */
-
-
         }
 
         private void btnBorrar(object sender, RoutedEventArgs e)
@@ -95,28 +82,11 @@ namespace WpfApp1
 
             refresh();
         }
-        /*
-        using (var context = new puntoDeVentaDB_testEntities())
-        {
 
-            string id = (string)((Button)sender).CommandParameter;
-
-            var std = context.empleado.Find(id);
-
-            var mm = context.usuario.Where(s => s.ciEmpleadoFK == id).FirstOrDefault<usuario>();
-            context.usuario.Remove(mm);
-            context.empleado.Remove(std);
-
-            context.SaveChanges();
-        }
-
-
-        EliminarUsuario ventanaBorrar = new EliminarUsuario();
-        ventanaBorrar.Show(); 
-        */
 
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
+
 
             Empleado emp12 = new Empleado();
             Usuarios usuariop = new Usuarios();
@@ -124,6 +94,7 @@ namespace WpfApp1
             if (tbNombre.Text != "" && tbApellido.Text != "" && tbDireccion.Text != "" && tbCorreo.Text != ""
                 && tbCI.Text != "" && tbCargo.Text != "" && tbNomUsuario.Text != "" && tbPassword.Password != "")
             {
+
                 emp12.Nombre = tbNombre.Text;
                 emp12.ApellidoPaterno = tbApellido.Text;
                 emp12.Direccion = tbDireccion.Text;
@@ -164,40 +135,8 @@ namespace WpfApp1
                 MessageBox.Show("Llene todos los campos vacios");
 
             }
-            
-            using (var context = new puntoDeVentaDB_testEntities())
-            {
-
-                    var emp = new empleado()
-                {
-                    nombreEmp = tbNombre.Text,
-                    apellidoPtEmp = tbApellido.Text,
-                    ciEmpleado = tbCI.Text,
-                    direccionEmp = tbDireccion.Text,
-                    correoEmp = tbCorreo.Text,
-                    codCargoFK = 2
-                };
-                context.empleado.Add(emp);
-
-                var emp2 = new usuario()
-                {
-                    nombreUs = tbNomUsuario.Text,
-                    passwordUs = tbPassword.Password,
-                    ciEmpleadoFK = tbCI.Text
-                };
-                context.usuario.Add(emp2);
-
-                context.SaveChanges();
-            }
-            tbNombre.Text = "";
-            tbDireccion.Text = "";
-            tbCI.Text = "";
-            tbApellido.Text = "";
-            tbPassword.Password = "";
-            tbTelefono.Text = "";
-            tbNomUsuario.Text = "";
-            refresh();
         }
+
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
@@ -223,13 +162,13 @@ namespace WpfApp1
 
         //Datos del cliente 
 
-        
+
         private void EditCliente(object sender, RoutedEventArgs e)
         {
             EditarCliente ventanaEditarCliente = new EditarCliente();
             ventanaEditarCliente.Show();
         }
-        
+
         private void btnBorraClienter(object sender, RoutedEventArgs e)
         {
             BorrarCliente ventanaBorrarCliente = new BorrarCliente();

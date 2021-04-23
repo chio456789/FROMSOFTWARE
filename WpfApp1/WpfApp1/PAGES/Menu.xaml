@@ -829,8 +829,10 @@
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid x:Name="DG" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
-                                <DataGrid.Columns></DataGrid.Columns>
+                            <DataGrid x:Name="DGFactura" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
+                                <DataGrid.Columns>
+
+                                </DataGrid.Columns>
                             </DataGrid>
                         </Grid>
                         <Grid Grid.Row="2">
