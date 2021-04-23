@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WpfApp1.Pages
 {
     /// <summary>
@@ -23,6 +24,63 @@ namespace WpfApp1.Pages
         public ProductosAdm()
         {
             InitializeComponent();
+            actualizar();
+        }
+        private void actualizar()
+        {
+            List<ProductViewModel> lista = new List<ProductViewModel>();
+            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            {
+                lista = (from d in contexto.productos
+                         select new ProductViewModel
+                         {
+                             IdProducto = d.idProducto,
+                             NombreProducto = d.nombreProd,
+                             DescripcionProducto = d.descripcionProd,
+                             PrecioProducto = (decimal)d.precioProd,
+                             CostoProducto = (decimal)d.costoProd,
+                             //DisponibilidadProducto = (bool)d.disponibilidadProd
+                         }).ToList();
+            }
+            DGProductoAdmi.ItemsSource = lista;
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarEditarProductoNuevo ventanaProducto = new AgregarEditarProductoNuevo();
+            ventanaProducto.Show();
+        }
+
+       
+
+        private void BotonEliminar(object sender, RoutedEventArgs e)
+        {
+            int id =(int)((Button)sender).CommandParameter;
+            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            {
+                contexto.Entry(id).State = System.Data.Entity.EntityState.Deleted;
+                contexto.SaveChanges();
+            }
+        }
+
+        public class ProductViewModel
+            {
+            public string IdProducto { get; set; }
+            public string NombreProducto { get; set; }
+            public string DescripcionProducto { get; set; }
+            public decimal PrecioProducto { get; set; }
+            public decimal CostoProducto { get; set; }
+            //public bool DisponibilidadProducto { get; set; }
+            public int Categoria { get; set; }
+        }
+
+        private void BotonEditar(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).CommandParameter;
+            AgregarEditarProductoNuevo Editarproduct = new AgregarEditarProductoNuevo(id);
+            Editarproduct.Show();
+            actualizar();
         }
     }
 }

@@ -12,12 +12,12 @@
     <Grid>
         <Border BorderBrush="#585858" BorderThickness="1" Opacity=".5"></Border>
         <Grid>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition MaxWidth="266"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            
+
             <Grid Grid.Column="0">
                 <Grid Margin="6">
                     <Grid.RowDefinitions>
@@ -42,8 +42,67 @@
                         </Grid>
                     </Grid>
 
-                    <Grid Grid.Row="1" Margin="0,5,0,0" Background="#aaaaaa">
+                    <Grid Grid.Row="2" Margin="0,5,0,0" Background="#aaaaaa">
                         
+                        <DataGrid Grid.Row="2" x:Name="DGProductoAdmi"       
+                                  AutoGenerateColumns="True"                                  
+                                    SelectionMode="Single"                                  
+                                    IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=Idproducto}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Id"
+                                                    Width="auto"    />
+                                <DataGridTextColumn Binding="{Binding Path=nombreproducto}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Producto"
+                                                    Width="auto"    />
+                                <DataGridTextColumn Binding="{Binding Path=descripcionproducto}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Descripcion"
+                                                    Width="auto"    />
+                                <DataGridTextColumn Binding="{Binding Path=Categoria}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Categoria"
+                                                    Width="auto"    />
+                                <DataGridTextColumn Binding="{Binding Path=precioproducto}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Precio"
+                                                    Width="auto"    />
+                                <DataGridTextColumn Binding="{Binding Path=costoproducto}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Costo"
+                                                    Width="auto"    />
+                                <DataGridTextColumn Binding="{Binding Path=disponibilidadproducto}" 
+                                                    IsReadOnly="True" 
+                                                    Header="Disponibilidad"
+                                                    Width="auto" />
+                                <DataGridTemplateColumn Header="EditarProducto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  Background="#FFF2A533" Click="BotonEditar" >
+                                                <materialDesign:PackIcon Kind="PlaylistEdit" />
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="BorrarProducto">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Click="BotonEliminar" Background="#FFF2A533" >
+                                                <Button.Content>
+                                                    <materialDesign:PackIcon Kind="Delete"/>
+                                                </Button.Content>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                                                       
+                        </DataGrid>
+
+
                     </Grid>
                 </Grid>
             </Grid>
@@ -53,33 +112,34 @@
                 </Grid.Effect>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition MaxHeight="73"></RowDefinition>
-                        <RowDefinition MaxHeight="58"></RowDefinition>
-                        <RowDefinition MaxHeight="36"></RowDefinition>
+                        <RowDefinition MaxHeight="73" Height="69*"></RowDefinition>
+                        <RowDefinition MaxHeight="58" Height="58*"></RowDefinition>
+                        <RowDefinition MaxHeight="36" Height="15*"></RowDefinition>
+                        <RowDefinition Height="21*"/>
                         <RowDefinition MaxHeight="340" Height="320"></RowDefinition>
-                        <RowDefinition MaxHeight="70"></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition MaxHeight="70" Height="69*"></RowDefinition>
+                        <RowDefinition Height="68*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Crea una nueva promoción</TextBlock>
+                    <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e" Margin="14,21">Crea una nueva promoción</TextBlock>
                     <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre promoción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
+                             VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Margin="0,10"/>
                     <Button Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="34" Height="34" MaxWidth="180" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" FontSize="18">Crear promoción
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" FontSize="18" Margin="0,1" Grid.RowSpan="2">Crear promoción
                         <Button.Effect>
                             <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="6" Opacity=".4"></DropShadowEffect>
                         </Button.Effect>
                     </Button>
-                    <DataGrid Grid.Row="3" Margin="6,10,6,6"></DataGrid>
-                    <Button Grid.Row="4" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="34" Height="34" MaxWidth="180" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#F2A533" BorderBrush="#727272" FontSize="18">Agregar producto
+                    <DataGrid Grid.Row="4" Margin="6,10,6,6"></DataGrid>
+                    <Button Grid.Row="5" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="34" Height="34" MaxWidth="180" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#F2A533" BorderBrush="#727272" FontSize="18" Click="Button_Click" Margin="0,17,0,18">Agregar producto
                         <Button.Effect>
                             <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
                         </Button.Effect>
                     </Button>
                 </Grid>
-                
+
             </Grid>
-            
+
         </Grid>
     </Grid>
 </Page>
