@@ -79,7 +79,7 @@ namespace WpfApp1.Pages
         private void BotonEditar(object sender, RoutedEventArgs e)
         {
             int tol = (int)((Button)sender).CommandParameter;
-            AgregarEditarProductoNuevo Editarproduct = new AgregarEditarProductoNuevo(tol);           
+            AgregarEditarProductoNuevo Editarproduct = new AgregarEditarProductoNuevo(tol);                       
             Editarproduct.Show();
             actualizar();
         }

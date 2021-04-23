@@ -28,7 +28,7 @@ namespace WpfApp1
         private void refresh()
         {
             List<ProductViewModel> lista = new List<ProductViewModel>();
-            DGMenu.ItemsSource = lista;
+            //DGMenu.ItemsSource = lista;
             using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
             {
                 lista = (from d in contexto.productos
@@ -41,7 +41,7 @@ namespace WpfApp1
                             // DisponibilidadProducto = (bool)d.disponibilidadProd
                          }).ToList();    
             }
-            DGMenu.ItemsSource = lista;
+           // DGMenu.ItemsSource = lista;
         }
             public class ProductViewModel
         {
