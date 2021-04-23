@@ -79,6 +79,7 @@ namespace WpfApp1.ViewModel
             {
                 empleado emp2 = new empleado();
                 emp2.nombreEmp = emp1.Nombre;
+                emp2.apellidoPtEmp = emp1.ApellidoPaterno;
                 emp2.ciEmpleado = emp1.Ci;
                 emp2.direccionEmp = emp1.Direccion;
                 emp2.correoEmp = emp1.Correo;

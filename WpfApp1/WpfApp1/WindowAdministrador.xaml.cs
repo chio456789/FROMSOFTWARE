@@ -19,9 +19,11 @@ namespace WpfApp1
     /// </summary>
     public partial class WindowAdministrador : Window
     {
+        public static Frame ns;
         public WindowAdministrador()
         {
             InitializeComponent();
+            ns = MainAdmFrame;
         }
 
         private void BtnAdmCerrarSesion_Click(object sender, RoutedEventArgs e)

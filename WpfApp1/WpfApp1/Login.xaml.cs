@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Model;
 
 namespace WpfApp1
 {
@@ -29,13 +30,25 @@ namespace WpfApp1
             MainWindow mainVentana = new MainWindow();
             WindowAdministrador adminW = new WindowAdministrador();
 
-            if (TbNombreUsuarioLogin.Text == "1" && PasswordBoxLogin.Password == "1")
+            puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
+
+            var q = from d in bd.usuario
+                    where d.nombreUs == TbNombreUsuarioLogin.Text && 
+                 d.passwordUs == PasswordBoxLogin.Password && d.empleado.cargoLaboral.nombreCg == "Administrador"
+                    select d;
+            var m = from s in bd.usuario
+                    where s.nombreUs == TbNombreUsuarioLogin.Text &&
+s.passwordUs == PasswordBoxLogin.Password && s.empleado.cargoLaboral.nombreCg == "Cajero"
+                    select s;
+
+
+            if (m.Count()>0)
             {
                 MessageBox.Show("Bienvenido "+ TbNombreUsuarioLogin.Text);
                 mainVentana.Show();
                 this.Close();
             }
-            else if (TbNombreUsuarioLogin.Text == "2" && PasswordBoxLogin.Password == "2")
+            else if (q.Count()>0)
             {
                 MessageBox.Show("Bienvenido " + TbNombreUsuarioLogin.Text);
                 adminW.Show();
