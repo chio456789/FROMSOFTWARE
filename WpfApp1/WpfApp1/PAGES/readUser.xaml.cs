@@ -70,7 +70,7 @@ namespace WpfApp1
             {
 
                 MessageBox.Show("Registro correctamente eliminado");
-                ///lklklklkll
+
             }
 
             else
@@ -183,12 +183,6 @@ namespace WpfApp1
             public string Direccion { get; set; }
             public string Correo { get; set; }
             public string Cargo { get; set; }
-
-
-
         }
-
-
-
     }
 }

@@ -10,17 +10,14 @@
         Icon="Favicon.png"
         WindowStyle="None"
         >
-    <!-- Height="1039"   Width="1920"-->
+    
     <Grid>
         <Grid>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <!--<Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>-->
 
             <Grid Grid.Column="0" Background="#3E3E3E" Width="216">
                 <Grid.RowDefinitions>
@@ -52,7 +49,7 @@
                     </Grid>
                 </Grid>
                 
-                <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
+                <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="#585858" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
                         ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinMenu_Click">Menu
@@ -83,7 +80,7 @@
                         </TextBlock.Effect>
                     </TextBlock>
                 </Grid>
-                <Frame x:Name="MainFrame" Source="\Pages\Ordenes.xaml" Grid.Row="1" Padding="14" NavigationUIVisibility="Hidden"/>
+                <Frame x:Name="MainFrame" Source="\Pages\Menu.xaml" Grid.Row="1" Padding="14" NavigationUIVisibility="Hidden"/>
             </Grid>
         </Grid>
         

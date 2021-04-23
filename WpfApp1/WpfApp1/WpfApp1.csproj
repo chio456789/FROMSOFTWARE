@@ -79,6 +79,9 @@
     <Compile Include="BorrarCliente.xaml.cs">
       <DependentUpon>BorrarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmarOrden.xaml.cs">
+      <DependentUpon>ConfirmarOrden.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarCliente.xaml.cs">
       <DependentUpon>EditarCliente.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BorrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfirmarOrden.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,6 +288,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pages\folco-masi-EkzeCqcx_Zc-unsplash.png" />
     <Resource Include="Favicon.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
