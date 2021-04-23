@@ -31,7 +31,7 @@ namespace WpfApp1
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
