@@ -81,11 +81,10 @@
                 <ComboBox Grid.Row="5"
                           materialDesign:HintAssist.Hint="Disponibilidad" 
                           materialDesign:TextFieldAssist.HasClearButton="True" 
-                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
-                          materialDesign:TextFieldAssist.SuffixText="quitar" 
-                          materialDesign:HintAssist.HelperText=""
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
                           MaxHeight="40" Height="40">
-                    
+                    <ComboBoxItem Content="True"></ComboBoxItem>
+                    <ComboBoxItem Content="False"></ComboBoxItem>
                 </ComboBox>
 
             </Grid>
