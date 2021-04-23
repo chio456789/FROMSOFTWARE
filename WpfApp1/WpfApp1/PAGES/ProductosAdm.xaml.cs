@@ -24,16 +24,14 @@ namespace WpfApp1.Pages
         public ProductosAdm()
         {
             InitializeComponent();
-            refresh();
+            actualizar();
         }
-
-        private void refresh()
+        private void actualizar()
         {
             List<ProductViewModel> lista = new List<ProductViewModel>();
-            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities()) 
-            {             
+            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            {
                 lista = (from d in contexto.productos
-                         join categ in contexto.productos on d.categorias equals categ.categorias
                          select new ProductViewModel
                          {
                              IdProducto = d.idProducto,
@@ -41,11 +39,10 @@ namespace WpfApp1.Pages
                              DescripcionProducto = d.descripcionProd,
                              PrecioProducto = (decimal)d.precioProd,
                              CostoProducto = (decimal)d.costoProd,
-                             DisponibilidadProducto = (bool)d.disponibilidadProd,
+                             //DisponibilidadProducto = (bool)d.disponibilidadProd
                          }).ToList();
-
-                DGProductoAdmi.ItemsSource = lista;
             }
+            DGProductoAdmi.ItemsSource = lista;
         }
 
 
@@ -74,7 +71,7 @@ namespace WpfApp1.Pages
             public string DescripcionProducto { get; set; }
             public decimal PrecioProducto { get; set; }
             public decimal CostoProducto { get; set; }
-            public bool DisponibilidadProducto { get; set; }
+            //public bool DisponibilidadProducto { get; set; }
             public int Categoria { get; set; }
         }
 
@@ -83,7 +80,7 @@ namespace WpfApp1.Pages
             int id = (int)((Button)sender).CommandParameter;
             AgregarEditarProductoNuevo Editarproduct = new AgregarEditarProductoNuevo(id);
             Editarproduct.Show();
-            refresh();
+            actualizar();
         }
     }
 }

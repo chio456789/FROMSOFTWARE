@@ -78,6 +78,15 @@
                                             IsReadOnly="True" 
                                             Header="Imagen"
                                             Width="auto" />
+                                        <DataGridTemplateColumn Header="AgregarFactura">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button  Background="#FFF2A533" Content="Agregar" >
+                                                        
+                                                    </Button>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
                                     </DataGrid.Columns>
 
 

@@ -13,15 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.Model;
 using WpfApp1.ViewModel;
+using WpfApp1.Pages;
 
 namespace WpfApp1
-{
-    /// <summary>
-    /// Lógica de interacción para AgregarEditarProductoNuevo.xaml
-    /// </summary>
+{  
     public partial class AgregarEditarProductoNuevo : Window
     {
-        puntoDeVentaDB_testEntities Datab = new puntoDeVentaDB_testEntities();
+       // ProductosAdm Act = new ProductosAdm();
+       puntoDeVentaDB_testEntities Datab = new puntoDeVentaDB_testEntities();
         productos pro = new productos();
         categorias categ = new categorias();
         public AgregarEditarProductoNuevo()
@@ -52,18 +51,23 @@ namespace WpfApp1
                 && textboxpv.Text==""
                 && textcat.Text=="")
             {
-                using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
-                 {
-                var newproducto = new Model.productos();
-                newproducto.nombreProd = textboxNP.Text;
-                newproducto.descripcionProd = textboxdescrip.Text;
-                newproducto.costoProd = Convert.ToDecimal(textboxcp);
-                newproducto.precioProd = Convert.ToDecimal(textboxpv);
-            
-                contexto.productos.Add(newproducto);
-                contexto.SaveChanges();
-               }
+                MessageBox.Show("Llene todos los datos");
             }
+            else
+            {
+                using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+                                 {
+                                var newproducto = new Model.productos();
+                                newproducto.nombreProd = textboxNP.Text;
+                                newproducto.descripcionProd = textboxdescrip.Text;
+                                newproducto.costoProd = Convert.ToDecimal(textboxcp.Text);
+                                newproducto.precioProd = Convert.ToDecimal(textboxpv.Text);
+            
+                                contexto.productos.Add(newproducto);
+                                contexto.SaveChanges();
+                                //Act.actualizar();
+                }
+            }                           
         }
     }
 }

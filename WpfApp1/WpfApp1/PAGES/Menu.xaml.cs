@@ -28,6 +28,7 @@ namespace WpfApp1
         private void refresh()
         {
             List<ProductViewModel> lista = new List<ProductViewModel>();
+            DGMenu.ItemsSource = lista;
             using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
             {
                 lista = (from d in contexto.productos
@@ -37,11 +38,10 @@ namespace WpfApp1
                              NombreProducto = d.nombreProd,
                              DescripcionProducto = d.descripcionProd,
                              PrecioProducto = (decimal)d.precioProd,
-                             DisponibilidadProducto = (bool)d.disponibilidadProd
-                         }).ToList();
-
-                DGMenu.ItemsSource = lista;
+                            // DisponibilidadProducto = (bool)d.disponibilidadProd
+                         }).ToList();    
             }
+            DGMenu.ItemsSource = lista;
         }
             public class ProductViewModel
         {
@@ -49,7 +49,7 @@ namespace WpfApp1
             public string NombreProducto { get; set; }
             public string DescripcionProducto { get; set; }
             public decimal PrecioProducto { get; set; }
-            public bool DisponibilidadProducto { get; set; }
+         //   public bool DisponibilidadProducto { get; set; }
         }
        
     }
