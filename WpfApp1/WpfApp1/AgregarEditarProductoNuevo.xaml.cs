@@ -53,20 +53,20 @@ namespace WpfApp1
             {
                 MessageBox.Show("Llene todos los datos");
             }
-            if (Convert.ToInt32(categ)!=0)
-            {
+            //if (Convert.ToInt32(categ)!=0)
+            //{
 
-                using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
-                { 
-                    var newproducto1 = new Model.productos();
-                newproducto1.nombreProd = textboxNP.Text;
-                newproducto1.descripcionProd = textboxdescrip.Text;
-                newproducto1.costoProd = Convert.ToDecimal(textboxcp.Text);
-                newproducto1.precioProd = Convert.ToDecimal(textboxpv.Text);
-                contexto.productos.Add(newproducto1);
-                contexto.SaveChanges();
-                }
-            }
+            //    using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            //    { 
+            //        var newproducto1 = new Model.productos();
+            //    newproducto1.nombreProd = textboxNP.Text;
+            //    newproducto1.descripcionProd = textboxdescrip.Text;
+            //    newproducto1.costoProd = Convert.ToDecimal(textboxcp.Text);
+            //    newproducto1.precioProd = Convert.ToDecimal(textboxpv.Text);
+            //    contexto.productos.Add(newproducto1);
+            //    contexto.SaveChanges();
+            //    }
+            //}
             else
             {
                 using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
