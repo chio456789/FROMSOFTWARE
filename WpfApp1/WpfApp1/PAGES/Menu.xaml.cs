@@ -41,7 +41,7 @@ namespace WpfApp1
                             // DisponibilidadProducto = (bool)d.disponibilidadProd
                          }).ToList();    
             }
-            //DGMenu.ItemsSource = lista;
+           // DGMenu.ItemsSource = lista;
         }
             public class ProductViewModel
         {
