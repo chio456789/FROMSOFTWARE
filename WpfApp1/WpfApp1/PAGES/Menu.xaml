@@ -44,6 +44,46 @@
                         </Grid>
 
                         <Grid Grid.Row="1" Margin="0,5,0,0" Background="#aaaaaa">
+                            <Grid>
+                                <DataGrid x:Name="DGMenu"
+                                    AutoGenerateColumns="True"                                  
+                                    SelectionMode="Single"                                  
+                                    IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Idproducto}" 
+                                            IsReadOnly="True" 
+                                            Header="Id"
+                                            Width="auto"    />
+                                        <DataGridTextColumn Binding="{Binding nombreproducto}" 
+                                            IsReadOnly="True" 
+                                            Header="Producto"
+                                            Width="auto"    />
+                                        <DataGridTextColumn Binding="{Binding descripcionproducto}" 
+                                            IsReadOnly="True" 
+                                            Header="Descripcion"
+                                            Width="auto"    />
+                                        <DataGridTextColumn Binding="{Binding Categoria}" 
+                                            IsReadOnly="True" 
+                                            Header="Categoria"
+                                            Width="auto"    />
+                                        <DataGridTextColumn Binding="{Binding precioproducto}" 
+                                            IsReadOnly="True" 
+                                            Header="Precio"
+                                            Width="auto"    />
+                                        <DataGridTextColumn Binding="{Binding disponibilidadproducto}" 
+                                            IsReadOnly="True" 
+                                            Header="Disponibilidad"
+                                            Width="auto" />
+                                        <DataGridTextColumn Binding="{Binding ImagenProducto}" 
+                                            IsReadOnly="True" 
+                                            Header="Imagen"
+                                            Width="auto" />
+                                    </DataGrid.Columns>
+
+
+                                </DataGrid>
+
+                            </Grid>
 
                         </Grid>
                     </Grid>
@@ -97,7 +137,7 @@
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid x:Name="DG" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
+                            <DataGrid x:Name="DGFactura" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
                                 <DataGrid.Columns>
 
                                 </DataGrid.Columns>
@@ -109,7 +149,7 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Button Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="110" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Finalizar e imprimir factura" Background="#F2A533" BorderBrush="#727272" FontSize="16">Finalizar
+                            ToolTip="Finalizar e imprimir factura" Background="#F2A533" BorderBrush="#727272" FontSize="16" >Finalizar
                                 <Button.Effect>
                                     <DropShadowEffect Direction="240" ShadowDepth="2" BlurRadius="8" Opacity=".5"></DropShadowEffect>
                                 </Button.Effect>
