@@ -24,6 +24,7 @@
                     </DropShadowEffect>
                 </TextBlock.Effect>
             </TextBlock>
+            <Image Grid.Row="1" Source="Favicon.png"></Image>
             <Grid Grid.Row="2" MaxWidth="320">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>

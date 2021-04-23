@@ -69,7 +69,7 @@ namespace WpfApp1
             }
             refresh();
         }
-       
+
 
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -124,7 +124,7 @@ namespace WpfApp1
 
             }
         }
-            
+
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
@@ -144,15 +144,15 @@ namespace WpfApp1
             }
         }
 
-        //Datos del cliente 
+        //        //Datos del cliente 
 
-        
+
         private void EditCliente(object sender, RoutedEventArgs e)
         {
             EditarCliente ventanaEditarCliente = new EditarCliente();
             ventanaEditarCliente.Show();
         }
-        
+
         private void btnBorraClienter(object sender, RoutedEventArgs e)
         {
             BorrarCliente ventanaBorrarCliente = new BorrarCliente();
@@ -167,12 +167,7 @@ namespace WpfApp1
             public string Direccion { get; set; }
             public string Correo { get; set; }
             public string Cargo { get; set; }
-
-          
-
         }
-
-
-
     }
+
 }
