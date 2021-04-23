@@ -22,9 +22,13 @@ namespace WpfApp1
     /// </summary>
     public partial class EditarUsuario : Window
     {
+      
+
         puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
         usuario us = new usuario();
         empleado emp = new empleado();
+
+       
 
         public EditarUsuario(string id)
         {
@@ -61,15 +65,17 @@ namespace WpfApp1
             use.UpdateEmpleado(em3);
             use.UpdateUser(ui);
 
-            Page2Menu mm = new Page2Menu();
-            mm.refresh();
+            
             this.Close();
+            WindowAdministrador.ns.Content = new Page2Menu();
 
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+           
+
         }
     }
 }

@@ -192,8 +192,8 @@
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="6,2,10,6">
 
-            <DataGrid x:Name="MyDataGrid" x:Uid="MyDataGrid" AutoGenerateColumns="False"
-                       AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="552">
+            <DataGrid x:Name="MyDataGrid" x:Uid="MyDataGrid" AutoGenerateColumns="True" ItemsSource="{Binding}"
+                       AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="252">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding  Path=Nombre}" IsReadOnly="True" Header="Nombre" Width="Auto" />
                     <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido" Width="Auto" IsReadOnly="True" />
@@ -284,8 +284,8 @@
                        AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="552">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Path=CI}" Header="Nit-CI" Width="Auto" IsReadOnly="True" />
-                    <DataGridTextColumn Binding="{Binding  Path=Nombre}" IsReadOnly="True" Header="Nombre" Width="Auto" />
-                    <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido" Width="Auto" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding  Path=Nombre, Mode=TwoWay}" IsReadOnly="True" Header="Nombre" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding Path=Apellido, Mode=TwoWay}" Header="Apellido" Width="Auto" IsReadOnly="True" />
 
 
                     <DataGridTemplateColumn Header="Editar">
