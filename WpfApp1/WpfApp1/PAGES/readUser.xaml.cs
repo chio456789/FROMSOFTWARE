@@ -238,18 +238,18 @@ namespace WpfApp1
 
 
         private void EditCliente(object sender, RoutedEventArgs e)
-        {
-            EditarCliente ventanaEditarCliente = new EditarCliente();
-            ventanaEditarCliente.Show();
-        }
+            {
+                EditarCliente ventanaEditarCliente = new EditarCliente();
+                ventanaEditarCliente.Show();
+            }
 
-        private void btnBorraClienter(object sender, RoutedEventArgs e)
-        {
-            BorrarCliente ventanaBorrarCliente = new BorrarCliente();
-            ventanaBorrarCliente.Show();
-        }
-        //fin de datos del cliente
-        public class Item
+            private void btnBorraClienter(object sender, RoutedEventArgs e)
+            {
+                BorrarCliente ventanaBorrarCliente = new BorrarCliente();
+                ventanaBorrarCliente.Show();
+            }
+//fin de datos del cliente
+    public class Item
         {
             public string Nombre { get; set; }
             public string Apellido { get; set; }
