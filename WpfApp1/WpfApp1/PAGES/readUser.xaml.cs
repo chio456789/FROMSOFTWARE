@@ -48,7 +48,7 @@ namespace WpfApp1
         private void Edit(object sender, RoutedEventArgs e)
         {
 
-           
+
             string id = (string)((Button)sender).CommandParameter;
 
 
@@ -65,15 +65,15 @@ namespace WpfApp1
         {
             string id = (string)((Button)sender).CommandParameter;
 
-            
-                if ( dd.DeleteUser(id) && dd.DeleteEmpleado(id))
-                {
-                
-                        MessageBox.Show("Registro correctamente eliminado");
- ///lklklklkll
-                }
-                
-          else
+
+            if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
+            {
+
+                MessageBox.Show("Registro correctamente eliminado");
+
+            }
+
+            else
             {
                 MessageBox.Show("No fue eliminado exitosamente");
 
@@ -82,7 +82,7 @@ namespace WpfApp1
 
             refresh();
         }
-       
+
 
         private void btCrearUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -136,7 +136,7 @@ namespace WpfApp1
 
             }
         }
-            
+
 
         private void Button_Click_Delete(object sender, RoutedEventArgs e)
         {
@@ -160,7 +160,7 @@ namespace WpfApp1
             }
         }
 
-        //Datos del cliente 
+        //        //Datos del cliente 
 
         public void refreshCliente()
         {
@@ -172,7 +172,7 @@ namespace WpfApp1
             EditarCliente ventanaEditarCliente = new EditarCliente();
             ventanaEditarCliente.Show();
         }
-        
+
         private void btnBorraClienter(object sender, RoutedEventArgs e)
         {
             BorrarCliente ventanaBorrarCliente = new BorrarCliente();

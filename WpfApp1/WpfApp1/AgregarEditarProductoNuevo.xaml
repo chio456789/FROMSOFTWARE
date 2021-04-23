@@ -31,15 +31,32 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBox x:Name="textboxNP" materialDesign:HintAssist.Hint="Nombre del producto" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxNP" 
+                         materialDesign:HintAssist.Hint="Nombre del producto" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40" />
-                <TextBox x:Name="textboxdescrip" Grid.Row="1" materialDesign:HintAssist.Hint="Descripción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxdescrip" Grid.Row="1" 
+                         materialDesign:HintAssist.Hint="Descripción" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40"/>
-                <TextBox x:Name="textboxcp" Grid.Row="2" materialDesign:HintAssist.Hint="Costo de producción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxcp" Grid.Row="2" 
+                         materialDesign:HintAssist.Hint="Costo de producción"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40"/>
-                <TextBox x:Name="textboxpv" Grid.Row="3" materialDesign:HintAssist.Hint="Precio de venta" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" HorizontalAlignment="Stretch"
+                <TextBox x:Name="textboxpv" Grid.Row="3" 
+                         materialDesign:HintAssist.Hint="Precio de venta" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" HorizontalAlignment="Stretch"
                          MaxHeight="40" Height="40"/>
-                <ComboBox x:Name="textcat" Grid.Row="4" materialDesign:HintAssist.Hint="Categoria" materialDesign:TextFieldAssist.HasClearButton="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:TextFieldAssist.SuffixText="quitar" materialDesign:HintAssist.HelperText="Selecciona una categoría"
+                <ComboBox x:Name="textcat" Grid.Row="4" 
+                          materialDesign:HintAssist.Hint="Categoria" 
+                          materialDesign:TextFieldAssist.HasClearButton="True" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                          materialDesign:TextFieldAssist.SuffixText="quitar" 
+                          materialDesign:HintAssist.HelperText="Selecciona una categoría"
                           MaxHeight="40" Height="40">
                     <ComboBoxItem>
                         Bebidas
@@ -83,13 +100,13 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" BorderBrush="#727272" FontSize="20">Guardar datos
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="#06D51B" BorderBrush="#727272" FontSize="20" Click="Guardado">Guardar datos
                     <Button.Effect>
                         <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
                     </Button.Effect>
                 </Button>
                 <Button Grid.Column="1" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="40" Height="40" MaxWidth="186" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="Transparent" BorderBrush="#FB1414" Foreground="#FB1414" FontSize="20">Cancelar y cerrar
+                            ToolTip="Agregaras una nueva promoción con el nombre insertado arriba" Background="Transparent" BorderBrush="#FB1414" Foreground="#FB1414" FontSize="20" Click="Button_Click">Cancelar y cerrar
                     <Button.Effect>
                         <DropShadowEffect Direction="240" ShadowDepth="3" BlurRadius="10" Opacity=".4"></DropShadowEffect>
                     </Button.Effect>

@@ -13,9 +13,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition MaxHeight="100"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Foreground="#FEBA34" FontSize="70" FontFamily="Impact" VerticalAlignment="Center" HorizontalAlignment="Center">CHICKEN HUNTER
@@ -24,6 +24,7 @@
                     </DropShadowEffect>
                 </TextBlock.Effect>
             </TextBlock>
+            <Image Grid.Row="1" Source="Chicken hunter.png" Height="250" Width="auto"></Image>
             <Grid Grid.Row="2" MaxWidth="320">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>

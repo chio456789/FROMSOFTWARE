@@ -79,6 +79,9 @@
     <Compile Include="BorrarCliente.xaml.cs">
       <DependentUpon>BorrarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmarOrden.xaml.cs">
+      <DependentUpon>ConfirmarOrden.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarCliente.xaml.cs">
       <DependentUpon>EditarCliente.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,8 @@
     <Compile Include="ViewModel\Empleado.cs" />
     <Compile Include="ViewModel\PerfilClientes.cs" />
     <Compile Include="ViewModel\PerfilUser.cs" />
+    <Compile Include="ViewModel\Productos.cs" />
+    <Compile Include="ViewModel\Promociones.cs" />
     <Compile Include="ViewModel\Items.cs" />
     <Compile Include="ViewModel\ReportsList.cs" />
     <Compile Include="ViewModel\Usuarios.cs" />
@@ -162,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BorrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfirmarOrden.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,7 +198,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModel\HoloChio.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -283,7 +291,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Pages\folco-masi-EkzeCqcx_Zc-unsplash.png" />
     <Resource Include="Favicon.png" />
+    <Resource Include="Chicken hunter.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
