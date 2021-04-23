@@ -33,8 +33,8 @@ namespace WpfApp1
             puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
 
             var q = from d in bd.usuario
-                    where d.nombreUs == TbNombreUsuarioLogin.Text &&
-d.passwordUs == PasswordBoxLogin.Password && d.empleado.cargoLaboral.nombreCg == "Administrador"
+                    where d.nombreUs == TbNombreUsuarioLogin.Text && 
+                 d.passwordUs == PasswordBoxLogin.Password && d.empleado.cargoLaboral.nombreCg == "Administrador"
                     select d;
             var m = from s in bd.usuario
                     where s.nombreUs == TbNombreUsuarioLogin.Text &&
