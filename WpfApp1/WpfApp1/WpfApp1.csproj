@@ -155,7 +155,6 @@
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Productos.cs" />
     <Compile Include="ViewModel\Promociones.cs" />
-    <Compile Include="ViewModel\Items.cs" />
     <Compile Include="ViewModel\ReportsList.cs" />
     <Compile Include="ViewModel\Usuarios.cs" />
     <Compile Include="ViewModel\Usuario_emp.cs" />
