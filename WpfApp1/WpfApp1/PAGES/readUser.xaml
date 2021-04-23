@@ -193,7 +193,7 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="6,2,10,6">
 
             <DataGrid x:Name="MyDataGrid" x:Uid="MyDataGrid" AutoGenerateColumns="False"
-                       AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="552">
+                       AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="242">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding  Path=Nombre}" IsReadOnly="True" Header="Nombre" Width="Auto" />
                     <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido" Width="Auto" IsReadOnly="True" />
@@ -280,25 +280,33 @@
             </Border>
         </Grid>
         <Grid Grid.Row="3">
-            <DataGrid x:Name="MyDataGridCliente" x:Uid="MyDataGrid" AutoGenerateColumns="False"
-                       AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="552">
+            <DataGrid x:Name="MyDataGridCliente" x:Uid="MyDataGridCliente" AutoGenerateColumns="False"
+                       AlternationCount="2" SelectionMode="Single" Margin="10,0,0,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=CI}" Header="Nit-CI" Width="Auto" IsReadOnly="True" />
-                    <DataGridTextColumn Binding="{Binding  Path=Nombre}" IsReadOnly="True" Header="Nombre" Width="Auto" />
-                    <DataGridTextColumn Binding="{Binding Path=Apellido}" Header="Apellido" Width="Auto" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding Path=nitCliente}" Header="Nit-CI" Width="Auto" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding Path=nombreCliente}" IsReadOnly="True" Header="Nombre" Width="Auto" />
+                    <DataGridTextColumn Binding="{Binding Path=apellidoCliente}" Header="Apellido" Width="Auto" IsReadOnly="True" />
 
 
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Editar" Click="EditCliente"/>
+                                <Button Content="Editar" Click="EditCliente" 
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="MaterialDesignOutlinedButton"
+                                        Foreground="#F2A533"
+                                        BorderBrush="#F2A533"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Quitar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Borrar" Click="btnBorraClienter" />
+                                <Button Content="Borrar" Click="btnBorraClienter" 
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="MaterialDesignOutlinedButton"
+                                        Foreground="#F83A3A"
+                                        BorderBrush="#F83A3A"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

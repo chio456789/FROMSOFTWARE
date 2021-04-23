@@ -35,7 +35,7 @@ namespace WpfApp1
             tbCargo.ItemsSource = dd.listar_cargos();
 
             this.refresh();
-
+            this.refreshCliente();
 
         }
 
@@ -160,8 +160,12 @@ namespace WpfApp1
             }
         }
 
-        //Datos del cliente 
+        //        //Datos del cliente 
 
+        public void refreshCliente()
+        {
+            MyDataGridCliente.ItemsSource = PerfilClientes.ListarClientes();
+        }
 
         private void EditCliente(object sender, RoutedEventArgs e)
         {
