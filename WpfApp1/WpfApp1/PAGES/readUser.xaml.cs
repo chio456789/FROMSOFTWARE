@@ -31,11 +31,8 @@ namespace WpfApp1
         public Page2Menu()
         {
             InitializeComponent();
-
-            tbCargo.ItemsSource = dd.listar_cargos();
-
             this.refresh();
-            this.refreshCliente();
+            tbCargo.ItemsSource = dd.listar_cargos();
 
         }
 
@@ -47,39 +44,29 @@ namespace WpfApp1
 
         private void Edit(object sender, RoutedEventArgs e)
         {
-
-
             string id = (string)((Button)sender).CommandParameter;
 
-
+            //MainWindow.staticmain.Content = new EditarUsuario(id);
             EditarUsuario ventanaEditar = new EditarUsuario(id);
-
-            refresh();
-
             ventanaEditar.Show();
-
-
+                
+           
+            
         }
 
         private void btnBorrar(object sender, RoutedEventArgs e)
         {
             string id = (string)((Button)sender).CommandParameter;
 
-
             if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
             {
-
                 MessageBox.Show("Registro correctamente eliminado");
-
             }
-
             else
             {
                 MessageBox.Show("No fue eliminado exitosamente");
 
             }
-
-
             refresh();
         }
 
@@ -101,7 +88,6 @@ namespace WpfApp1
                 emp12.Correo = tbCorreo.Text;
                 emp12.Ci = tbCI.Text;
                 emp12.Cargo = new Cargo((int)tbCargo.SelectedValue);
-
                 usuariop.NombreUser = tbNomUsuario.Text;
                 usuariop.Contrasena = tbPassword.Password;
                 usuariop.Emp2 = new Empleado(tbCI.Text);
@@ -129,6 +115,8 @@ namespace WpfApp1
                 tbPassword.Password = "";
                 tbTelefono.Text = "";
                 tbNomUsuario.Text = "";
+                tbCargo.SelectedItem= null;
+                tbCorreo.Text = "";
             }
             else
             {
@@ -145,10 +133,6 @@ namespace WpfApp1
 
                 DataRowView row = (DataRowView)MyDataGrid.SelectedItems[0];
                 string jh = row["Nombre"].ToString();
-
-
-
-
                 var std = context.empleado.Find(context.cargoLaboral);
 
                 var sd = context.usuario.First<usuario>();
