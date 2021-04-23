@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1.Pages
 {
@@ -22,8 +23,14 @@ namespace WpfApp1.Pages
     {
         public Reportes()
         {
-           // LO TUVE QUE COMENTAR POR QUE ME SALIA ERROR ATTE WALTER :3
-            // InitializeComponent();
+            InitializeComponent();
+            this.refreshReportes();
+        }
+
+        public void refreshReportes()
+        {
+            MyDataGridReportProduc.ItemsSource = ReportsList.listarProductos();
+
         }
 
         private void btImprimir_Click(object sender, RoutedEventArgs e)

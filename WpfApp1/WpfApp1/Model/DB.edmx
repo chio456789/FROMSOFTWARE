@@ -166,7 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orden__nitClient__3A81B327">
+        <Association Name="FK__orden__nitClient__05D8E0BE">
           <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
           <ReferentialConstraint>
@@ -299,7 +299,7 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="orden" EntitySet="orden" />
           </AssociationSet>
-          <AssociationSet Name="FK__orden__nitClient__3A81B327" Association="Self.FK__orden__nitClient__3A81B327">
+          <AssociationSet Name="FK__orden__nitClient__05D8E0BE" Association="Self.FK__orden__nitClient__05D8E0BE">
             <End Role="clientes" EntitySet="clientes" />
             <End Role="orden" EntitySet="orden" />
           </AssociationSet>
@@ -410,16 +410,6 @@
           <NavigationProperty Name="empleado" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="usuario" ToRole="empleado" />
           <NavigationProperty Name="orden" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="usuario" ToRole="orden" />
         </EntityType>
-        <EntityType Name="clientes">
-          <Key>
-            <PropertyRef Name="nitCliente" />
-          </Key>
-          <Property Name="nitCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
-        </EntityType>
         <EntityType Name="factura">
           <Key>
             <PropertyRef Name="codFactura" />
@@ -443,8 +433,8 @@
           <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="orden" ToRole="ordenProductos" />
           <NavigationProperty Name="ordenPromocion" Relationship="Self.FK__ordenProm__codOr__3B75D760" FromRole="orden" ToRole="ordenPromocion" />
           <NavigationProperty Name="usuario" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="orden" ToRole="usuario" />
-          <NavigationProperty Name="clientes" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="orden" ToRole="clientes" />
           <NavigationProperty Name="factura" Relationship="Self.FK__factura__codOrde__412EB0B6" FromRole="orden" ToRole="factura" />
+          <NavigationProperty Name="clientes" Relationship="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE" FromRole="orden" ToRole="clientes" />
         </EntityType>
         <EntityType Name="categorias">
           <Key>
@@ -597,18 +587,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orden__nitClient__4316F928">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="orden" Type="Self.orden" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="nitCliente" />
-            </Principal>
-            <Dependent Role="orden">
-              <PropertyRef Name="nitClienteFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__factura__codOrde__412EB0B6">
           <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
@@ -640,7 +618,6 @@
           <EntitySet Name="cargoLaboral" EntityType="Self.cargoLaboral" />
           <EntitySet Name="empleado" EntityType="Self.empleado" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
-          <EntitySet Name="clientes" EntityType="Self.clientes" />
           <EntitySet Name="factura" EntityType="Self.factura" />
           <EntitySet Name="orden" EntityType="Self.orden" />
           <EntitySet Name="categorias" EntityType="Self.categorias" />
@@ -682,10 +659,6 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="orden" EntitySet="orden" />
           </AssociationSet>
-          <AssociationSet Name="FK__orden__nitClient__4316F928" Association="Self.FK__orden__nitClient__4316F928">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="orden" EntitySet="orden" />
-          </AssociationSet>
           <AssociationSet Name="FK__factura__codOrde__412EB0B6" Association="Self.FK__factura__codOrde__412EB0B6">
             <End Role="orden" EntitySet="orden" />
             <End Role="factura" EntitySet="factura" />
@@ -694,7 +667,34 @@
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
+          <EntitySet Name="clientes" EntityType="puntoDeVentaDB_testModel.clientes" />
+          <AssociationSet Name="FK__orden__nitClient__05D8E0BE" Association="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="orden" EntitySet="orden" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="nitCliente" />
+          </Key>
+          <Property Name="nitCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="orden" Relationship="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE" FromRole="clientes" ToRole="orden" />
+        </EntityType>
+        <Association Name="FK__orden__nitClient__05D8E0BE">
+          <End Type="puntoDeVentaDB_testModel.clientes" Role="clientes" Multiplicity="0..1" />
+          <End Type="puntoDeVentaDB_testModel.orden" Role="orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="nitCliente" />
+            </Principal>
+            <Dependent Role="orden">
+              <PropertyRef Name="nitClienteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -766,16 +766,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="clientes">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.clientes">
-              <MappingFragment StoreEntitySet="clientes">
-                <ScalarProperty Name="nitCliente" ColumnName="nitCliente" />
-                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
-                <ScalarProperty Name="apellidoCliente" ColumnName="apellidoCliente" />
-                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="factura">
             <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.factura">
               <MappingFragment StoreEntitySet="factura">
@@ -835,6 +825,16 @@
                 <ScalarProperty Name="precioProm" ColumnName="precioProm" />
                 <ScalarProperty Name="imagenProm" ColumnName="imagenProm" />
                 <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+                <ScalarProperty Name="apellidoCliente" ColumnName="apellidoCliente" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="nitCliente" ColumnName="nitCliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

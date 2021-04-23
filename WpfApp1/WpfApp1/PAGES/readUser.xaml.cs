@@ -146,6 +146,10 @@ namespace WpfApp1
 
         //        //Datos del cliente 
 
+        public void refreshCliente()
+        {
+            MyDataGridCliente.ItemsSource = PerfilClientes.ListarClientes();
+        }
 
         private void EditCliente(object sender, RoutedEventArgs e)
         {
@@ -169,5 +173,4 @@ namespace WpfApp1
             public string Cargo { get; set; }
         }
     }
-
 }
