@@ -48,18 +48,16 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int id = (int)((Button)sender).CommandParameter;
+           // int id = (int)((Button)sender).CommandParameter;
 
             AgregarEditarProductoNuevo ventanaProducto = new AgregarEditarProductoNuevo();
            
             ventanaProducto.Show();
-        }
-
-       
-
+        }      
         private void BotonEliminar(object sender, RoutedEventArgs e)
         {
             int id =(int)((Button)sender).CommandParameter;
+
             using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
             {
                 var produto = contexto.productos.Find(id);
@@ -68,8 +66,6 @@ namespace WpfApp1.Pages
             }
             actualizar();
         }
-
-
         public class ProductViewModel
             {
             public string IdProducto { get; set; }
@@ -80,7 +76,6 @@ namespace WpfApp1.Pages
             //public bool DisponibilidadProducto { get; set; }
            // public int Categoria { get; set; }
         }
-
         private void BotonEditar(object sender, RoutedEventArgs e)
         {
             int tol = (int)((Button)sender).CommandParameter;
