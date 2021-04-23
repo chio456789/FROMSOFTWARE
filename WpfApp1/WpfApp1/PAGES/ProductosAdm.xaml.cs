@@ -34,7 +34,7 @@ namespace WpfApp1.Pages
                 lista = (from d in contexto.productos
                          select new ProductViewModel
                          {
-                             IdProducto = d.idProducto,
+                             IdProducto = d.codProducto,
                              NombreProducto = d.nombreProd,
                              DescripcionProducto = d.descripcionProd,
                              PrecioProducto = (decimal)d.precioProd,
@@ -47,9 +47,7 @@ namespace WpfApp1.Pages
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           // int id = (int)((Button)sender).CommandParameter;
-
+        {           
             AgregarEditarProductoNuevo ventanaProducto = new AgregarEditarProductoNuevo();
            
             ventanaProducto.Show();
@@ -68,13 +66,13 @@ namespace WpfApp1.Pages
         }
         public class ProductViewModel
             {
-            public string IdProducto { get; set; }
+            public int IdProducto { get; set; }
             public string NombreProducto { get; set; }
             public string DescripcionProducto { get; set; }
             public decimal PrecioProducto { get; set; }
             public decimal CostoProducto { get; set; }
-            //public bool DisponibilidadProducto { get; set; }
-           // public int Categoria { get; set; }
+            public bool DisponibilidadProducto { get; set; }
+            public int Categoria { get; set; }
         }
         private void BotonEditar(object sender, RoutedEventArgs e)
         {
