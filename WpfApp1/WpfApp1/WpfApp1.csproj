@@ -294,6 +294,8 @@
     <Resource Include="Favicon.png" />
     <Resource Include="Chicken hunter.png" />
     <Resource Include="folco-masi-EkzeCqcx_Zc-unsplash.png" />
+    <Resource Include="FavIconCH.png" />
+    <Resource Include="ImageWindow.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
