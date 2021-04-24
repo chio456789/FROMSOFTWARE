@@ -296,6 +296,8 @@
     <Resource Include="folco-masi-EkzeCqcx_Zc-unsplash.png" />
     <Resource Include="FavIconCH.png" />
     <Resource Include="ImageWindow.png" />
+    <Resource Include="ImageWindowAdm.png" />
+    <Resource Include="FavIconCHAdm.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
