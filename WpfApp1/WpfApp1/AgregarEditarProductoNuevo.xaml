@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize"
-        Title="AgregarEditarProductoNuevo" Height="670" Width="550">
+        Title="AgregarEditarProductoNuevo" Height="700" Width="550">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition MaxHeight="100" Height="80"></RowDefinition>
-                <RowDefinition MaxHeight="260" Height="260"></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition MaxHeight="100" Height="60"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition MaxHeight="100"></RowDefinition>
             </Grid.RowDefinitions>
             
@@ -23,8 +23,9 @@
                 </TextBlock.Effect>
             </TextBlock>
             
-            <Grid Grid.Row="1" MaxWidth="375" MaxHeight="258" Height="255">
+            <Grid Grid.Row="1" MaxWidth="375" Margin="0, 10">
                 <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -77,18 +78,33 @@
                         Nachos
                     </ComboBoxItem>
                 </ComboBox>
+                <ComboBox Grid.Row="5"
+                          materialDesign:HintAssist.Hint="Disponibilidad" 
+                          materialDesign:TextFieldAssist.HasClearButton="True" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          MaxHeight="40" Height="40">
+                    <ComboBoxItem Content="True"></ComboBoxItem>
+                    <ComboBoxItem Content="False"></ComboBoxItem>
+                </ComboBox>
 
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Width="180" Height="180" Background="Transparent" BorderBrush="Transparent" Padding="0">
+                <Button x:Name="BtnImgEditProd" Width="180" Height="180" Background="Transparent" BorderBrush="Transparent" Padding="0" Click="BtnImgEditProd_Click">
                     <Button.Content>
                         <Grid>
                             <Grid>
-                                <Rectangle Stroke="#707070" Width="179" Height="179" StrokeThickness="1" StrokeDashArray="8" SnapsToDevicePixels="True"/>
+                                <Grid>
+                                    <materialDesign:PackIcon Kind="Food" Foreground="#AAAAAA" HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="auto"></materialDesign:PackIcon>
+                                    <TextBlock Foreground="#AAAAAA" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontWeight="Regular">Agregar imagen</TextBlock>
+                                    <Image x:Name="ImgProducto"  Stretch="Fill"/>
+                                </Grid>
+                                <Rectangle Stroke="#707070" Width="179" Height="179" StrokeThickness="1" StrokeDashArray="8" SnapsToDevicePixels="True">
+                                    
+                                </Rectangle>
+                                
                             </Grid>
-                            <materialDesign:PackIcon Kind="Food" Foreground="#AAAAAA" HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="auto"></materialDesign:PackIcon>
-                            <TextBlock Foreground="#AAAAAA" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" FontWeight="Regular">Agregar imagen</TextBlock>
+                            
                         </Grid>
                     </Button.Content>
                 </Button>

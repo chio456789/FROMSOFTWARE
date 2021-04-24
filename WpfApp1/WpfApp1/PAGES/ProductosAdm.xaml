@@ -45,31 +45,31 @@
                     <Grid Grid.Row="2" Margin="0,5,0,0" Background="#aaaaaa">
                         
                         <DataGrid Grid.Row="2" x:Name="DGProductoAdmi"       
-                                  AutoGenerateColumns="True"                                  
+                                  AutoGenerateColumns="False"                                  
                                     SelectionMode="Single"                                  
                                     IsReadOnly="True">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Path=Idproducto}" 
+                                <DataGridTextColumn Binding="{Binding Path = IdProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Id"
                                                     Width="auto"    />
-                                <DataGridTextColumn Binding="{Binding Path=nombreproducto}" 
+                                <DataGridTextColumn Binding="{Binding Path=NombreProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Producto"
                                                     Width="auto"    />
-                                <DataGridTextColumn Binding="{Binding Path=descripcionproducto}" 
+                                <DataGridTextColumn Binding="{Binding Path=DescripcionProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Descripcion"
                                                     Width="auto"    />
-                                <DataGridTextColumn Binding="{Binding Path=Categoria}" 
+                                <DataGridTextColumn Binding="{Binding Path=CategoriaProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Categoria"
                                                     Width="auto"    />
-                                <DataGridTextColumn Binding="{Binding Path=precioproducto}" 
+                                <DataGridTextColumn Binding="{Binding Path=PrecioProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Precio"
                                                     Width="auto"    />
-                                <DataGridTextColumn Binding="{Binding Path=costoproducto}" 
+                                <DataGridTextColumn Binding="{Binding Path=CostoProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Costo"
                                                     Width="auto"    />
@@ -80,7 +80,7 @@
                                 <DataGridTemplateColumn Header="EditarProducto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button CommandParameter="{Binding idproducto}"  Background="#FFF2A533" Click="BotonEditar" >
+                                            <Button CommandParameter="{Binding IdProducto}"  Background="#FFF2A533" Click="BotonEditar" >
                                                 <materialDesign:PackIcon Kind="PlaylistEdit" />
                                             </Button>
                                         </DataTemplate>
@@ -89,7 +89,7 @@
                                 <DataGridTemplateColumn Header="BorrarProducto">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button CommandParameter="{Binding codProducto}"  Click="BotonEliminar" Background="#FFF2A533" >
+                                            <Button CommandParameter="{Binding IdProducto}"  Click="BotonEliminar" Background="#FFF2A533" >
                                                 <Button.Content>
                                                     <materialDesign:PackIcon Kind="Delete"/>
                                                 </Button.Content>
