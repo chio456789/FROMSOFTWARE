@@ -37,11 +37,8 @@ namespace WpfApp1
                  d.passwordUs == PasswordBoxLogin.Password && d.empleado.cargoLaboral.nombreCg == "Administrador"
                     select d;
             var m = from s in bd.usuario
-                    where s.nombreUs == TbNombreUsuarioLogin.Text &&
-s.passwordUs == PasswordBoxLogin.Password && s.empleado.cargoLaboral.nombreCg == "Cajero"
+                    where s.nombreUs == TbNombreUsuarioLogin.Text && s.passwordUs == PasswordBoxLogin.Password && s.empleado.cargoLaboral.nombreCg == "Cajero"
                     select s;
-
-
             if (m.Count()>0)
             {
                 MessageBox.Show("Bienvenido "+ TbNombreUsuarioLogin.Text);
@@ -59,7 +56,6 @@ s.passwordUs == PasswordBoxLogin.Password && s.empleado.cargoLaboral.nombreCg ==
                 TbNombreUsuarioLogin.Text = "";
                 PasswordBoxLogin.Password = "";
             }
-
         }
 
         private void BtnSalirLogin_Click(object sender, RoutedEventArgs e)

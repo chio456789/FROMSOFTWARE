@@ -192,7 +192,7 @@
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="6,2,10,6">
 
-            <DataGrid x:Name="MyDataGrid" x:Uid="MyDataGrid" AutoGenerateColumns="True" ItemsSource="{Binding}"
+            <DataGrid x:Name="MyDataGrid" x:Uid="MyDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}"
                        AlternationCount="2" SelectionMode="Single" Margin="0,0,0,0" Height="252">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding  Path=Nombre}" IsReadOnly="True" Header="Nombre" Width="Auto" />

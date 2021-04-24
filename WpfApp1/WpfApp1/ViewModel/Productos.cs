@@ -19,5 +19,6 @@ namespace WpfApp1.View_model
 
     internal class categorias : DbSet<Model.categorias>
     {
+
     }
 }
