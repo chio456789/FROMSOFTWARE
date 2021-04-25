@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,27 +15,56 @@ namespace WpfApp1.ViewModel
         {
             using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
             {
-                var query = (from pd in db.productos
-                             join op in db.ordenProductos on pd.codProducto equals op.codProductoFK
-                             join ct in db.categorias on pd.codCategoriaFK equals ct.codCategoria
+                var query = (from op in db.ordenProductos
                              select new
                              {
-                                 Producto = pd.nombreProd,
-                                 UnidadesVendidas = db.ordenProductos.Sum(op => op.cantidad),
-                                 Categoria = ct.codCategoria,
-                                 Costo = db.productos.Sum(pd => pd.costoProd),
-                                 Precio = db.productos.Sum(pd => pd.precioProd),
-                                 Total = (db.productos.Sum(pd => pd.precioProd)) - (db.productos.Sum(pd => pd.costoProd)),
+                                 Producto = op.productos.nombreProd,
+                                 UnidadesVendidas = op.cantidad,
+                                 Categoria = op.productos.categorias.nombreCtg,
+                                 Costo = op.productos.costoProd,
+                                 Precio = op.productos.precioProd,
+                                 Total = (op.productos.precioProd) * (op.cantidad)
                              });
 
 
+                //si funciona
+                /*(from op in db.ordenProductos
+                         select new
+                         {
+                             Producto = op.productos.nombreProd,
+                             UnidadesVendidas = op.cantidad,
+                             Categoria = op.productos.categorias.nombreCtg,
+                             Costo = op.productos.costoProd,
+                             Precio = op.productos.precioProd,
+                             Total = (op.productos.precioProd) * (op.cantidad)
+                         });*/
+
+
+                //Si funciona
+                //var query = db.productos
+                //            .Join(
+                //            db.ordenProductos,
+                //            pd => pd.codProducto,
+                //            op => op.codProductoFK,
+                //            (pd, op) => new { pd.nombreProd, op.cantidad })
+                //            .GroupBy(pd => pd.nombreProd)
+                //            .Select(x => new { Producto = x.Key, UnidadesVendidas = x.Select(g => g.cantidad).Sum() });
+
                 /*
-                 db.CATEGORies.GroupBy(c => c.CATNAME).
-                  Select(g => new 
-                    {
-                        g.Key, 
-                        SUM = g.Sum(s => s.Inqueries.Select(t=>t.TotalTimeSpent).Sum())
-                    });
+                 var query = db.productos
+                            .Join(
+                            db.ordenProductos,
+                            pd => pd.codProducto,
+                            op => op.codProductoFK,
+                            (pd, op) => new { pd.nombreProd, op.cantidad, pd.codCategoriaFK })
+                            .Join(
+                            db.categorias,
+                            pd => pd.codCategoriaFK,
+                            ct => ct.codCategoria,
+                            (pd, ct) => new { ct.nombreCtg }
+                            )
+                            .GroupBy(y => y.nombreCtg)
+                            .Select(x => new { Producto = x.Key, UnidadesVendidas = x.Select(g => g.cantidad).Sum() });
                  */
                 return query.ToList();
             }

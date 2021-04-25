@@ -36,7 +36,7 @@
                 <DataGrid x:Name="MyDataGridReportProduc" x:Uid="MyDataGridReportProduc" AutoGenerateColumns="False"
                        AlternationCount="2" SelectionMode="Single" Margin="2,0,10,2">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding  Path=Producto}" IsReadOnly="True" Header="Producto" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Path=Producto}" IsReadOnly="True" Header="Producto" Width="Auto" />
                         <DataGridTextColumn Binding="{Binding Path=UnidadesVendidas}" Header="Unidades vendidas" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Categoria}" Header="Categorias" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Costo}" Header="Costo" Width="Auto" />
