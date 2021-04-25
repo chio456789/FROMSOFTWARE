@@ -104,6 +104,21 @@
     <Compile Include="Model\clientes.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Model\empleado.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -235,21 +250,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
@@ -293,6 +293,13 @@
     <Resource Include="Pages\folco-masi-EkzeCqcx_Zc-unsplash.png" />
     <Resource Include="Favicon.png" />
     <Resource Include="Chicken hunter.png" />
+    <Resource Include="folco-masi-EkzeCqcx_Zc-unsplash.png" />
+    <Resource Include="FavIconCH.png" />
+    <Resource Include="ImageWindow.png" />
+    <Resource Include="ImageWindowAdm.png" />
+    <Resource Include="FavIconCHAdm.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
@@ -304,7 +311,6 @@
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
