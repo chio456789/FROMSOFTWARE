@@ -27,8 +27,9 @@
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__codUsuari__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__factura__codOrde__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__productos__codCa__3C69FB99" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="puntoDeVentaDB_testModel.clientes" Width="1.5" PointX="0.75" PointY="7.875" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__nitClient__3A81B327" />
+        <EntityTypeShape EntityType="puntoDeVentaDB_testModel.clientes" Width="1.5" PointX="0.75" PointY="7.875" />
+        <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,7 +18,19 @@ namespace WpfApp1.View_model
 
             using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
             {
-                var query = (from us in db.usuario
+                var query = (from us in db.usuario select new {
+                    Nombre = us.empleado.nombreEmp,
+                    Apellido = us.empleado.apellidoPtEmp,
+                    CI = us.empleado.ciEmpleado,
+                    Direccion = us.empleado.direccionEmp,
+                    Correo = us.empleado.correoEmp,
+                    Cargo = us.empleado.cargoLaboral.nombreCg
+                }
+                    
+                    //
+                    
+                    
+                    /*from us in db.usuario
                              join emp in db.empleado on us.ciEmpleadoFK equals emp.ciEmpleado
                              join cargo in db.cargoLaboral on emp.codCargoFK equals cargo.codCargo
                              select new
@@ -31,7 +43,7 @@ namespace WpfApp1.View_model
                                  Cargo = cargo.nombreCg,
 
 
-                             }
+                             }*/
                        );
 
                 return query.ToList();

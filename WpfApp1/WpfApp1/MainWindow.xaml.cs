@@ -20,9 +20,12 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Frame staticmain;
+
         public MainWindow()
         {
             InitializeComponent();
+            staticmain = MainFrame;
         }
 
         private void BtnCerrarSesion_Click(object sender, RoutedEventArgs e)
