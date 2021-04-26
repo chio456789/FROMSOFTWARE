@@ -86,6 +86,9 @@
     <Compile Include="EditarCliente.xaml.cs">
       <DependentUpon>EditarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditarProducto.xaml.cs">
+      <DependentUpon>EditarProducto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
     </Compile>
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditarProducto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

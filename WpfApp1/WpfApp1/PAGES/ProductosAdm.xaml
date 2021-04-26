@@ -73,7 +73,7 @@
                                                     IsReadOnly="True" 
                                                     Header="Costo"
                                                     Width="auto"    />
-                                <DataGridTextColumn Binding="{Binding Path=disponibilidadproducto}" 
+                                <DataGridTextColumn Binding="{Binding Path=DisponibilidadProducto}" 
                                                     IsReadOnly="True" 
                                                     Header="Disponibilidad"
                                                     Width="auto" />
