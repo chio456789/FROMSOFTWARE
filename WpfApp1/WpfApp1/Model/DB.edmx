@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="puntoDeVentaDB_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="puntoDeVentaDB_test.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ordenProductos">
           <Key>
             <PropertyRef Name="idOrdenProductos" />
@@ -106,7 +106,7 @@
           <Key>
             <PropertyRef Name="codProducto" />
           </Key>
-          <Property Name="codProducto" Type="int" Nullable="false" />
+          <Property Name="codProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idProducto" Type="nvarchar" MaxLength="204" StoreGeneratedPattern="Computed" />
           <Property Name="nombreProd" Type="nvarchar" MaxLength="50" />
           <Property Name="descripcionProd" Type="nvarchar" MaxLength="400" />
@@ -130,7 +130,7 @@
           <Property Name="imagenProm" Type="varbinary(max)" />
           <Property Name="eliminar" Type="bit" />
         </EntityType>
-        <Association Name="FK__empleado__codCar__37A5467C">
+        <Association Name="FK__empleado__codCar__3F466844">
           <End Role="cargoLaboral" Type="Self.cargoLaboral" Multiplicity="0..1" />
           <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +142,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__factura__codOrde__398D8EEE">
+        <Association Name="FK__factura__codOrde__412EB0B6">
           <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
           <End Role="factura" Type="Self.factura" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +154,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orden__codUsuari__3B75D760">
+        <Association Name="FK__orden__codUsuari__4222D4EF">
           <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orden__nitClient__05D8E0BE">
+        <Association Name="FK__orden__nitClient__4316F928">
           <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,307 +178,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ordenProd__codOr__787EE5A0">
-          <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
-          <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="orden">
-              <PropertyRef Name="codOrden" />
-            </Principal>
-            <Dependent Role="ordenProductos">
-              <PropertyRef Name="codOrdenFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ordenProd__codPr__778AC167">
-          <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
-          <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="productos">
-              <PropertyRef Name="codProducto" />
-            </Principal>
-            <Dependent Role="ordenProductos">
-              <PropertyRef Name="codProductoFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ordenProm__codOr__6D0D32F4">
-          <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
-          <End Role="ordenPromocion" Type="Self.ordenPromocion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="orden">
-              <PropertyRef Name="codOrden" />
-            </Principal>
-            <Dependent Role="ordenPromocion">
-              <PropertyRef Name="codOrdenFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ordenProm__codPr__6C190EBB">
-          <End Role="promocion" Type="Self.promocion" Multiplicity="0..1" />
-          <End Role="ordenPromocion" Type="Self.ordenPromocion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="promocion">
-              <PropertyRef Name="codPromocion" />
-            </Principal>
-            <Dependent Role="ordenPromocion">
-              <PropertyRef Name="codPromocionFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__productos__codCa__3C69FB99">
-          <End Role="categorias" Type="Self.categorias" Multiplicity="0..1" />
-          <End Role="productos" Type="Self.productos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="categorias">
-              <PropertyRef Name="codCategoria" />
-            </Principal>
-            <Dependent Role="productos">
-              <PropertyRef Name="codCategoriaFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__promocion__codPr__6A30C649">
-          <End Role="promocion" Type="Self.promocion" Multiplicity="0..1" />
-          <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="promocion">
-              <PropertyRef Name="codPromocion" />
-            </Principal>
-            <Dependent Role="promocionesProductos">
-              <PropertyRef Name="codPromocionFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__promocion__codPr__6B24EA82">
-          <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
-          <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="productos">
-              <PropertyRef Name="codProducto" />
-            </Principal>
-            <Dependent Role="promocionesProductos">
-              <PropertyRef Name="codProductoFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__usuario__ciEmple__38996AB5">
-          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
-          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="empleado">
-              <PropertyRef Name="ciEmpleado" />
-            </Principal>
-            <Dependent Role="usuario">
-              <PropertyRef Name="ciEmpleadoFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="puntoDeVentaDB_testModelStoreContainer">
-          <EntitySet Name="ordenProductos" EntityType="Self.ordenProductos" Schema="cp" store:Type="Tables" />
-          <EntitySet Name="ordenPromocion" EntityType="Self.ordenPromocion" Schema="cp" store:Type="Tables" />
-          <EntitySet Name="promocionesProductos" EntityType="Self.promocionesProductos" Schema="cp" store:Type="Tables" />
-          <EntitySet Name="cargoLaboral" EntityType="Self.cargoLaboral" Schema="emp" store:Type="Tables" />
-          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="emp" store:Type="Tables" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="emp" store:Type="Tables" />
-          <EntitySet Name="clientes" EntityType="Self.clientes" Schema="inf" store:Type="Tables" />
-          <EntitySet Name="factura" EntityType="Self.factura" Schema="inf" store:Type="Tables" />
-          <EntitySet Name="orden" EntityType="Self.orden" Schema="inf" store:Type="Tables" />
-          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="prod" store:Type="Tables" />
-          <EntitySet Name="productos" EntityType="Self.productos" Schema="prod" store:Type="Tables" />
-          <EntitySet Name="promocion" EntityType="Self.promocion" Schema="prom" store:Type="Tables" />
-          <AssociationSet Name="FK__empleado__codCar__37A5467C" Association="Self.FK__empleado__codCar__37A5467C">
-            <End Role="cargoLaboral" EntitySet="cargoLaboral" />
-            <End Role="empleado" EntitySet="empleado" />
-          </AssociationSet>
-          <AssociationSet Name="FK__factura__codOrde__398D8EEE" Association="Self.FK__factura__codOrde__398D8EEE">
-            <End Role="orden" EntitySet="orden" />
-            <End Role="factura" EntitySet="factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK__orden__codUsuari__3B75D760" Association="Self.FK__orden__codUsuari__3B75D760">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="orden" EntitySet="orden" />
-          </AssociationSet>
-          <AssociationSet Name="FK__orden__nitClient__05D8E0BE" Association="Self.FK__orden__nitClient__05D8E0BE">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="orden" EntitySet="orden" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codOr__787EE5A0" Association="Self.FK__ordenProd__codOr__787EE5A0">
-            <End Role="orden" EntitySet="orden" />
-            <End Role="ordenProductos" EntitySet="ordenProductos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
-            <End Role="productos" EntitySet="productos" />
-            <End Role="ordenProductos" EntitySet="ordenProductos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ordenProm__codOr__6D0D32F4" Association="Self.FK__ordenProm__codOr__6D0D32F4">
-            <End Role="orden" EntitySet="orden" />
-            <End Role="ordenPromocion" EntitySet="ordenPromocion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ordenProm__codPr__6C190EBB" Association="Self.FK__ordenProm__codPr__6C190EBB">
-            <End Role="promocion" EntitySet="promocion" />
-            <End Role="ordenPromocion" EntitySet="ordenPromocion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__productos__codCa__3C69FB99" Association="Self.FK__productos__codCa__3C69FB99">
-            <End Role="categorias" EntitySet="categorias" />
-            <End Role="productos" EntitySet="productos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__6A30C649" Association="Self.FK__promocion__codPr__6A30C649">
-            <End Role="promocion" EntitySet="promocion" />
-            <End Role="promocionesProductos" EntitySet="promocionesProductos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
-            <End Role="productos" EntitySet="productos" />
-            <End Role="promocionesProductos" EntitySet="promocionesProductos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__usuario__ciEmple__38996AB5" Association="Self.FK__usuario__ciEmple__38996AB5">
-            <End Role="empleado" EntitySet="empleado" />
-            <End Role="usuario" EntitySet="usuario" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="puntoDeVentaDB_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ordenProductos">
-          <Key>
-            <PropertyRef Name="idOrdenProductos" />
-          </Key>
-          <Property Name="idOrdenProductos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codOrdenFK" Type="Int32" />
-          <Property Name="codProductoFK" Type="Int32" />
-          <Property Name="cantidad" Type="Int32" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="ordenProductos" ToRole="productos" />
-        </EntityType>
-        <EntityType Name="ordenPromocion">
-          <Key>
-            <PropertyRef Name="idOrdenPromocion" />
-          </Key>
-          <Property Name="idOrdenPromocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codPromocionFK" Type="Int32" />
-          <Property Name="codOrdenFK" Type="Int32" />
-          <Property Name="cantidad" Type="Int32" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProm__codOr__3B75D760" FromRole="ordenPromocion" ToRole="orden" />
-          <NavigationProperty Name="promocion" Relationship="Self.FK__ordenProm__codPr__3C69FB99" FromRole="ordenPromocion" ToRole="promocion" />
-        </EntityType>
-        <EntityType Name="promocionesProductos">
-          <Key>
-            <PropertyRef Name="idPromProd" />
-          </Key>
-          <Property Name="idPromProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codPromocionFK" Type="Int32" />
-          <Property Name="codProductoFK" Type="Int32" />
-          <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="promocionesProductos" ToRole="productos" />
-        </EntityType>
-        <EntityType Name="cargoLaboral">
-          <Key>
-            <PropertyRef Name="codCargo" />
-          </Key>
-          <Property Name="codCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreCg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="descripcionCg" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="empleado" Relationship="Self.FK__empleado__codCar__3F466844" FromRole="cargoLaboral" ToRole="empleado" />
-        </EntityType>
-        <EntityType Name="empleado">
-          <Key>
-            <PropertyRef Name="ciEmpleado" />
-          </Key>
-          <Property Name="ciEmpleado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="nombreEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="apellidoPtEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="apellidoMtEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="direccionEmp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="correoEmp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="codCargoFK" Type="Int32" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="cargoLaboral" Relationship="Self.FK__empleado__codCar__3F466844" FromRole="empleado" ToRole="cargoLaboral" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="empleado" ToRole="usuario" />
-        </EntityType>
-        <EntityType Name="usuario">
-          <Key>
-            <PropertyRef Name="codUsuario" />
-          </Key>
-          <Property Name="codUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreUs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="passwordUs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ciEmpleadoFK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="empleado" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="usuario" ToRole="empleado" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="usuario" ToRole="orden" />
-        </EntityType>
-        <EntityType Name="factura">
-          <Key>
-            <PropertyRef Name="codFactura" />
-          </Key>
-          <Property Name="codFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codOrdenFK" Type="Int32" />
-          <Property Name="totalFactura" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__factura__codOrde__412EB0B6" FromRole="factura" ToRole="orden" />
-        </EntityType>
-        <EntityType Name="orden">
-          <Key>
-            <PropertyRef Name="codOrden" />
-          </Key>
-          <Property Name="codOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nitClienteFK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="observaciones" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="estadoOrden" Type="Boolean" />
-          <Property Name="codUsuarioFK" Type="Int32" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="orden" ToRole="ordenProductos" />
-          <NavigationProperty Name="ordenPromocion" Relationship="Self.FK__ordenProm__codOr__3B75D760" FromRole="orden" ToRole="ordenPromocion" />
-          <NavigationProperty Name="usuario" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="orden" ToRole="usuario" />
-          <NavigationProperty Name="factura" Relationship="Self.FK__factura__codOrde__412EB0B6" FromRole="orden" ToRole="factura" />
-          <NavigationProperty Name="clientes" Relationship="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE" FromRole="orden" ToRole="clientes" />
-        </EntityType>
-        <EntityType Name="categorias">
-          <Key>
-            <PropertyRef Name="codCategoria" />
-          </Key>
-          <Property Name="codCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreCtg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="descripcionCtg" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="categorias" ToRole="productos" />
-        </EntityType>
-        <EntityType Name="productos">
-          <Key>
-            <PropertyRef Name="codProducto" />
-          </Key>
-          <Property Name="codProducto" Type="Int32" Nullable="false" />
-          <Property Name="idProducto" Type="String" MaxLength="204" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="nombreProd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="descripcionProd" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="codCategoriaFK" Type="Int32" />
-          <Property Name="precioProd" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="costoProd" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="disponibilidadProd" Type="Boolean" />
-          <Property Name="imagenProd" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="productos" ToRole="ordenProductos" />
-          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="productos" ToRole="promocionesProductos" />
-          <NavigationProperty Name="categorias" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="productos" ToRole="categorias" />
-        </EntityType>
-        <EntityType Name="promocion">
-          <Key>
-            <PropertyRef Name="codPromocion" />
-          </Key>
-          <Property Name="codPromocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idPromocion" Type="String" MaxLength="204" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="nomProm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="estadoProm" Type="Boolean" />
-          <Property Name="detalleProm" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="precioProm" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="imagenProm" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenPromocion" Relationship="Self.FK__ordenProm__codPr__3C69FB99" FromRole="promocion" ToRole="ordenPromocion" />
-          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocion" ToRole="promocionesProductos" />
-        </EntityType>
         <Association Name="FK__ordenProd__codOr__398D8EEE">
           <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
           <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
@@ -527,6 +226,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__productos__codCa__3C69FB99">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="0..1" />
+          <End Role="productos" Type="Self.productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="codCategoria" />
+            </Principal>
+            <Dependent Role="productos">
+              <PropertyRef Name="codCategoriaFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__promocion__codPr__3D5E1FD2">
           <End Role="promocion" Type="Self.promocion" Multiplicity="0..1" />
           <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
@@ -551,6 +262,336 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__usuario__ciEmple__403A8C7D">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="ciEmpleado" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="ciEmpleadoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="codUsuario" />
+            </Principal>
+            <Dependent Role="usuario1">
+              <PropertyRef Name="codUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="puntoDeVentaDB_testStoreContainer">
+          <EntitySet Name="ordenProductos" EntityType="Self.ordenProductos" Schema="cp" store:Type="Tables" />
+          <EntitySet Name="ordenPromocion" EntityType="Self.ordenPromocion" Schema="cp" store:Type="Tables" />
+          <EntitySet Name="promocionesProductos" EntityType="Self.promocionesProductos" Schema="cp" store:Type="Tables" />
+          <EntitySet Name="cargoLaboral" EntityType="Self.cargoLaboral" Schema="emp" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="emp" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="emp" store:Type="Tables" />
+          <EntitySet Name="clientes" EntityType="Self.clientes" Schema="inf" store:Type="Tables" />
+          <EntitySet Name="factura" EntityType="Self.factura" Schema="inf" store:Type="Tables" />
+          <EntitySet Name="orden" EntityType="Self.orden" Schema="inf" store:Type="Tables" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="prod" store:Type="Tables" />
+          <EntitySet Name="productos" EntityType="Self.productos" Schema="prod" store:Type="Tables" />
+          <EntitySet Name="promocion" EntityType="Self.promocion" Schema="prom" store:Type="Tables" />
+          <AssociationSet Name="FK__empleado__codCar__3F466844" Association="Self.FK__empleado__codCar__3F466844">
+            <End Role="cargoLaboral" EntitySet="cargoLaboral" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__factura__codOrde__412EB0B6" Association="Self.FK__factura__codOrde__412EB0B6">
+            <End Role="orden" EntitySet="orden" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orden__codUsuari__4222D4EF" Association="Self.FK__orden__codUsuari__4222D4EF">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="orden" EntitySet="orden" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orden__nitClient__4316F928" Association="Self.FK__orden__nitClient__4316F928">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="orden" EntitySet="orden" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ordenProd__codOr__398D8EEE" Association="Self.FK__ordenProd__codOr__398D8EEE">
+            <End Role="orden" EntitySet="orden" />
+            <End Role="ordenProductos" EntitySet="ordenProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="ordenProductos" EntitySet="ordenProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ordenProm__codOr__3B75D760" Association="Self.FK__ordenProm__codOr__3B75D760">
+            <End Role="orden" EntitySet="orden" />
+            <End Role="ordenPromocion" EntitySet="ordenPromocion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ordenProm__codPr__3C69FB99" Association="Self.FK__ordenProm__codPr__3C69FB99">
+            <End Role="promocion" EntitySet="promocion" />
+            <End Role="ordenPromocion" EntitySet="ordenPromocion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__productos__codCa__3C69FB99" Association="Self.FK__productos__codCa__3C69FB99">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="productos" EntitySet="productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__promocion__codPr__3D5E1FD2" Association="Self.FK__promocion__codPr__3D5E1FD2">
+            <End Role="promocion" EntitySet="promocion" />
+            <End Role="promocionesProductos" EntitySet="promocionesProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
+            <End Role="productos" EntitySet="productos" />
+            <End Role="promocionesProductos" EntitySet="promocionesProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuario__ciEmple__403A8C7D" Association="Self.FK__usuario__ciEmple__403A8C7D">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_usuario" Association="Self.FK_usuario_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuario1" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="puntoDeVentaDB_test" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ordenProductos">
+          <Key>
+            <PropertyRef Name="idOrdenProductos" />
+          </Key>
+          <Property Name="idOrdenProductos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codOrdenFK" Type="Int32" />
+          <Property Name="codProductoFK" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="ordenProductos" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="ordenPromocion">
+          <Key>
+            <PropertyRef Name="idOrdenPromocion" />
+          </Key>
+          <Property Name="idOrdenPromocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codPromocionFK" Type="Int32" />
+          <Property Name="codOrdenFK" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProm__codOr__3B75D760" FromRole="ordenPromocion" ToRole="orden" />
+          <NavigationProperty Name="promocion" Relationship="Self.FK__ordenProm__codPr__3C69FB99" FromRole="ordenPromocion" ToRole="promocion" />
+        </EntityType>
+        <EntityType Name="promocionesProductos">
+          <Key>
+            <PropertyRef Name="idPromProd" />
+          </Key>
+          <Property Name="idPromProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codPromocionFK" Type="Int32" />
+          <Property Name="codProductoFK" Type="Int32" />
+          <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="promocionesProductos" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="cargoLaboral">
+          <Key>
+            <PropertyRef Name="codCargo" />
+          </Key>
+          <Property Name="codCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descripcionCg" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="empleado" Relationship="Self.FK__empleado__codCar__3F466844" FromRole="cargoLaboral" ToRole="empleado" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="ciEmpleado" />
+          </Key>
+          <Property Name="ciEmpleado" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombreEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoPtEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoMtEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="direccionEmp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="correoEmp" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="codCargoFK" Type="Int32" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="cargoLaboral" Relationship="Self.FK__empleado__codCar__3F466844" FromRole="empleado" ToRole="cargoLaboral" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="empleado" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="codUsuario" />
+          </Key>
+          <Property Name="codUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreUs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="passwordUs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ciEmpleadoFK" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="empleado" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="usuario" ToRole="empleado" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="usuario" ToRole="orden" />
+          <NavigationProperty Name="usuario1" Relationship="Self.FK_usuario_usuario" FromRole="usuario" ToRole="usuario1" />
+          <NavigationProperty Name="usuario2" Relationship="Self.FK_usuario_usuario" FromRole="usuario1" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="nitCliente" />
+          </Key>
+          <Property Name="nitCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="nitCliente" />
+          </Key>
+          <Property Name="nitCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="codFactura" />
+          </Key>
+          <Property Name="codFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codOrdenFK" Type="Int32" />
+          <Property Name="totalFactura" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__factura__codOrde__412EB0B6" FromRole="factura" ToRole="orden" />
+        </EntityType>
+        <EntityType Name="orden">
+          <Key>
+            <PropertyRef Name="codOrden" />
+          </Key>
+          <Property Name="codOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nitClienteFK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="estadoOrden" Type="Boolean" />
+          <Property Name="codUsuarioFK" Type="Int32" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="orden" ToRole="ordenProductos" />
+          <NavigationProperty Name="ordenPromocion" Relationship="Self.FK__ordenProm__codOr__3B75D760" FromRole="orden" ToRole="ordenPromocion" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="orden" ToRole="usuario" />
+          <NavigationProperty Name="clientes" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="orden" ToRole="clientes" />
+          <NavigationProperty Name="factura" Relationship="Self.FK__factura__codOrde__412EB0B6" FromRole="orden" ToRole="factura" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="codCategoria" />
+          </Key>
+          <Property Name="codCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCtg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descripcionCtg" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="categorias" ToRole="productos" />
+        </EntityType>
+        <EntityType Name="productos">
+          <Key>
+            <PropertyRef Name="codProducto" />
+          </Key>
+          <Property Name="codProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idProducto" Type="String" MaxLength="204" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="nombreProd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descripcionProd" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="codCategoriaFK" Type="Int32" />
+          <Property Name="precioProd" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="costoProd" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="disponibilidadProd" Type="Boolean" />
+          <Property Name="imagenProd" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="productos" ToRole="ordenProductos" />
+          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="productos" ToRole="promocionesProductos" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="productos" ToRole="categorias" />
+        </EntityType>
+        <EntityType Name="promocion">
+          <Key>
+            <PropertyRef Name="codPromocion" />
+          </Key>
+          <Property Name="codPromocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPromocion" Type="String" MaxLength="204" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="nomProm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="estadoProm" Type="Boolean" />
+          <Property Name="detalleProm" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="precioProm" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="imagenProm" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="ordenPromocion" Relationship="Self.FK__ordenProm__codPr__3C69FB99" FromRole="promocion" ToRole="ordenPromocion" />
+          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocion" ToRole="promocionesProductos" />
+        </EntityType>
+        <Association Name="FK__ordenProd__codOr__398D8EEE">
+          <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
+          <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orden">
+              <PropertyRef Name="codOrden" />
+            </Principal>
+            <Dependent Role="ordenProductos">
+              <PropertyRef Name="codOrdenFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ordenProd__codPr__778AC167">
+          <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
+          <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="codProducto" />
+            </Principal>
+            <Dependent Role="ordenProductos">
+              <PropertyRef Name="codProductoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ordenProm__codOr__3B75D760">
+          <End Role="orden" Type="Self.orden" Multiplicity="0..1" />
+          <End Role="ordenPromocion" Type="Self.ordenPromocion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orden">
+              <PropertyRef Name="codOrden" />
+            </Principal>
+            <Dependent Role="ordenPromocion">
+              <PropertyRef Name="codOrdenFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ordenProm__codPr__3C69FB99">
+          <End Role="promocion" Type="Self.promocion" Multiplicity="0..1" />
+          <End Role="ordenPromocion" Type="Self.ordenPromocion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="promocion">
+              <PropertyRef Name="codPromocion" />
+            </Principal>
+            <Dependent Role="ordenPromocion">
+              <PropertyRef Name="codPromocionFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__promocion__codPr__3D5E1FD2">
+          <End Role="promocion" Type="Self.promocion" Multiplicity="0..1" />
+          <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="promocion">
+              <PropertyRef Name="codPromocion" />
+            </Principal>
+            <Dependent Role="promocionesProductos">
+              <PropertyRef Name="codPromocionFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__promocion__codPr__6B24EA82">
+          <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
+          <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productos">
+              <PropertyRef Name="codProducto" />
+            </Principal>
+            <Dependent Role="promocionesProductos">
+              <PropertyRef Name="codProductoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__empleado__codCar__3F466844">
           <End Role="cargoLaboral" Type="Self.cargoLaboral" Multiplicity="0..1" />
           <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
@@ -564,7 +605,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__usuario__ciEmple__403A8C7D">
-          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="empleado">
@@ -584,6 +627,30 @@
             </Principal>
             <Dependent Role="orden">
               <PropertyRef Name="codUsuarioFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="codUsuario" />
+            </Principal>
+            <Dependent Role="usuario1">
+              <PropertyRef Name="codUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__orden__nitClient__4316F928">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
+          <End Role="orden" Type="Self.orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="nitCliente" />
+            </Principal>
+            <Dependent Role="orden">
+              <PropertyRef Name="nitClienteFK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -618,6 +685,7 @@
           <EntitySet Name="cargoLaboral" EntityType="Self.cargoLaboral" />
           <EntitySet Name="empleado" EntityType="Self.empleado" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <EntitySet Name="clientes" EntityType="Self.clientes" />
           <EntitySet Name="factura" EntityType="Self.factura" />
           <EntitySet Name="orden" EntityType="Self.orden" />
           <EntitySet Name="categorias" EntityType="Self.categorias" />
@@ -627,7 +695,7 @@
             <End Role="orden" EntitySet="orden" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
+          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
             <End Role="productos" EntitySet="productos" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
@@ -643,7 +711,7 @@
             <End Role="promocion" EntitySet="promocion" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
+          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
             <End Role="productos" EntitySet="productos" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
@@ -659,6 +727,14 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="orden" EntitySet="orden" />
           </AssociationSet>
+          <AssociationSet Name="FK_usuario_usuario" Association="Self.FK_usuario_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuario1" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__orden__nitClient__4316F928" Association="Self.FK__orden__nitClient__4316F928">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="orden" EntitySet="orden" />
+          </AssociationSet>
           <AssociationSet Name="FK__factura__codOrde__412EB0B6" Association="Self.FK__factura__codOrde__412EB0B6">
             <End Role="orden" EntitySet="orden" />
             <End Role="factura" EntitySet="factura" />
@@ -667,42 +743,15 @@
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
-          <EntitySet Name="clientes" EntityType="puntoDeVentaDB_testModel.clientes" />
-          <AssociationSet Name="FK__orden__nitClient__05D8E0BE" Association="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="orden" EntitySet="orden" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="clientes">
-          <Key>
-            <PropertyRef Name="nitCliente" />
-          </Key>
-          <Property Name="nitCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="orden" Relationship="puntoDeVentaDB_testModel.FK__orden__nitClient__05D8E0BE" FromRole="clientes" ToRole="orden" />
-        </EntityType>
-        <Association Name="FK__orden__nitClient__05D8E0BE">
-          <End Type="puntoDeVentaDB_testModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="puntoDeVentaDB_testModel.orden" Role="orden" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="nitCliente" />
-            </Principal>
-            <Dependent Role="orden">
-              <PropertyRef Name="nitClienteFK" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="puntoDeVentaDB_testModelStoreContainer" CdmEntityContainer="puntoDeVentaDB_testEntities">
+        <EntityContainerMapping StorageEntityContainer="puntoDeVentaDB_testStoreContainer" CdmEntityContainer="puntoDeVentaDB_testEntities">
           <EntitySetMapping Name="ordenProductos">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.ordenProductos">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.ordenProductos">
               <MappingFragment StoreEntitySet="ordenProductos">
                 <ScalarProperty Name="idOrdenProductos" ColumnName="idOrdenProductos" />
                 <ScalarProperty Name="codOrdenFK" ColumnName="codOrdenFK" />
@@ -712,7 +761,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ordenPromocion">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.ordenPromocion">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.ordenPromocion">
               <MappingFragment StoreEntitySet="ordenPromocion">
                 <ScalarProperty Name="idOrdenPromocion" ColumnName="idOrdenPromocion" />
                 <ScalarProperty Name="codPromocionFK" ColumnName="codPromocionFK" />
@@ -722,7 +771,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="promocionesProductos">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.promocionesProductos">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.promocionesProductos">
               <MappingFragment StoreEntitySet="promocionesProductos">
                 <ScalarProperty Name="idPromProd" ColumnName="idPromProd" />
                 <ScalarProperty Name="codPromocionFK" ColumnName="codPromocionFK" />
@@ -731,7 +780,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cargoLaboral">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.cargoLaboral">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.cargoLaboral">
               <MappingFragment StoreEntitySet="cargoLaboral">
                 <ScalarProperty Name="codCargo" ColumnName="codCargo" />
                 <ScalarProperty Name="nombreCg" ColumnName="nombreCg" />
@@ -741,7 +790,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="empleado">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.empleado">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.empleado">
               <MappingFragment StoreEntitySet="empleado">
                 <ScalarProperty Name="ciEmpleado" ColumnName="ciEmpleado" />
                 <ScalarProperty Name="nombreEmp" ColumnName="nombreEmp" />
@@ -756,7 +805,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.usuario">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.usuario">
               <MappingFragment StoreEntitySet="usuario">
                 <ScalarProperty Name="codUsuario" ColumnName="codUsuario" />
                 <ScalarProperty Name="nombreUs" ColumnName="nombreUs" />
@@ -766,8 +815,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="nitCliente" ColumnName="nitCliente" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+                <ScalarProperty Name="apellidoCliente" ColumnName="apellidoCliente" />
+                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="factura">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.factura">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.factura">
               <MappingFragment StoreEntitySet="factura">
                 <ScalarProperty Name="codFactura" ColumnName="codFactura" />
                 <ScalarProperty Name="codOrdenFK" ColumnName="codOrdenFK" />
@@ -777,7 +836,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orden">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.orden">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.orden">
               <MappingFragment StoreEntitySet="orden">
                 <ScalarProperty Name="codOrden" ColumnName="codOrden" />
                 <ScalarProperty Name="nitClienteFK" ColumnName="nitClienteFK" />
@@ -789,7 +848,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="categorias">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.categorias">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.categorias">
               <MappingFragment StoreEntitySet="categorias">
                 <ScalarProperty Name="codCategoria" ColumnName="codCategoria" />
                 <ScalarProperty Name="nombreCtg" ColumnName="nombreCtg" />
@@ -799,7 +858,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="productos">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.productos">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.productos">
               <MappingFragment StoreEntitySet="productos">
                 <ScalarProperty Name="codProducto" ColumnName="codProducto" />
                 <ScalarProperty Name="idProducto" ColumnName="idProducto" />
@@ -815,7 +874,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="promocion">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.promocion">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_test.promocion">
               <MappingFragment StoreEntitySet="promocion">
                 <ScalarProperty Name="codPromocion" ColumnName="codPromocion" />
                 <ScalarProperty Name="idPromocion" ColumnName="idPromocion" />
@@ -825,16 +884,6 @@
                 <ScalarProperty Name="precioProm" ColumnName="precioProm" />
                 <ScalarProperty Name="imagenProm" ColumnName="imagenProm" />
                 <ScalarProperty Name="eliminar" ColumnName="eliminar" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="clientes">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.clientes">
-              <MappingFragment StoreEntitySet="clientes">
-                <ScalarProperty Name="eliminar" ColumnName="eliminar" />
-                <ScalarProperty Name="apellidoCliente" ColumnName="apellidoCliente" />
-                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
-                <ScalarProperty Name="nitCliente" ColumnName="nitCliente" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
