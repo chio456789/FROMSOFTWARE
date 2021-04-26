@@ -22,24 +22,28 @@ namespace WpfApp1
     /// </summary>
     public partial class EditarUsuario : Window
     {
-      
 
+        private Usuario_emp dd = new Usuario_emp();
         puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
         usuario us = new usuario();
         empleado emp = new empleado();
+        static string us_id;
 
        
 
         public EditarUsuario(string id)
         {
-
+            us_id = id;
             InitializeComponent();
+            tbCargo.ItemsSource = dd.listar_cargos();
+
 
             us = bd.usuario.Where(x => x.ciEmpleadoFK == id).First();
             emp = bd.empleado.Find(id);
             tbNombre.Text = emp.nombreEmp;
             tbDireccion.Text = emp.direccionEmp;
             tbCI.Text = emp.ciEmpleado;
+            tbCargo.SelectedValue =emp.cargoLaboral.codCargo;
             tbApellido.Text = emp.apellidoPtEmp;
             tbCorreo.Text = emp.correoEmp;
             tbPassword.Password = us.passwordUs;
@@ -51,7 +55,7 @@ namespace WpfApp1
         private void btActualizarUsuario_Click(object sender, RoutedEventArgs e)
         {
             Usuario_emp use = new Usuario_emp();
-
+            Cargo mm = new Cargo();
             Empleado em3 = new Empleado();
             Usuarios ui = new Usuarios();
             em3.Nombre = tbNombre.Text;
@@ -59,10 +63,11 @@ namespace WpfApp1
             em3.Direccion = tbDireccion.Text;
             em3.Ci = tbCI.Text;
             em3.Correo = tbCorreo.Text;
+            em3.Cargo = new Cargo((int)tbCargo.SelectedValue);
             ui.NombreUser = tbNomUsuario.Text;
             ui.Contrasena = tbPassword.Password;
 
-            use.UpdateEmpleado(em3);
+            use.UpdateEmpleado(em3,us_id);
             use.UpdateUser(ui);
 
             ///hola cara de bola

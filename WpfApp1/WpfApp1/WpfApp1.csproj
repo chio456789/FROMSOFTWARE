@@ -166,6 +166,8 @@
     </Compile>
     <Compile Include="ViewModel\Cargo.cs" />
     <Compile Include="ViewModel\Empleado.cs" />
+    <Compile Include="ViewModel\Orden.cs" />
+    <Compile Include="ViewModel\OrdenVm.cs" />
     <Compile Include="ViewModel\PerfilClientes.cs" />
     <Compile Include="ViewModel\PerfilUser.cs" />
     <Compile Include="ViewModel\Productos.cs" />

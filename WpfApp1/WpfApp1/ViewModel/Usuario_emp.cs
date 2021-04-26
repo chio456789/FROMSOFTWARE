@@ -113,14 +113,18 @@ namespace WpfApp1.ViewModel
             }
 
         }
-        public bool UpdateEmpleado(Empleado emp3)
+        public bool UpdateEmpleado(Empleado emp3, string u)
         {
             try
             {
 
-                empleado emp4 = this.bd.empleado.Find(emp3.Ci);
+                empleado emp4 = this.bd.empleado.Find(u);
                 emp4.nombreEmp = emp3.Nombre;
                 emp4.apellidoPtEmp = emp3.ApellidoPaterno;
+                emp4.ciEmpleado = emp3.Ci;
+                emp4.direccionEmp = emp3.Direccion;
+                emp4.codCargoFK = emp3.Cargo.CodCargo;
+                emp4.correoEmp = emp3.Correo;
                 this.bd.Entry(emp4).State = System.Data.Entity.EntityState.Modified;
                 this.bd.SaveChanges();
 
