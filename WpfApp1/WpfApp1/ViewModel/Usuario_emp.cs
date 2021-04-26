@@ -9,6 +9,7 @@ namespace WpfApp1.ViewModel
 {
     public class Usuario_emp
     {
+        /*------------------*/
 
         puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
 

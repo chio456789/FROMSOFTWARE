@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="puntoDeVentaDB_test.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="puntoDeVentaDB_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ordenProductos">
           <Key>
             <PropertyRef Name="idOrdenProductos" />
@@ -288,7 +288,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="puntoDeVentaDB_testStoreContainer">
+        <EntityContainer Name="puntoDeVentaDB_testModelStoreContainer">
           <EntitySet Name="ordenProductos" EntityType="Self.ordenProductos" Schema="cp" store:Type="Tables" />
           <EntitySet Name="ordenPromocion" EntityType="Self.ordenPromocion" Schema="cp" store:Type="Tables" />
           <EntitySet Name="promocionesProductos" EntityType="Self.promocionesProductos" Schema="cp" store:Type="Tables" />
@@ -358,7 +358,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="puntoDeVentaDB_test" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="puntoDeVentaDB_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ordenProductos">
           <Key>
             <PropertyRef Name="idOrdenProductos" />
@@ -368,7 +368,7 @@
           <Property Name="codProductoFK" Type="Int32" />
           <Property Name="cantidad" Type="Int32" />
           <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="ordenProductos" ToRole="productos" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="ordenProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="ordenPromocion">
           <Key>
@@ -389,7 +389,7 @@
           <Property Name="codPromocionFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
           <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="promocionesProductos" ToRole="productos" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="promocionesProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="cargoLaboral">
           <Key>
@@ -430,16 +430,6 @@
           <NavigationProperty Name="orden" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="usuario" ToRole="orden" />
           <NavigationProperty Name="usuario1" Relationship="Self.FK_usuario_usuario" FromRole="usuario" ToRole="usuario1" />
           <NavigationProperty Name="usuario2" Relationship="Self.FK_usuario_usuario" FromRole="usuario1" ToRole="usuario" />
-        </EntityType>
-        <EntityType Name="clientes">
-          <Key>
-            <PropertyRef Name="nitCliente" />
-          </Key>
-          <Property Name="nitCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
         </EntityType>
         <EntityType Name="clientes">
           <Key>
@@ -501,8 +491,8 @@
           <Property Name="disponibilidadProd" Type="Boolean" />
           <Property Name="imagenProd" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="productos" ToRole="ordenProductos" />
-          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="productos" ToRole="promocionesProductos" />
+          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="productos" ToRole="ordenProductos" />
+          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="productos" ToRole="promocionesProductos" />
           <NavigationProperty Name="categorias" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="productos" ToRole="categorias" />
         </EntityType>
         <EntityType Name="promocion">
@@ -532,7 +522,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ordenProd__codPr__778AC167">
+        <Association Name="FK__ordenProd__codPr__3A81B327">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -580,7 +570,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__promocion__codPr__6B24EA82">
+        <Association Name="FK__promocion__codPr__3E52440B">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -695,7 +685,7 @@
             <End Role="orden" EntitySet="orden" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
+          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
             <End Role="productos" EntitySet="productos" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
@@ -711,7 +701,7 @@
             <End Role="promocion" EntitySet="promocion" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
+          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
             <End Role="productos" EntitySet="productos" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
@@ -749,9 +739,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="puntoDeVentaDB_testStoreContainer" CdmEntityContainer="puntoDeVentaDB_testEntities">
+        <EntityContainerMapping StorageEntityContainer="puntoDeVentaDB_testModelStoreContainer" CdmEntityContainer="puntoDeVentaDB_testEntities">
           <EntitySetMapping Name="ordenProductos">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.ordenProductos">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.ordenProductos">
               <MappingFragment StoreEntitySet="ordenProductos">
                 <ScalarProperty Name="idOrdenProductos" ColumnName="idOrdenProductos" />
                 <ScalarProperty Name="codOrdenFK" ColumnName="codOrdenFK" />
@@ -761,7 +751,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ordenPromocion">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.ordenPromocion">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.ordenPromocion">
               <MappingFragment StoreEntitySet="ordenPromocion">
                 <ScalarProperty Name="idOrdenPromocion" ColumnName="idOrdenPromocion" />
                 <ScalarProperty Name="codPromocionFK" ColumnName="codPromocionFK" />
@@ -771,7 +761,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="promocionesProductos">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.promocionesProductos">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.promocionesProductos">
               <MappingFragment StoreEntitySet="promocionesProductos">
                 <ScalarProperty Name="idPromProd" ColumnName="idPromProd" />
                 <ScalarProperty Name="codPromocionFK" ColumnName="codPromocionFK" />
@@ -780,7 +770,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="cargoLaboral">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.cargoLaboral">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.cargoLaboral">
               <MappingFragment StoreEntitySet="cargoLaboral">
                 <ScalarProperty Name="codCargo" ColumnName="codCargo" />
                 <ScalarProperty Name="nombreCg" ColumnName="nombreCg" />
@@ -790,7 +780,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="empleado">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.empleado">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.empleado">
               <MappingFragment StoreEntitySet="empleado">
                 <ScalarProperty Name="ciEmpleado" ColumnName="ciEmpleado" />
                 <ScalarProperty Name="nombreEmp" ColumnName="nombreEmp" />
@@ -805,7 +795,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.usuario">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
                 <ScalarProperty Name="codUsuario" ColumnName="codUsuario" />
                 <ScalarProperty Name="nombreUs" ColumnName="nombreUs" />
@@ -816,7 +806,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="clientes">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.clientes">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.clientes">
               <MappingFragment StoreEntitySet="clientes">
                 <ScalarProperty Name="nitCliente" ColumnName="nitCliente" />
                 <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
@@ -826,7 +816,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="factura">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.factura">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.factura">
               <MappingFragment StoreEntitySet="factura">
                 <ScalarProperty Name="codFactura" ColumnName="codFactura" />
                 <ScalarProperty Name="codOrdenFK" ColumnName="codOrdenFK" />
@@ -836,7 +826,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="orden">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.orden">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.orden">
               <MappingFragment StoreEntitySet="orden">
                 <ScalarProperty Name="codOrden" ColumnName="codOrden" />
                 <ScalarProperty Name="nitClienteFK" ColumnName="nitClienteFK" />
@@ -848,7 +838,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="categorias">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.categorias">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.categorias">
               <MappingFragment StoreEntitySet="categorias">
                 <ScalarProperty Name="codCategoria" ColumnName="codCategoria" />
                 <ScalarProperty Name="nombreCtg" ColumnName="nombreCtg" />
@@ -858,7 +848,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="productos">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.productos">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.productos">
               <MappingFragment StoreEntitySet="productos">
                 <ScalarProperty Name="codProducto" ColumnName="codProducto" />
                 <ScalarProperty Name="idProducto" ColumnName="idProducto" />
@@ -874,7 +864,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="promocion">
-            <EntityTypeMapping TypeName="puntoDeVentaDB_test.promocion">
+            <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.promocion">
               <MappingFragment StoreEntitySet="promocion">
                 <ScalarProperty Name="codPromocion" ColumnName="codPromocion" />
                 <ScalarProperty Name="idPromocion" ColumnName="idPromocion" />
