@@ -127,23 +127,23 @@ namespace WpfApp1
         }
 
 
-        private void Button_Click_Delete(object sender, RoutedEventArgs e)
-        {
-            using (var context = new puntoDeVentaDB_testEntities())
-            {
+        //private void Button_Click_Delete(object sender, RoutedEventArgs e)
+        //{
+        //    using (var context = new puntoDeVentaDB_testEntities())
+        //    {
 
-                DataRowView row = (DataRowView)MyDataGrid.SelectedItems[0];
-                string jh = row["Nombre"].ToString();
-                var std = context.empleado.Find(context.cargoLaboral);
+        //        DataRowView row = (DataRowView)MyDataGrid.SelectedItems[0];
+        //        string jh = row["Nombre"].ToString();
+        //        var std = context.empleado.Find(context.cargoLaboral);
 
-                var sd = context.usuario.First<usuario>();
+        //        var sd = context.usuario.First<usuario>();
 
 
-                context.empleado.Remove(std);
-                context.usuario.Remove(sd);
-                context.SaveChanges();
-            }
-        }
+        //        context.empleado.Remove(std);
+        //        context.usuario.Remove(sd);
+        //        context.SaveChanges();
+        //    }
+        //}
 
         //        //Datos del cliente 
 

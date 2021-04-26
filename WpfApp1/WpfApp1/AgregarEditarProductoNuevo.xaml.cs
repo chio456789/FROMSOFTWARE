@@ -99,7 +99,10 @@ namespace WpfApp1
             {
                 Uri fileUri = new Uri(openFileDialog.FileName);
                 ImgProducto.Source = new BitmapImage(fileUri);
+                string path = ((BitmapImage)ImgProducto.Source).UriSource.AbsolutePath;
+                textboxNP.Text = path;
             }
+
         }
         //Act.actualizar();
     }
