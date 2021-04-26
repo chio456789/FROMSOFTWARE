@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1.Pages
 {
@@ -23,6 +24,20 @@ namespace WpfApp1.Pages
         public Ordenes()
         {
             InitializeComponent();
+        }
+
+        private void BtnEndOrden_Click(object sender, RoutedEventArgs e)
+        {
+            GridEndOrden.Background = new SolidColorBrush(Color.FromRgb(254,192,71));
+        }
+
+        private void BtnProsOrden_Click(object sender, RoutedEventArgs e)
+        {
+            OrdenesCs or = new OrdenesCs();
+            if (or.EstadoDeLaOrden("asd"))
+            {
+                GridEndOrden.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            }
         }
     }
 }
