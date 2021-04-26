@@ -33,7 +33,7 @@ namespace WpfApp1
             InitializeComponent();
             // pro = Datab.productos.Where(x => x.codProducto == id).First();
             //categ = Datab.categorias.Find(id);
-            pro = Datab.productos.Find(id);
+            //pro = Datab.productos.Find(id);
             textboxNP.Text = pro.nombreProd;
             textboxdescrip.Text = pro.descripcionProd;
             textboxcp.Text = Convert.ToString(pro.costoProd);
@@ -54,20 +54,24 @@ namespace WpfApp1
                 || textboxpv.Text==""
                 || textcat.Text=="")
             {
-                MessageBox.Show("Llene todos los datos","Alerta",MessageBoxButton.OK,MessageBoxImage.Warning);                
-            }else
-
-            if (pro != null)
+                MessageBox.Show("Llene todos los datos","Alerta",MessageBoxButton.OK,MessageBoxImage.Warning);
+            }
+            else
             {
-                using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+
+            
+            //ESTE PINCHE ERROr
+            if (pro == null)
+            {
+                using (Model.puntoDeVentaDB_testEntities contexto1 = new Model.puntoDeVentaDB_testEntities())
                 {
                     var newproducto1 = new Model.productos();
                     newproducto1.nombreProd = textboxNP.Text;
                     newproducto1.descripcionProd = textboxdescrip.Text;
                     newproducto1.costoProd = Convert.ToDecimal(textboxcp.Text);
                     newproducto1.precioProd = Convert.ToDecimal(textboxpv.Text);
-                    contexto.Entry(newproducto1).State = System.Data.Entity.EntityState.Modified;
-                    contexto.SaveChanges();
+                    contexto1.Entry(newproducto1).State = System.Data.Entity.EntityState.Modified;
+                    contexto1.SaveChanges();
                 }
             }
             else
@@ -84,6 +88,8 @@ namespace WpfApp1
                 }                           
             }
             this.Close();
+            WindowAdministrador.ns.Content = new ProductosAdm();
+        }
         }
 
         private void BtnImgEditProd_Click(object sender, RoutedEventArgs e)

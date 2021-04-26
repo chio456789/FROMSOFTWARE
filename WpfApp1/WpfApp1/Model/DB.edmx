@@ -368,7 +368,7 @@
           <Property Name="codProductoFK" Type="Int32" />
           <Property Name="cantidad" Type="Int32" />
           <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="ordenProductos" ToRole="productos" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="ordenProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="ordenPromocion">
           <Key>
@@ -389,7 +389,7 @@
           <Property Name="codPromocionFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
           <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="promocionesProductos" ToRole="productos" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="promocionesProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="cargoLaboral">
           <Key>
@@ -430,6 +430,16 @@
           <NavigationProperty Name="orden" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="usuario" ToRole="orden" />
           <NavigationProperty Name="usuario1" Relationship="Self.FK_usuario_usuario" FromRole="usuario" ToRole="usuario1" />
           <NavigationProperty Name="usuario2" Relationship="Self.FK_usuario_usuario" FromRole="usuario1" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="nitCliente" />
+          </Key>
+          <Property Name="nitCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eliminar" Type="Boolean" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
         </EntityType>
         <EntityType Name="clientes">
           <Key>
@@ -491,8 +501,8 @@
           <Property Name="disponibilidadProd" Type="Boolean" />
           <Property Name="imagenProd" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="productos" ToRole="ordenProductos" />
-          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="productos" ToRole="promocionesProductos" />
+          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="productos" ToRole="ordenProductos" />
+          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="productos" ToRole="promocionesProductos" />
           <NavigationProperty Name="categorias" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="productos" ToRole="categorias" />
         </EntityType>
         <EntityType Name="promocion">
@@ -522,7 +532,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ordenProd__codPr__3A81B327">
+        <Association Name="FK__ordenProd__codPr__778AC167">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -570,7 +580,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__promocion__codPr__3E52440B">
+        <Association Name="FK__promocion__codPr__6B24EA82">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -685,7 +695,7 @@
             <End Role="orden" EntitySet="orden" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
+          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
             <End Role="productos" EntitySet="productos" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
@@ -701,7 +711,7 @@
             <End Role="promocion" EntitySet="promocion" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
+          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
             <End Role="productos" EntitySet="productos" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>

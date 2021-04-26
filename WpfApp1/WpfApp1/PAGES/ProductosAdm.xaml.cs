@@ -71,8 +71,8 @@ namespace WpfApp1.Pages
             public string DescripcionProducto { get; set; }
             public decimal PrecioProducto { get; set; }
             public decimal CostoProducto { get; set; }
-            public bool DisponibilidadProducto { get; set; }
-            public int Categoria { get; set; }
+          //  public bool DisponibilidadProducto { get; set; }
+          //public int Categoria { get; set;}
         }
         private void BotonEditar(object sender, RoutedEventArgs e)
         {
