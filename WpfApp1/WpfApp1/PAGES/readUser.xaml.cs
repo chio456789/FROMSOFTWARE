@@ -56,6 +56,7 @@ namespace WpfApp1
 
         private void btnBorrar(object sender, RoutedEventArgs e)
         {
+
             string id = (string)((Button)sender).CommandParameter;
 
             if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))

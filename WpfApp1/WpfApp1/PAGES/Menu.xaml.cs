@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Model;
+using WpfApp1.View_model;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1
 {
@@ -20,11 +24,83 @@ namespace WpfApp1
     /// </summary>
     public partial class Page1Menu : Page
     {
+        WrapPanel sta = new WrapPanel();
+
+        private ObservableCollection<OrdenVm> listaOr = new ObservableCollection<OrdenVm>();
+
         public Page1Menu()
         {           
             InitializeComponent();
-            refresh();           
+            refresh();
+            GetProductos();
+            
         }
+
+        private void GetProductos()
+        {
+            List<Items> ls = new List<Items>();
+            using (puntoDeVentaDB_testEntities d = new puntoDeVentaDB_testEntities())
+            {
+                ls = (
+                    from dm in d.productos select new Items
+                    {
+                        Nombre= dm.nombreProd,
+                        Descripcion = dm.descripcionProd,
+                        Precio = dm.precioProd,
+                        CodProd = dm.codProducto
+                       
+                    }
+                    ).ToList();
+                ListaMenu.ItemsSource = ls;
+
+            }
+
+            
+        }
+
+        public void Calcular()
+        {
+           
+        }
+
+        private  void BtnProdAgregar1(object sender, RoutedEventArgs e)
+        {
+            using (puntoDeVentaDB_testEntities d = new puntoDeVentaDB_testEntities())
+            {
+                object id = (object)((Button)sender).CommandParameter;
+
+
+                productos prueba = new productos();
+
+
+                prueba = d.productos.Find(Int32.Parse(id.ToString()));
+
+
+                int nn = Int32.Parse(rusia.Text);
+                decimal? mm = prueba.precioProd;
+                string yy = prueba.descripcionProd;
+
+
+                listaOr.Add(new OrdenVm(nn, mm, yy));
+
+            }
+                
+
+          
+
+             refreshorden();
+
+           
+            //listaOr.Add(new OrdenVm();
+        }
+
+        private void refreshorden()
+        {
+            DGFactura.ItemsSource = listaOr;
+           
+            
+        }
+
         private void refresh()
         {
             List<ProductViewModel> lista = new List<ProductViewModel>();
@@ -39,7 +115,8 @@ namespace WpfApp1
                              DescripcionProducto = d.descripcionProd,
                              PrecioProducto = (decimal)d.precioProd,
                             // DisponibilidadProducto = (bool)d.disponibilidadProd
-                         }).ToList();    
+                         }).ToList();
+
             }
            // DGMenu.ItemsSource = lista;
         }
