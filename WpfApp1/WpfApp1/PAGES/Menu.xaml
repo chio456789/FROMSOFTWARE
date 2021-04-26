@@ -820,11 +820,11 @@
                             </Grid.RowDefinitions>
                             <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Detalle factura</TextBlock>
                             <StackPanel Height="120" Grid.Row="1">
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                <TextBox x:Name="tbCarnetCliente" Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cleinte" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                <TextBox x:Name="tbNombreCliente" Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cleinte" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                <TextBox x:Name="tbApellidoCliente" Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
                             </StackPanel>
                         </Grid>

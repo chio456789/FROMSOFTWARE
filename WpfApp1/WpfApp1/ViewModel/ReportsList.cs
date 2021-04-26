@@ -15,17 +15,22 @@ namespace WpfApp1.ViewModel
         {
             using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
             {
-                var query = (from op in db.ordenProductos
-                             select new
-                             {
-                                 Producto = op.productos.nombreProd,
-                                 UnidadesVendidas = op.cantidad,
-                                 Categoria = op.productos.categorias.nombreCtg,
-                                 Costo = op.productos.costoProd,
-                                 Precio = op.productos.precioProd,
-                                 Total = (op.productos.precioProd) * (op.cantidad)
-                             });
-
+                var query = db.productos
+                            .Join(
+                            db.ordenProductos,
+                            pd => pd.codProducto,
+                            op => op.codProductoFK,
+                            (pd, op) => new { pd.nombreProd, op.cantidad, pd.codCategoriaFK })
+                            .Join(
+                            db.categorias,
+                            pd => pd.codCategoriaFK,
+                            ct => ct.codCategoria,
+                            (pd, ct) => new { ct.nombreCtg }
+                            )
+                            .GroupBy(y => y.nombreCtg)
+                            .Select(x => new { 
+                                Producto = x.Key/*, 
+                                UnidadesVendidas = x.Select(g => g.cantidad).Sum() */});
 
                 //si funciona
                 /*(from op in db.ordenProductos
