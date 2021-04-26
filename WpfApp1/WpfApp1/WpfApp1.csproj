@@ -300,6 +300,8 @@
     <Resource Include="ImageWindow.png" />
     <Resource Include="ImageWindowAdm.png" />
     <Resource Include="FavIconCHAdm.png" />
+    <Resource Include="fried-chicken.png" />
+    <Resource Include="Icon.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
