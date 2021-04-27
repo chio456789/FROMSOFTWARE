@@ -312,6 +312,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CP_RepMasVendido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_RepMayorDiferencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_RepMenorDiferencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_RepMenosVendido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="CP_reporteProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="cp_ReporteVentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="puntoDeVentaDB_testModelStoreContainer">
@@ -397,7 +401,7 @@
           <Property Name="codOrdenFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
           <Property Name="cantidad" Type="Int32" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__787EE5A0" FromRole="ordenProductos" ToRole="orden" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
           <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="ordenProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="ordenPromocion">
@@ -418,7 +422,7 @@
           <Property Name="idPromProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codPromocionFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
-          <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__6A30C649" FromRole="promocionesProductos" ToRole="promocion" />
+          <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
           <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="promocionesProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -533,8 +537,8 @@
           <Property Name="disponibilidadProd" Type="Boolean" />
           <Property Name="imagenProd" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="productos" ToRole="ordenProductos" />
-          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="productos" ToRole="promocionesProductos" />
+          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="productos" ToRole="ordenProductos" />
+          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="productos" ToRole="promocionesProductos" />
           <NavigationProperty Name="categorias" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="productos" ToRole="categorias" />
         </EntityType>
         <EntityType Name="promocion">
@@ -564,7 +568,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ordenProd__codPr__778AC167">
+        <Association Name="FK__ordenProd__codPr__3A81B327">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -612,7 +616,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__promocion__codPr__6B24EA82">
+        <Association Name="FK__promocion__codPr__3E52440B">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -728,7 +732,7 @@
             <End Role="orden" EntitySet="orden" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
+          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
             <End Role="productos" EntitySet="productos" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
@@ -744,7 +748,7 @@
             <End Role="promocion" EntitySet="promocion" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
+          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
             <End Role="productos" EntitySet="productos" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
@@ -967,6 +971,54 @@
           <FunctionImportMapping FunctionImportName="CP_reporteProducto" FunctionName="puntoDeVentaDB_testModel.Store.CP_reporteProducto">
             <ResultMapping>
               <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_reporteProducto_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_RepMasVendido" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMasVendido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMasVendido_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_RepMayorDiferencia" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMayorDiferencia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMayorDiferencia_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_RepMenorDiferencia" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMenorDiferencia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMenorDiferencia_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_RepMenosVendido" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMenosVendido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMenosVendido_Result">
                 <ScalarProperty Name="Producto" ColumnName="Producto" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
