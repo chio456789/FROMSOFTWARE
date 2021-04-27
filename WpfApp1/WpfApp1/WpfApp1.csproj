@@ -108,18 +108,6 @@
     <Compile Include="Model\clientes.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CP_RepMasVendido_Result.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CP_RepMayorDiferencia_Result.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CP_RepMenorDiferencia_Result.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\CP_RepMenosVendido_Result.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\CP_reporteProducto_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -163,9 +151,6 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\promocionesProductos.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\usuario.cs">

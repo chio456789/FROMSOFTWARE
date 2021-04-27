@@ -26,9 +26,7 @@ namespace WpfApp1.Pages
             actualizar();
             actualizarPromocion();
             //this.dataGrid.SearchHelper.Search(TextBox.Text);            
-        }
-
-       
+        }       
         private void actualizar()
         {
             List<ProductViewModel> lista = new List<ProductViewModel>();
