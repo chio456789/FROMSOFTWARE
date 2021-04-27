@@ -108,6 +108,18 @@
     <Compile Include="Model\clientes.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CP_RepMasVendido_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMayorDiferencia_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMenorDiferencia_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMenosVendido_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CP_reporteProducto_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -153,6 +165,9 @@
     <Compile Include="Model\promocionesProductos.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\usuario.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -173,6 +188,7 @@
     </Compile>
     <Compile Include="ViewModel\Cargo.cs" />
     <Compile Include="ViewModel\Empleado.cs" />
+    <Compile Include="ViewModel\FacturaOrden.cs" />
     <Compile Include="ViewModel\Orden.cs" />
     <Compile Include="ViewModel\OrdenVm.cs" />
     <Compile Include="ViewModel\PerfilClientes.cs" />
@@ -180,6 +196,7 @@
     <Compile Include="ViewModel\Productos.cs" />
     <Compile Include="ViewModel\Promociones.cs" />
     <Compile Include="ViewModel\ReportsList.cs" />
+    <Compile Include="ViewModel\TotalFactura.cs" />
     <Compile Include="ViewModel\Usuarios.cs" />
     <Compile Include="ViewModel\Usuario_emp.cs" />
     <Compile Include="WindowAdministrador.xaml.cs">
@@ -310,6 +327,11 @@
     <Resource Include="fried-chicken.png" />
     <Resource Include="Icon.png" />
     <Resource Include="Icon - copia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Ordenes\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
@@ -320,9 +342,6 @@
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\Ordenes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

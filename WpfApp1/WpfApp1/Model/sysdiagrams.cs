@@ -12,14 +12,12 @@ namespace WpfApp1.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ordenProductos
+    public partial class sysdiagrams
     {
-        public int idOrdenProductos { get; set; }
-        public Nullable<int> codOrdenFK { get; set; }
-        public Nullable<int> codProductoFK { get; set; }
-        public Nullable<int> cantidad { get; set; }
-    
-        public virtual orden orden { get; set; }
-        public virtual productos productos { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

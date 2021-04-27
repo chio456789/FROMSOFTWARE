@@ -25,6 +25,12 @@ namespace WpfApp1.ViewModel
             this.subtotal = this.cantidad*this.precioUnitario;
         }
 
+        public decimal? subtotalItem(int? cantidad, decimal? precioUnitario)
+        {
+            decimal? a = cantidad * precioUnitario;
+            return a;
+        }
+
         public OrdenVm()
         {
             this.descripcion = string.Empty;
