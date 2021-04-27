@@ -21,7 +21,7 @@ namespace WpfApp1.ViewModel
             }
         }
 
-        public static IList masVendido()
+        /*public static IList masVendido()
         {
             using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
             {
@@ -59,7 +59,7 @@ namespace WpfApp1.ViewModel
 
                 return query.ToList();
             }
-        }
+        }*/
 
         public static IList listarVentas()
         {

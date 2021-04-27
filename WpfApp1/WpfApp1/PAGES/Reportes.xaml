@@ -57,8 +57,8 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding  Path=NombreCajero}" IsReadOnly="True" Header="Nombre cajero" Width="Auto" />
                         <DataGridTextColumn Binding="{Binding Path=ApellidoCajero}" Header="Apellido cajero" Width="Auto" IsReadOnly="True" />
-                        <DataGridTextColumn Binding="{Binding Path=HoraEntrada}" Header="Hora entrada" Width="Auto" IsReadOnly="True" />
-                        <DataGridTextColumn Binding="{Binding Path=HoraSalida}" Header="Hora salida" Width="Auto" />
+                        <!--<DataGridTextColumn Binding="{Binding Path=HoraEntrada}" Header="Hora entrada" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=HoraSalida}" Header="Hora salida" Width="Auto" />-->
                         <DataGridTextColumn Binding="{Binding Path=Cantidad}" Header="Cantidad" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Precio}" Header="Precio" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Total}" Header="Total $" Width="Auto" IsReadOnly="True" />
@@ -91,7 +91,7 @@
                         Text="Rango de Reporte"
                         FontSize="20"/>
 
-                    <ComboBox x:Name="cbTipoReporte"
+                    <!--<ComboBox x:Name="cbTipoReporte"
                      Margin="15,0,15,2"
                      Height="38"
                      Padding="4" FontFamily="Roboto" FontSize="13"
@@ -107,18 +107,18 @@
                         
                         
                     </ComboBox>
-
-                    <!--<DatePicker
+                        -->
+                    <DatePicker
                         Grid.Row="1"
                         Margin="58,12,59,62"
                         Name="LocaleDatePickerDe"
-                        materialDesign:HintAssist.Hint="De" />-->
+                        materialDesign:HintAssist.Hint="De" />
 
-                    <!--<DatePicker
+                    <DatePicker
                         Grid.Row="1"
                         Margin="58,62,59,12"
                         Name="LocaleDatePickerHasta"
-                        materialDesign:HintAssist.Hint="Hasta" />-->
+                        materialDesign:HintAssist.Hint="Hasta" />
 
                     <Button
                     Grid.Row="2"
