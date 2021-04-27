@@ -13,34 +13,37 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
        
-        <StackPanel Grid.Row="0">
-            <TextBlock FontFamily="Roboto" Margin="0,30,0,0" TextAlignment="Center" FontSize="20" Height="58"><Run Text="Esta seguro de que quiere eliminar al usuario."/><LineBreak/><Run Text=" Los cambios seran permanentes."/></TextBlock>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Border BorderBrush="#585858" BorderThickness="1" Opacity=".5"></Border>
+        <Grid Grid.Row="0">
+            <TextBlock FontFamily="Roboto" 
+                       Foreground="#585858"
+                       HorizontalAlignment="Center"
+                       FontSize="20" Height="58"
+                       VerticalAlignment="Center"><Run Text="        "/><Run Text="     "/><Run Text="Los cambios seran permanentes"/><LineBreak/><Run Text="¿"/><Run Text="Esta seguro de que quiere eliminar al Cliente"/><Run Text="?"/><LineBreak/><Run Text=" "/><Run Text="         "/></TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Button
-                    Grid.Column="0"
-                    x:Name="btEliminar"                    
-                    Margin="34,20,18,0"
-                    Foreground="White"
-                    Background="#06D51B"
-                    BorderBrush="#06D51B" Click="btEliminar_Click" Content="Si, eliminar usuario"/>
-                <Button
                     Grid.Column="1"
-                    x:Name="btCancelar"
-                    Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="MaterialDesignOutlinedButton"
-                    Margin="18,20,34,0"
+                    x:Name="btEliminar"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Foreground="#F83A3A"
-                    BorderBrush="#F83A3A" Click="btCancelar_Click" Content="No, conservar usuario"/>
+                    Background="Transparent"
+                    BorderBrush="#F83A3A" Click="btEliminar_Click" Content="Si, eliminar usuario"/>
+                <Button
+                    x:Name="btCancelar"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    ToolTip="MaterialDesignOutlinedButton"
+                    Background="#06D51B"
+                    Click="btCancelar_Click" Content="No, conservar usuario"/>
             </Grid>
 
-        </StackPanel>
+        </Grid>
         
     </Grid>
 </Window>

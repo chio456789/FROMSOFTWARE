@@ -78,7 +78,7 @@
                         Nachos
                     </ComboBoxItem>
                 </ComboBox>
-                <ComboBox x:Name="textdispo" Grid.Row="5"
+                <ComboBox Grid.Row="5"
                           materialDesign:HintAssist.Hint="Disponibilidad" 
                           materialDesign:TextFieldAssist.HasClearButton="True" 
                           Style="{StaticResource MaterialDesignFloatingHintComboBox}"

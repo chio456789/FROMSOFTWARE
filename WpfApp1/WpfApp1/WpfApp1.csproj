@@ -55,6 +55,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -84,6 +85,9 @@
     </Compile>
     <Compile Include="EditarCliente.xaml.cs">
       <DependentUpon>EditarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProducto.xaml.cs">
+      <DependentUpon>EditarProducto.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.xaml.cs">
       <DependentUpon>EditarUsuario.xaml</DependentUpon>
@@ -170,9 +174,6 @@
     <Compile Include="Pages\EliminarPromoEmergenteAdm.xaml.cs">
       <DependentUpon>EliminarPromoEmergenteAdm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LogInGeneral.xaml.cs">
-      <DependentUpon>LogInGeneral.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Ordenes.xaml.cs">
       <DependentUpon>Ordenes.xaml</DependentUpon>
     </Compile>
@@ -217,6 +218,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditarProducto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,10 +247,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\EliminarPromoEmergenteAdm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\LogInGeneral.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -323,9 +324,9 @@
     <Resource Include="ImageWindow.png" />
     <Resource Include="ImageWindowAdm.png" />
     <Resource Include="FavIconCHAdm.png" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
+    <Resource Include="fried-chicken.png" />
+    <Resource Include="Icon.png" />
+    <Resource Include="Icon - copia.png" />
     <Content Include="Model\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
@@ -336,6 +337,9 @@
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\Ordenes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

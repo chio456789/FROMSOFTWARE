@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="WindowAdministrador" Height="768" MinHeight="768" Width="1366" MinWidth="1024" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        WindowStyle="None" Icon="FavIconCHAdm.png">
+        WindowStyle="None" Icon="Icon - copia.png">
     <Grid>
         <Grid>
             <Grid>
@@ -52,22 +52,22 @@
                     <Button x:Name="BtnAdmProductos" Grid.Row="1" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="42" FontSize="19" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmProductos_Click">Produtos
+                        ToolTip="Gestionar los productos" Click="BtnAdmProductos_Click">Produtos
                     </Button>
                     <Button x:Name="BtnAdmReportes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="42" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmReportes_Click">Reportes
+                        ToolTip="Generar reportes" Click="BtnAdmReportes_Click">Reportes
                     </Button>
                     <Button x:Name="BtnAdmCuentas" Grid.Row="3" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="42" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmCuentas_Click">Cuentas
+                        ToolTip="Gestionar las cuentas" Click="BtnAdmCuentas_Click">Cuentas
                     </Button>
                     <Button x:Name="BtnAdmCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="42" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnAdmCerrarSesion_Click">Cerrar sesión
+                        ToolTip="Cerrará la sesión actual" Click="BtnAdmCerrarSesion_Click">Cerrar sesión
                     </Button>
                 </Grid>
 
