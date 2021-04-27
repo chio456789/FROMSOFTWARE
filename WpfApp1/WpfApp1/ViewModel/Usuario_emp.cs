@@ -120,6 +120,8 @@ namespace WpfApp1.ViewModel
             {
 
                 empleado emp4 = this.bd.empleado.Find(u);
+               
+               
                 emp4.nombreEmp = emp3.Nombre;
                 emp4.apellidoPtEmp = emp3.ApellidoPaterno;
                 emp4.ciEmpleado = emp3.Ci;

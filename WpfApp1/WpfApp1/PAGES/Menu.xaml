@@ -85,17 +85,18 @@
                                                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                                                 </Grid.ColumnDefinitions>
                                                                 <TextBox x:Name="chio"></TextBox>
-                                                                <ComboBox  DisplayMemberPath="Item"  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
-                                                                    <ComboBoxItem>1</ComboBoxItem>
-                                                                    <ComboBoxItem>2</ComboBoxItem>
-                                                                    <ComboBoxItem>3</ComboBoxItem>
-                                                                    <ComboBoxItem>4</ComboBoxItem>
-                                                                    <ComboBoxItem>5</ComboBoxItem>
-                                                                    <ComboBoxItem>6</ComboBoxItem>
-                                                                    <ComboBoxItem>7</ComboBoxItem>
-                                                                    <ComboBoxItem>8</ComboBoxItem>
-                                                                    <ComboBoxItem>9</ComboBoxItem>
-                                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                                <ComboBox  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad"
+                                                                      Name="cbc"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cantidad_change"  >
+                                                                    <ComboBoxItem Content="1" Tag="1" ></ComboBoxItem>
+                                                                    <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="5" Tag="5"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="6" Tag="6"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="7" Tag="7"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="8" Tag="8"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="9" Tag="9"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="10" Tag="10"></ComboBoxItem>
                                                                 </ComboBox>
                                                                 <Button x:Name="BtnProdAgregar" Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}" Click="BtnProdAgregar1"
                                                         materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0" CommandParameter="{Binding Path=CodProd}">Agregar
@@ -115,30 +116,11 @@
                                         
                                     </ItemsControl>
                     
-                                    <ComboBox x:Name="rusia" Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
-                                        <ComboBoxItem>1</ComboBoxItem>
-                                        <ComboBoxItem>2</ComboBoxItem>
-                                        <ComboBoxItem>3</ComboBoxItem>
-                                        <ComboBoxItem>4</ComboBoxItem>
-                                        <ComboBoxItem>5</ComboBoxItem>
-                                        <ComboBoxItem>6</ComboBoxItem>
-                                        <ComboBoxItem>7</ComboBoxItem>
-                                        <ComboBoxItem>8</ComboBoxItem>
-                                        <ComboBoxItem>9</ComboBoxItem>
-                                        <ComboBoxItem>10</ComboBoxItem>
-                                    </ComboBox>
-
-
+                                    
 
                                 </StackPanel>
 
-                                <ItemsControl>
-                                    <DataTemplate x:Name="kl">
-                                        <ComboBox x:Uid="mn">
-                                            
-                                        </ComboBox>
-                                    </DataTemplate>
-                                </ItemsControl>
+                               
                                     <!--<Grid Width="200" Height="250" Margin="3">
 
                                         <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
@@ -877,7 +859,7 @@
                             </TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
+                            <DataGrid x:Name="DGPromo" IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
                                 <DataGrid.BorderBrush>
                                     <SolidColorBrush Color="#FFC1C1C1"/>
                                 </DataGrid.BorderBrush>
