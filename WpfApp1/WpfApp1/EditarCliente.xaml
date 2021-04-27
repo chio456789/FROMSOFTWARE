@@ -9,9 +9,8 @@
         Title="EditarCliente" Height="250" Width="452" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Editar Usuario" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Roboto" Padding="10"/>
+            <TextBlock Text="Editar Usuario" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Roboto" Padding="10" Foreground="#585858"/>
             <TextBox x:Name="tbCICliente"
-                     Margin="15,0,15,0"
                      Height="40"
                      Width="300"
                      Padding="4" FontFamily="Roboto" FontSize="15"
@@ -45,16 +44,15 @@
                 <Button
                     Grid.Column="0"
                     x:Name="btAceptualizarCliente"
-                    Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="MaterialDesignOutlinedButton"
+                    ToolTip="Guardar los nuevos datos"
                     Margin="83,20,18,0"
-                    Foreground="#36DE84"
+                    Background="#06D51B"
                     BorderBrush="#36DE84" Click="btActualizarCliente_Click" Content="Actualizar"/>
                 <Button
                     Grid.Column="1"
                     x:Name="btCancelar"
                     Style="{StaticResource MaterialDesignOutlinedButton}"
-                    ToolTip="MaterialDesignOutlinedButton"
+                    ToolTip="Cancelar edidión"
                     Margin="18,20,83,0"
                     Foreground="#F83A3A"
                     BorderBrush="#F83A3A" Click="btCancelar_Click" Content="Cancelar"/>

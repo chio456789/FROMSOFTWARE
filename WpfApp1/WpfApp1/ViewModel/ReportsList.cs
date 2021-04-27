@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,31 +15,61 @@ namespace WpfApp1.ViewModel
         {
             using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
             {
-                var query = (from pd in db.productos
-                             join op in db.ordenProductos on pd.codProducto equals op.codProductoFK
-                             join ct in db.categorias on pd.codCategoriaFK equals ct.codCategoria
-
-                             select new
-                             {
-                                 Producto = pd.nombreProd,
-                                 UnidadesVendidas = db.ordenProductos.Sum(op => op.cantidad),
-                                 Categoria = ct.codCategoria,
-                                 Costo = db.productos.Sum(pd => pd.costoProd),
-                                 Precio = db.productos.Sum(pd => pd.precioProd),
-                                 Total = (db.productos.Sum(pd => pd.precioProd)) - (db.productos.Sum(pd => pd.costoProd)),
-                             });
-
-
-                /*
-                 db.CATEGORies.GroupBy(c => c.CATNAME).
-                  Select(g => new 
-                    {
-                        g.Key, 
-                        SUM = g.Sum(s => s.Inqueries.Select(t=>t.TotalTimeSpent).Sum())
-                    });
-                 */
+                var query = db.CP_reporteProducto();
+ 
                 return query.ToList();
             }
         }
+
+        /*public static IList masVendido()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMasVendido();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList menosVendido()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMenosVendido();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList mayorDiferencia()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMayorDiferencia();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList menorDiferencia()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMenorDiferencia();
+
+                return query.ToList();
+            }
+        }*/
+
+        public static IList listarVentas()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.cp_ReporteVentas();
+
+                return query.ToList();
+            }
+        }
+
     }
 }

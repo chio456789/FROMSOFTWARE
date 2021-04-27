@@ -28,17 +28,17 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
-        //public AgregarEditarProductoNuevo(int id)
-        //{
-        //    InitializeComponent();
-        //    // pro = Datab.productos.Where(x => x.codProducto == id).First();
-        //    //categ = Datab.categorias.Find(id);
-        //    //pro = Datab.productos.Find(id);
-        //    textboxNP.Text = pro.nombreProd;
-        //    textboxdescrip.Text = pro.descripcionProd;
-        //    textboxcp.Text = Convert.ToString(pro.costoProd);
-        //    textboxpv.Text = Convert.ToString(pro.precioProd);         
-        //}
+        public AgregarEditarProductoNuevo(int id)
+        {
+            InitializeComponent();
+            // pro = Datab.productos.Where(x => x.codProducto == id).First();
+            //categ = Datab.categorias.Find(id);
+            //pro = Datab.productos.Find(id);
+            textboxNP.Text = pro.nombreProd;
+            textboxdescrip.Text = pro.descripcionProd;
+            textboxcp.Text = Convert.ToString(pro.costoProd);
+            textboxpv.Text = Convert.ToString(pro.precioProd);         
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -58,36 +58,38 @@ namespace WpfApp1
             }
             else
             {
-                //if (pro == null)
-                //{
-                //    using (Model.puntoDeVentaDB_testEntities contexto1 = new Model.puntoDeVentaDB_testEntities())
-                //    {
-                //        var newproducto1 = contexto1.productos.Find(this.id);
-                //        newproducto1.nombreProd = textboxNP.Text;
-                //        newproducto1.descripcionProd = textboxdescrip.Text;
-                //        newproducto1.costoProd = Convert.ToDecimal(textboxcp.Text);
-                //        newproducto1.precioProd = Convert.ToDecimal(textboxpv.Text);
-                //        contexto1.Entry(newproducto1).State = System.Data.Entity.EntityState.Modified;
-                //        contexto1.SaveChanges();
-                //    }
-                //}
-                // else
-                // {
+
+            
+            //ESTE PINCHE ERROr
+            if (pro == null)
+            {
+                using (Model.puntoDeVentaDB_testEntities contexto1 = new Model.puntoDeVentaDB_testEntities())
+                {
+                    var newproducto1 = new Model.productos();
+                    newproducto1.nombreProd = textboxNP.Text;
+                    newproducto1.descripcionProd = textboxdescrip.Text;
+                    newproducto1.costoProd = Convert.ToDecimal(textboxcp.Text);
+                    newproducto1.precioProd = Convert.ToDecimal(textboxpv.Text);
+                    contexto1.Entry(newproducto1).State = System.Data.Entity.EntityState.Modified;
+                    contexto1.SaveChanges();
+                }
+            }
+            else
+            {
                 using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
                                  {
                                 var newproducto = new Model.productos();
                                 newproducto.nombreProd = textboxNP.Text;
                                 newproducto.descripcionProd = textboxdescrip.Text;
                                 newproducto.costoProd = Convert.ToDecimal(textboxcp.Text);
-                                newproducto.precioProd = Convert.ToDecimal(textboxpv.Text);
-                                newproducto.disponibilidadProd = Convert.ToBoolean(textdispo.Text);
+                                newproducto.precioProd = Convert.ToDecimal(textboxpv.Text);            
                                 contexto.productos.Add(newproducto);
                                 contexto.SaveChanges();                                
                 }                           
             }
             this.Close();
             WindowAdministrador.ns.Content = new ProductosAdm();
-       // }
+        }
         }
 
         private void BtnImgEditProd_Click(object sender, RoutedEventArgs e)

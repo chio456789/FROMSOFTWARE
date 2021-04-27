@@ -9,6 +9,7 @@
       d:DesignHeight="620" d:DesignWidth="1038"
       Background="White"
       Title="Page1Menu">
+    
 
     <Grid>
         <Grid>
@@ -49,11 +50,79 @@
                                 </Grid>
                             </Grid>
                         </Grid>
+                       
+                       
+                            <ScrollViewer Grid.Row="1" Margin="0,5,0,0" Background="#aaaaaa">
+                                <StackPanel x:Name="muestra">
+                                    <StackPanel Margin="20 0">
+                                        <ItemsControl x:Name="ListaMenu" ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="3" Width="200" Height="250" BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                                        <StackPanel>
+                                                            <Grid Margin="5">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                                    <RowDefinition Height="*"></RowDefinition>
+                                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                                </Grid.RowDefinitions>
+                                                                <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
 
-                        <Grid Grid.Row="1" Margin="0,5,0,0" Background="#aaaaaa">
-                            <ScrollViewer>
-                                <WrapPanel>
-                                    <Grid Width="200" Height="250" Margin="3">
+                                                                </Image>
+
+
+                                                                <Grid Grid.Row="1">
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="auto"></RowDefinition>
+                                                                        <RowDefinition ></RowDefinition>
+                                                                    </Grid.RowDefinitions>
+                                                                    <TextBlock Text="{Binding Nombre}" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                                    <TextBlock Text="{Binding Descripcion}" Grid.Row="1" Margin="10,0" Foreground="#606060"></TextBlock>
+                                                                </Grid>
+
+                                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition></ColumnDefinition>
+                                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                                </Grid.ColumnDefinitions>
+                                                                <TextBox x:Name="chio"></TextBox>
+                                                                <ComboBox  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad"
+                                                                      Name="cbc"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cantidad_change"  >
+                                                                    <ComboBoxItem Content="1" Tag="1" ></ComboBoxItem>
+                                                                    <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="5" Tag="5"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="6" Tag="6"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="7" Tag="7"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="8" Tag="8"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="9" Tag="9"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="10" Tag="10"></ComboBoxItem>
+                                                                </ComboBox>
+                                                                <Button x:Name="BtnProdAgregar" Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}" Click="BtnProdAgregar1"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0" CommandParameter="{Binding Path=CodProd}">Agregar
+                                                                </Button>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                           
+                                            </ItemsControl.ItemTemplate>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        
+                                        </ItemsControl>
+                    
+                                    
+
+                                    </StackPanel>
+
+                               
+                                    <!--<Grid Width="200" Height="250" Margin="3">
 
                                         <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
                                             <Border.Effect>
@@ -766,10 +835,10 @@
                                                 </Button>
                                             </Grid>
                                         </Grid>
-                                    </Grid>
-                                </WrapPanel>
+                                    </Grid>-->
+                                </StackPanel>
                             </ScrollViewer>
-                        </Grid>
+                       
                     </Grid>
                 </Grid>
 
@@ -791,7 +860,7 @@
                             </TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
+                            <DataGrid x:Name="DGPromo" IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
                                 <DataGrid.BorderBrush>
                                     <SolidColorBrush Color="#FFC1C1C1"/>
                                 </DataGrid.BorderBrush>
@@ -829,10 +898,28 @@
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <!--<DataGrid x:Name="DGFactura" AutoGenerateColumns="True" IsReadOnly="True" SelectionChanged="DGFactura_SelectionChanged" Margin="0,-10,0,0" >
-                                <DataGrid.Columns>
-                                </DataGrid.Columns>
-                            </DataGrid>-->
+                            <DataGrid x:Name="DGFactura" IsReadOnly="True" AutoGenerateColumns="False" 
+                       AlternationCount="2" SelectionMode="Single"  >
+                               
+                       
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn  IsReadOnly="True" Header="Cant." Binding="{Binding cantidad}" Width="Auto" />
+                                        <DataGridTextColumn Binding="{Binding descripcion}" Header="Descripcion" Width="Auto" IsReadOnly="True" />
+                                        <DataGridTextColumn Binding="{Binding precioUnitario}" Header="P/u" Width="Auto" IsReadOnly="True"/>
+                                        <DataGridTextColumn Binding="{Binding subtotal}" Header="SubTot" Width="Auto" IsReadOnly="True"/>
+                                        
+                                    
+                                        <DataGridTemplateColumn Header="Quitar">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Content="Borrar" CommandParameter="{Binding}" />
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+
+                                </DataGrid>
+                            
                         </Grid>
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
@@ -851,7 +938,7 @@
 
                             <StackPanel Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="18" Foreground="#FF403F3F">Total:</TextBlock>
-                                <TextBox Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
+                                <TextBox x:Name="tbTotal" Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" >

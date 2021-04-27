@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
         Title="MainWindow" Height="768" MinHeight="768" Width="1366" MinWidth="1024" Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Icon="FavIconCH.png"
+        Icon="fried-chicken.png"
         WindowStyle="None"
         >
     
@@ -51,17 +51,17 @@
                 <Button x:Name="BtnMainWinMenu" Grid.Row="1" Background="#585858" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinMenu_Click">Menu
+                        ToolTip="Vista de los productos" Click="BtnMainWinMenu_Click">Menu
                 </Button>
                 <Button x:Name="BtnMainWinOrdenes" Grid.Row="2" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnMainWinOrdenes_Click">Ordenes
+                        ToolTip="Vista de las órdenes" Click="BtnMainWinOrdenes_Click">Ordenes
                 </Button>
                 <Button x:Name="BtnCerrarSesion" Grid.Row="7" Background="Transparent" BorderBrush="#AAAAAA" Width="167" MinWidth="135"
                         Height="40" FontSize="18" FontFamily="Roboto" Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonAssist.CornerRadius="3"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners" Click="BtnCerrarSesion_Click">Cerrar sesión
+                        ToolTip="Cerrará la sesión actual" Click="BtnCerrarSesion_Click">Cerrar sesión
                 </Button>
             </Grid>
             
