@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="puntoDeVentaDB_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="puntoDeVentaDB_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ordenProductos">
           <Key>
             <PropertyRef Name="idOrdenProductos" />
@@ -167,7 +167,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__orden__nitClient__4316F928">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
+          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="clientes">
@@ -276,6 +278,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_clientes_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="clientes1" Type="Self.clientes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="nitCliente" />
+            </Principal>
+            <Dependent Role="clientes1">
+              <PropertyRef Name="nitCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_usuario_usuario">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
           <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
@@ -288,6 +302,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CP_reporteProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cp_ReporteVentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="puntoDeVentaDB_testModelStoreContainer">
           <EntitySet Name="ordenProductos" EntityType="Self.ordenProductos" Schema="cp" store:Type="Tables" />
           <EntitySet Name="ordenPromocion" EntityType="Self.ordenPromocion" Schema="cp" store:Type="Tables" />
@@ -349,13 +365,16 @@
             <End Role="empleado" EntitySet="empleado" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
+          <AssociationSet Name="FK_clientes_clientes" Association="Self.FK_clientes_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="clientes1" EntitySet="clientes" />
+          </AssociationSet>
           <AssociationSet Name="FK_usuario_usuario" Association="Self.FK_usuario_usuario">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuario1" EntitySet="usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="puntoDeVentaDB_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -440,6 +459,8 @@
           <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="eliminar" Type="Boolean" />
           <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
+          <NavigationProperty Name="clientes1" Relationship="puntoDeVentaDB_testModel.FK_clientes_clientes" FromRole="clientes" ToRole="clientes1" />
+          <NavigationProperty Name="clientes2" Relationship="puntoDeVentaDB_testModel.FK_clientes_clientes" FromRole="clientes1" ToRole="clientes" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -733,7 +754,40 @@
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
+          <AssociationSet Name="FK_clientes_clientes" Association="puntoDeVentaDB_testModel.FK_clientes_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="clientes1" EntitySet="clientes" />
+          </AssociationSet>
+          <FunctionImport Name="CP_reporteProducto" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteProducto_Result)" />
+          <FunctionImport Name="cp_ReporteVentas" ReturnType="Collection(puntoDeVentaDB_testModel.cp_ReporteVentas_Result)" />
         </EntityContainer>
+        <Association Name="FK_clientes_clientes">
+          <End Type="puntoDeVentaDB_testModel.clientes" Role="clientes" Multiplicity="1" />
+          <End Type="puntoDeVentaDB_testModel.clientes" Role="clientes1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="nitCliente" />
+            </Principal>
+            <Dependent Role="clientes1">
+              <PropertyRef Name="nitCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="CP_reporteProducto_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="cp_ReporteVentas_Result">
+          <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -877,6 +931,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CP_reporteProducto" FunctionName="puntoDeVentaDB_testModel.Store.CP_reporteProducto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_reporteProducto_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cp_ReporteVentas" FunctionName="puntoDeVentaDB_testModel.Store.cp_ReporteVentas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.cp_ReporteVentas_Result">
+                <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
+                <ScalarProperty Name="ApellidoCajero" ColumnName="ApellidoCajero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
