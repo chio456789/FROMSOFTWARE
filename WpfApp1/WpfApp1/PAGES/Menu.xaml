@@ -80,32 +80,33 @@
                                                                     <TextBlock Text="{Binding Descripcion}" Grid.Row="1" Margin="10,0" Foreground="#606060"></TextBlock>
                                                                 </Grid>
 
-                                                                <Grid Grid.Row="2" Margin="0,0,0,5">
-                                                                    <Grid.ColumnDefinitions>
-                                                                        <ColumnDefinition></ColumnDefinition>
-                                                                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                                                                    </Grid.ColumnDefinitions>
-                                                                    <TextBox x:Name="chio"></TextBox>
-                                                                    <ComboBox  DisplayMemberPath="Item"  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
-                                                                        <ComboBoxItem>1</ComboBoxItem>
-                                                                        <ComboBoxItem>2</ComboBoxItem>
-                                                                        <ComboBoxItem>3</ComboBoxItem>
-                                                                        <ComboBoxItem>4</ComboBoxItem>
-                                                                        <ComboBoxItem>5</ComboBoxItem>
-                                                                        <ComboBoxItem>6</ComboBoxItem>
-                                                                        <ComboBoxItem>7</ComboBoxItem>
-                                                                        <ComboBoxItem>8</ComboBoxItem>
-                                                                        <ComboBoxItem>9</ComboBoxItem>
-                                                                        <ComboBoxItem>10</ComboBoxItem>
-                                                                    </ComboBox>
-                                                                    <Button x:Name="BtnProdAgregar" Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}" Click="BtnProdAgregar1"
-                                                            materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0" CommandParameter="{Binding Path=CodProd}">Agregar
-                                                                    </Button>
-                                                                </Grid>
+                                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition></ColumnDefinition>
+                                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                                </Grid.ColumnDefinitions>
+                                                                <TextBox x:Name="chio"></TextBox>
+                                                                <ComboBox  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad"
+                                                                      Name="cbc"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cantidad_change"  >
+                                                                    <ComboBoxItem Content="1" Tag="1" ></ComboBoxItem>
+                                                                    <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="5" Tag="5"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="6" Tag="6"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="7" Tag="7"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="8" Tag="8"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="9" Tag="9"></ComboBoxItem>
+                                                                    <ComboBoxItem Content="10" Tag="10"></ComboBoxItem>
+                                                                </ComboBox>
+                                                                <Button x:Name="BtnProdAgregar" Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}" Click="BtnProdAgregar1"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0" CommandParameter="{Binding Path=CodProd}">Agregar
+                                                                </Button>
                                                             </Grid>
-                                                        </StackPanel>
-                                                    </Border>
-                                                </DataTemplate>
+                                                        </Grid>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
                                            
                                             </ItemsControl.ItemTemplate>
                                             <ItemsControl.ItemsPanel>
@@ -116,31 +117,725 @@
                                         
                                         </ItemsControl>
                     
-                                        <ComboBox x:Name="rusia" Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
-                                            <ComboBoxItem>1</ComboBoxItem>
-                                            <ComboBoxItem>2</ComboBoxItem>
-                                            <ComboBoxItem>3</ComboBoxItem>
-                                            <ComboBoxItem>4</ComboBoxItem>
-                                            <ComboBoxItem>5</ComboBoxItem>
-                                            <ComboBoxItem>6</ComboBoxItem>
-                                            <ComboBoxItem>7</ComboBoxItem>
-                                            <ComboBoxItem>8</ComboBoxItem>
-                                            <ComboBoxItem>9</ComboBoxItem>
-                                            <ComboBoxItem>10</ComboBoxItem>
-                                        </ComboBox>
-
-
+                                    
 
                                     </StackPanel>
 
-                                    <ItemsControl>
-                                        <DataTemplate x:Name="kl">
-                                            <ComboBox x:Uid="mn">
-                                            
-                                            </ComboBox>
-                                        </DataTemplate>
-                                    </ItemsControl>
-                                    
+                               
+                                    <!--<Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button x:Name="BtnProdAgregar" Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid Width="200" Height="250" Margin="3">
+
+                                        <Border BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                            <Border.Effect>
+                                                <DropShadowEffect Direction="320" ShadowDepth="1" BlurRadius="12" Opacity=".7">
+                                                </DropShadowEffect>
+                                            </Border.Effect>
+                                        </Border>
+                                        <Grid Margin="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                            </Image>
+
+
+                                            <Grid Grid.Row="1">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"></RowDefinition>
+                                                    <RowDefinition ></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Titulo del alimento" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#606060">-Carne de res<LineBreak></LineBreak>-Lechuga<LineBreak></LineBreak>-Tomate<LineBreak></LineBreak>-Queso</TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Row="2" Margin="0,0,0,5">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <ComboBox Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
+                                                    <ComboBoxItem>1</ComboBoxItem>
+                                                    <ComboBoxItem>2</ComboBoxItem>
+                                                    <ComboBoxItem>3</ComboBoxItem>
+                                                    <ComboBoxItem>4</ComboBoxItem>
+                                                    <ComboBoxItem>5</ComboBoxItem>
+                                                    <ComboBoxItem>6</ComboBoxItem>
+                                                    <ComboBoxItem>7</ComboBoxItem>
+                                                    <ComboBoxItem>8</ComboBoxItem>
+                                                    <ComboBoxItem>9</ComboBoxItem>
+                                                    <ComboBoxItem>10</ComboBoxItem>
+                                                </ComboBox>
+                                                <Button Grid.Column="1" Background="White" BorderBrush="#06D51B" FontSize="12" FontFamily="Roboto" Foreground="#06D51B" Style="{StaticResource MaterialDesignRaisedButton}"
+                                                        materialDesign:ButtonAssist.CornerRadius="3" ToolTip="Agregarás la cantidad seleccionada a la factura" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="4" Height="30" Width="60" Margin="10,0">Agregar
+                                                </Button>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>-->
                                 </StackPanel>
                             </ScrollViewer>
                        
@@ -165,7 +860,7 @@
                             </TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
+                            <DataGrid x:Name="DGPromo" IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
                                 <DataGrid.BorderBrush>
                                     <SolidColorBrush Color="#FFC1C1C1"/>
                                 </DataGrid.BorderBrush>
@@ -194,11 +889,11 @@
                             </Grid.RowDefinitions>
                             <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Detalle factura</TextBlock>
                             <StackPanel Height="120" Grid.Row="1">
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                <TextBox x:Name="tbCarnetCliente" Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cleinte" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                <TextBox x:Name="tbNombreCliente" Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cleinte" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                <TextBox x:Name="tbApellidoCliente" Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                     VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
                             </StackPanel>
                         </Grid>
@@ -239,7 +934,7 @@
                             </Button>
                             <StackPanel Grid.Column="1" Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="18" Foreground="#FF403F3F">Total:</TextBlock>
-                                <TextBox x:Name="total" Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
+                                <TextBox x:Name="tbTotal" Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
                             </StackPanel>
                         </Grid>
                     </Grid>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.ViewModel;
 
 namespace WpfApp1
 {
@@ -26,7 +27,15 @@ namespace WpfApp1
 
         private void BtnConfrmOrdn_Click(object sender, RoutedEventArgs e)
         {
+            
+            
+        }
+        
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
+
+
     }
 }

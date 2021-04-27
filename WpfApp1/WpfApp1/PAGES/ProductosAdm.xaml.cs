@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
 namespace WpfApp1.Pages
 {
     /// <summary>
@@ -25,7 +24,11 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             actualizar();
+            actualizarPromocion();
+            //this.dataGrid.SearchHelper.Search(TextBox.Text);            
         }
+
+       
         private void actualizar()
         {
             List<ProductViewModel> lista = new List<ProductViewModel>();
@@ -44,7 +47,24 @@ namespace WpfApp1.Pages
             }
             DGProductoAdmi.ItemsSource = lista;
         }
-
+        private void actualizarPromocion()
+        {
+            List<PromoViewModel> lista = new List<PromoViewModel>();
+            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            {
+                lista = (from d in contexto.promocion
+                         select new PromoViewModel
+                         {
+                             idPromo = d.codPromocion,
+                             NombrePromo = d.nomProm,
+                            // EstadoPromo = Convert.ToBoolean(d.estadoProm),
+                             DescripcionPromo = d.detalleProm,
+                            // precioPromo = (decimal)d.precioProm
+                             
+                         }).ToList();
+            }
+            DGPromocion.ItemsSource = lista;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {           
@@ -64,6 +84,17 @@ namespace WpfApp1.Pages
             }
             actualizar();
         }
+        public class PromoViewModel
+        {
+            public int idPromo { get; set; }
+            public string NombrePromo { get; set; }
+            public bool EstadoPromo { get; set; }
+            public string DescripcionPromo { get; set; }
+          //  public decimal precioPromo { get; set; }
+        }
+
+
+
         public class ProductViewModel
             {
             public int IdProducto { get; set; }
@@ -80,6 +111,37 @@ namespace WpfApp1.Pages
             EditarProducto Editarproduct = new EditarProducto(tol);                       
             Editarproduct.Show();
             actualizar();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).CommandParameter;
+
+            using (Model.puntoDeVentaDB_testEntities contexto1 = new Model.puntoDeVentaDB_testEntities())
+            {
+                var promocion = contexto1.promocion.Find(id);
+                contexto1.promocion.Remove(promocion);                               
+                contexto1.SaveChanges();
+            }
+            actualizarPromocion();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            
+            
+            using (Model.puntoDeVentaDB_testEntities contexto = new Model.puntoDeVentaDB_testEntities())
+            {
+                var newpromo = new Model.promocion();
+                newpromo.nomProm = textpromo.Text;
+                //newproducto.nombreProd = textboxNP.Text;
+                //newproducto.descripcionProd = textboxdescrip.Text;
+                //newproducto.costoProd = Convert.ToDecimal(textboxcp.Text);
+                //newproducto.precioProd = Convert.ToDecimal(textboxpv.Text);
+                //newproducto.disponibilidadProd = Convert.ToBoolean(textdispo.Text);
+                contexto.promocion.Add(newpromo);
+                contexto.SaveChanges();
+            }
         }
     }
 }

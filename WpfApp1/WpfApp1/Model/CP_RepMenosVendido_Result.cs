@@ -10,16 +10,14 @@
 namespace WpfApp1.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ordenProductos
+    public partial class CP_RepMenosVendido_Result
     {
-        public int idOrdenProductos { get; set; }
-        public Nullable<int> codOrdenFK { get; set; }
-        public Nullable<int> codProductoFK { get; set; }
-        public Nullable<int> cantidad { get; set; }
-    
-        public virtual orden orden { get; set; }
-        public virtual productos productos { get; set; }
+        public string Producto { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public string Cateforia { get; set; }
+        public Nullable<decimal> Costo { get; set; }
+        public Nullable<decimal> precio { get; set; }
+        public Nullable<decimal> Total { get; set; }
     }
 }
