@@ -12,6 +12,8 @@ namespace WpfApp1.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class puntoDeVentaDB_testEntities : DbContext
     {
@@ -37,5 +39,15 @@ namespace WpfApp1.Model
         public virtual DbSet<categorias> categorias { get; set; }
         public virtual DbSet<productos> productos { get; set; }
         public virtual DbSet<promocion> promocion { get; set; }
+    
+        public virtual ObjectResult<CP_reporteProducto_Result> CP_reporteProducto()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_reporteProducto_Result>("CP_reporteProducto");
+        }
+    
+        public virtual ObjectResult<cp_ReporteVentas_Result> cp_ReporteVentas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<cp_ReporteVentas_Result>("cp_ReporteVentas");
+        }
     }
 }

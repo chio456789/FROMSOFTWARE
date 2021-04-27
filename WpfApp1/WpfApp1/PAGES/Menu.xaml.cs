@@ -34,7 +34,7 @@ namespace WpfApp1
             InitializeComponent();
             refresh();
             GetProductos();
-            
+          
         }
 
         private void GetProductos()
