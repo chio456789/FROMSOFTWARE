@@ -859,7 +859,7 @@
                             </TextBlock>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
+                            <DataGrid x:Name="DGPromo" IsReadOnly="True" Grid.Row="1" Grid.Column="1" FontFamily="Open Sans Light" BorderThickness=".6" ColumnHeaderHeight="35" HeadersVisibility="Column" FontWeight="Bold" CanUserResizeColumns="False" GridLinesVisibility="Horizontal" CanUserResizeRows="False" FontSize="13" AlternatingRowBackground="#FFDADADA" Background="White" RowBackground="White" Foreground="#DDFFFFFF" CanUserReorderColumns="False">
                                 <DataGrid.BorderBrush>
                                     <SolidColorBrush Color="#FFC1C1C1"/>
                                 </DataGrid.BorderBrush>
