@@ -27,6 +27,7 @@ namespace WpfApp1
         WrapPanel sta = new WrapPanel();
 
         private ObservableCollection<OrdenVm> listaOr = new ObservableCollection<OrdenVm>();
+        public static int hu=0;
 
         public Page1Menu()
         {           
@@ -63,6 +64,15 @@ namespace WpfApp1
            
         }
 
+        private void cantidad_change(object sender, SelectionChangedEventArgs e)
+        {
+
+            ComboBoxItem cbi1 = (ComboBoxItem)(sender as ComboBox).SelectedItem;
+            object select = cbi1.Content;
+            string v = select.ToString();
+            hu = Int32.Parse(v) ;
+
+        }
         private  void BtnProdAgregar1(object sender, RoutedEventArgs e)
         {
             using (puntoDeVentaDB_testEntities d = new puntoDeVentaDB_testEntities())
@@ -76,12 +86,12 @@ namespace WpfApp1
                 prueba = d.productos.Find(Int32.Parse(id.ToString()));
 
 
-                int nn = Int32.Parse(rusia.Text);
+                //int nn = Int32.Parse(rusia.Text);
                 decimal? mm = prueba.precioProd;
                 string yy = prueba.descripcionProd;
 
 
-                listaOr.Add(new OrdenVm(nn, mm, yy));
+                listaOr.Add(new OrdenVm(hu, mm, yy));
 
             }
                 

@@ -55,7 +55,6 @@ namespace WpfApp1
         private void btActualizarUsuario_Click(object sender, RoutedEventArgs e)
         {
             Usuario_emp use = new Usuario_emp();
-            Cargo mm = new Cargo();
             Empleado em3 = new Empleado();
             Usuarios ui = new Usuarios();
             em3.Nombre = tbNombre.Text;
@@ -66,9 +65,20 @@ namespace WpfApp1
             em3.Cargo = new Cargo((int)tbCargo.SelectedValue);
             ui.NombreUser = tbNomUsuario.Text;
             ui.Contrasena = tbPassword.Password;
+            empleado emp4 = this.bd.empleado.Find(us_id);
+
+
+            emp4.nombreEmp = tbNombre.Text;
+            emp4.apellidoPtEmp = tbApellido.Text;
+            emp4.direccionEmp = tbDireccion.Text;
+            emp4.ciEmpleado = tbCI.Text;
+            emp4.correoEmp = tbCorreo.Text;
+            emp4.cargoLaboral.codCargo = ((int)tbCargo.SelectedValue);
+           
+            //emp4.Contrasena = tbPassword.Password;
 
             use.UpdateEmpleado(em3,us_id);
-            use.UpdateUser(ui);
+            //use.UpdateUser(ui);
 
             ///hola cara de bola
             this.Close();
