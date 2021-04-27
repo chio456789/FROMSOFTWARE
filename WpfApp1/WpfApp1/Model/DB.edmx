@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="puntoDeVentaDB_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="puntoDeVentaDB_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ordenProductos">
           <Key>
             <PropertyRef Name="idOrdenProductos" />
@@ -276,21 +276,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_clientes_clientes">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
-          <End Role="clientes1" Type="Self.clientes" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="nitCliente" />
-            </Principal>
-            <Dependent Role="clientes1">
-              <PropertyRef Name="nitCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_usuario_usuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
+        <Association Name="FK_empleado_empleado">
+          <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
+          <End Role="empleado1" Type="Self.empleado" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="empleado">
               <PropertyRef Name="ciEmpleado" />
@@ -363,16 +351,13 @@
             <End Role="empleado" EntitySet="empleado" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
-          <AssociationSet Name="FK_clientes_clientes" Association="Self.FK_clientes_clientes">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="clientes1" EntitySet="clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_usuario_usuario" Association="Self.FK_usuario_usuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="usuario1" EntitySet="usuario" />
+          <AssociationSet Name="FK_empleado_empleado" Association="Self.FK_empleado_empleado">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="empleado1" EntitySet="empleado" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="puntoDeVentaDB_testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -456,7 +441,7 @@
           <Property Name="nombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__05D8E0BE" FromRole="clientes" ToRole="orden" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -750,45 +735,9 @@
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
-          <FunctionImport Name="CP_RepMasVendido" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMasVendido_Result)" />
-          <FunctionImport Name="CP_RepMayorDiferencia" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMayorDiferencia_Result)" />
-          <FunctionImport Name="CP_RepMenorDiferencia" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMenorDiferencia_Result)" />
-          <FunctionImport Name="CP_RepMenosVendido" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMenosVendido_Result)" />
           <FunctionImport Name="CP_reporteProducto" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteProducto_Result)" />
           <FunctionImport Name="cp_ReporteVentas" ReturnType="Collection(puntoDeVentaDB_testModel.cp_ReporteVentas_Result)" />
         </EntityContainer>
-        <ComplexType Name="CP_RepMasVendido_Result">
-          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Cantidad" Nullable="true" />
-          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-        </ComplexType>
-        <ComplexType Name="CP_RepMayorDiferencia_Result">
-          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Cantidad" Nullable="true" />
-          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-        </ComplexType>
-        <ComplexType Name="CP_RepMenorDiferencia_Result">
-          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Cantidad" Nullable="true" />
-          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-        </ComplexType>
-        <ComplexType Name="CP_RepMenosVendido_Result">
-          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Cantidad" Nullable="true" />
-          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
-        </ComplexType>
         <ComplexType Name="CP_reporteProducto_Result">
           <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Cantidad" Nullable="true" />

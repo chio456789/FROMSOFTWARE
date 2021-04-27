@@ -28,12 +28,17 @@ namespace WpfApp1.Pages
 
         private void BtnEndOrden_Click(object sender, RoutedEventArgs e)
         {
-            GridEndOrden.Background = new SolidColorBrush(Color.FromRgb(254,192,71));
+            //GridEndOrden.Background = new SolidColorBrush(Color.FromRgb(254,192,71));
         }
 
         private void BtnProsOrden_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void BtnProdAgregar1(object sender, RoutedEventArgs e)
+        {
+            //?
         }
     }
 }
