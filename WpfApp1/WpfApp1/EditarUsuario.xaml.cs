@@ -65,7 +65,7 @@ namespace WpfApp1
             use.UpdateEmpleado(em3);
             use.UpdateUser(ui);
 
-            
+            ///hola cara de bola
             this.Close();
             WindowAdministrador.ns.Content = new Page2Menu();
 
