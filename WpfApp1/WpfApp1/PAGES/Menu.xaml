@@ -951,7 +951,7 @@
                             </Button>
                             <StackPanel Grid.Column="1" Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="18" Foreground="#FF403F3F">Total:</TextBlock>
-                                <TextBox x:Name="total" Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
+                                <TextBox x:Name="tbTotal" Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
                             </StackPanel>
                         </Grid>
                     </Grid>

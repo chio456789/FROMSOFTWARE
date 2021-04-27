@@ -28,6 +28,8 @@ namespace WpfApp1
 
         private ObservableCollection<OrdenVm> listaOr = new ObservableCollection<OrdenVm>();
 
+        decimal? valor = 0;
+
         public Page1Menu()
         {           
             InitializeComponent();
@@ -65,13 +67,12 @@ namespace WpfApp1
 
         private  void BtnProdAgregar1(object sender, RoutedEventArgs e)
         {
+            OrdenVm ov = new OrdenVm();
             using (puntoDeVentaDB_testEntities d = new puntoDeVentaDB_testEntities())
             {
                 object id = (object)((Button)sender).CommandParameter;
 
-
                 productos prueba = new productos();
-
 
                 prueba = d.productos.Find(Int32.Parse(id.ToString()));
 
@@ -80,25 +81,18 @@ namespace WpfApp1
                 decimal? mm = prueba.precioProd;
                 string yy = prueba.descripcionProd;
 
-
                 listaOr.Add(new OrdenVm(nn, mm, yy));
-
+                valor += ov.subtotalItem(nn, mm);
+                tbTotal.Text = valor.ToString();
             }
-                
-
-          
 
              refreshorden();
 
-           
-            //listaOr.Add(new OrdenVm();
         }
 
         private void refreshorden()
         {
             DGFactura.ItemsSource = listaOr;
-           
-            
         }
 
         private void refresh()
@@ -136,8 +130,26 @@ namespace WpfApp1
 
         private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
         {
-            ConfirmarOrden terminarO = new ConfirmarOrden();
-            terminarO.ShowDialog();            
+            /*ConfirmarOrden terminarO = new ConfirmarOrden();
+            terminarO.ShowDialog();*/
+
+         //inicio guardar factura ---------------------------------
+            TotalFactura tf = new TotalFactura();
+            FacturaOrden fo = new FacturaOrden();
+
+            tf.TotalFac = Convert.ToDecimal(tbTotal.Text);
+            tf.UltimoReg = tf.encontrarUltimaOrden();
+
+            if (fo.guardarFactura(tf))
+            {
+                MessageBox.Show("Factura Guardada");
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar la factura");
+            }
+
+         //fin guardar factura---------------------------------
         }
     }
 

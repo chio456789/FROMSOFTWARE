@@ -29,7 +29,5 @@ namespace WpfApp1.Model
         public virtual empleado empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orden> orden { get; set; }
-        public virtual usuario usuario1 { get; set; }
-        public virtual usuario usuario2 { get; set; }
     }
 }

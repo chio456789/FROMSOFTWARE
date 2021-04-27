@@ -12,6 +12,8 @@ namespace WpfApp1.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class puntoDeVentaDB_testEntities : DbContext
     {
@@ -28,6 +30,7 @@ namespace WpfApp1.Model
         public virtual DbSet<ordenProductos> ordenProductos { get; set; }
         public virtual DbSet<ordenPromocion> ordenPromocion { get; set; }
         public virtual DbSet<promocionesProductos> promocionesProductos { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<cargoLaboral> cargoLaboral { get; set; }
         public virtual DbSet<empleado> empleado { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
@@ -37,5 +40,35 @@ namespace WpfApp1.Model
         public virtual DbSet<categorias> categorias { get; set; }
         public virtual DbSet<productos> productos { get; set; }
         public virtual DbSet<promocion> promocion { get; set; }
+    
+        public virtual ObjectResult<CP_reporteProducto_Result> CP_reporteProducto()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_reporteProducto_Result>("CP_reporteProducto");
+        }
+    
+        public virtual ObjectResult<CP_RepMasVendido_Result> CP_RepMasVendido()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_RepMasVendido_Result>("CP_RepMasVendido");
+        }
+    
+        public virtual ObjectResult<CP_RepMayorDiferencia_Result> CP_RepMayorDiferencia()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_RepMayorDiferencia_Result>("CP_RepMayorDiferencia");
+        }
+    
+        public virtual ObjectResult<CP_RepMenorDiferencia_Result> CP_RepMenorDiferencia()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_RepMenorDiferencia_Result>("CP_RepMenorDiferencia");
+        }
+    
+        public virtual ObjectResult<CP_RepMenosVendido_Result> CP_RepMenosVendido()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_RepMenosVendido_Result>("CP_RepMenosVendido");
+        }
+    
+        public virtual ObjectResult<cp_ReporteVentas_Result> cp_ReporteVentas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<cp_ReporteVentas_Result>("cp_ReporteVentas");
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace WpfApp1.Pages
         public void refreshReportes()
         {
             MyDataGridReportProduc.ItemsSource = ReportsList.listarProductos();
+            MyDataGridVentas.ItemsSource = ReportsList.listarVentas();
 
         }
 
@@ -81,6 +82,28 @@ namespace WpfApp1.Pages
         private void btCrearReporteRango_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btGenerarReporte_Click(object sender, RoutedEventArgs e)
+        {
+            switch (cbTipoReporte.Text)
+            {
+                case "Mas vendido":
+                    MyDataGridReportProduc.ItemsSource = ReportsList.masVendido();
+                    break;
+                case "Menos vendido":
+                    MyDataGridReportProduc.ItemsSource = ReportsList.menosVendido();
+                    break; 
+                case "Mayor diferencia":
+                    MyDataGridReportProduc.ItemsSource = ReportsList.mayorDiferencia();
+                    break;
+                case "Menor diferencia":
+                    MyDataGridReportProduc.ItemsSource = ReportsList.menorDiferencia();
+                    break;
+                case "Lista":
+                    MyDataGridReportProduc.ItemsSource = ReportsList.listarProductos();
+                    break;
+            }
         }
     }
 }

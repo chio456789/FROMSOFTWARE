@@ -15,64 +15,61 @@ namespace WpfApp1.ViewModel
         {
             using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
             {
-                var query = db.productos
-                            .Join(
-                            db.ordenProductos,
-                            pd => pd.codProducto,
-                            op => op.codProductoFK,
-                            (pd, op) => new { pd.nombreProd, op.cantidad, pd.codCategoriaFK })
-                            .Join(
-                            db.categorias,
-                            pd => pd.codCategoriaFK,
-                            ct => ct.codCategoria,
-                            (pd, ct) => new { ct.nombreCtg }
-                            )
-                            .GroupBy(y => y.nombreCtg)
-                            .Select(x => new { 
-                                Producto = x.Key/*, 
-                                UnidadesVendidas = x.Select(g => g.cantidad).Sum() */});
-
-                //si funciona
-                /*(from op in db.ordenProductos
-                         select new
-                         {
-                             Producto = op.productos.nombreProd,
-                             UnidadesVendidas = op.cantidad,
-                             Categoria = op.productos.categorias.nombreCtg,
-                             Costo = op.productos.costoProd,
-                             Precio = op.productos.precioProd,
-                             Total = (op.productos.precioProd) * (op.cantidad)
-                         });*/
-
-
-                //Si funciona
-                //var query = db.productos
-                //            .Join(
-                //            db.ordenProductos,
-                //            pd => pd.codProducto,
-                //            op => op.codProductoFK,
-                //            (pd, op) => new { pd.nombreProd, op.cantidad })
-                //            .GroupBy(pd => pd.nombreProd)
-                //            .Select(x => new { Producto = x.Key, UnidadesVendidas = x.Select(g => g.cantidad).Sum() });
-
-                /*
-                 var query = db.productos
-                            .Join(
-                            db.ordenProductos,
-                            pd => pd.codProducto,
-                            op => op.codProductoFK,
-                            (pd, op) => new { pd.nombreProd, op.cantidad, pd.codCategoriaFK })
-                            .Join(
-                            db.categorias,
-                            pd => pd.codCategoriaFK,
-                            ct => ct.codCategoria,
-                            (pd, ct) => new { ct.nombreCtg }
-                            )
-                            .GroupBy(y => y.nombreCtg)
-                            .Select(x => new { Producto = x.Key, UnidadesVendidas = x.Select(g => g.cantidad).Sum() });
-                 */
+                var query = db.CP_reporteProducto();
+ 
                 return query.ToList();
             }
         }
+
+        public static IList masVendido()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMasVendido();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList menosVendido()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMenosVendido();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList mayorDiferencia()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMayorDiferencia();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList menorDiferencia()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.CP_RepMenorDiferencia();
+
+                return query.ToList();
+            }
+        }
+
+        public static IList listarVentas()
+        {
+            using (puntoDeVentaDB_testEntities db = new puntoDeVentaDB_testEntities())
+            {
+                var query = db.cp_ReporteVentas();
+
+                return query.ToList();
+            }
+        }
+
     }
 }

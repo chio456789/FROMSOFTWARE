@@ -37,10 +37,10 @@
                        AlternationCount="2" SelectionMode="Single" Margin="2,0,10,2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=Producto}" IsReadOnly="True" Header="Producto" Width="Auto" />
-                        <DataGridTextColumn Binding="{Binding Path=UnidadesVendidas}" Header="Unidades vendidas" Width="Auto" IsReadOnly="True" />
-                        <DataGridTextColumn Binding="{Binding Path=Categoria}" Header="Categorias" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=Cantidad}" Header="Unidades vendidas" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=Cateforia}" Header="Categorias" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Costo}" Header="Costo" Width="Auto" />
-                        <DataGridTextColumn Binding="{Binding Path=Precio}" Header="Precio" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=precio}" Header="Precio" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Total}" Header="Total $" Width="Auto" IsReadOnly="True" />
                     </DataGrid.Columns>
                 </DataGrid>
@@ -52,7 +52,7 @@
                 </Border>
             </Grid>
             <Grid Grid.Row="3" Margin="6,2,0,7">
-                <DataGrid x:Name="MyDataGridss" x:Uid="MyDataGrid" AutoGenerateColumns="False"
+                <DataGrid x:Name="MyDataGridVentas" x:Uid="MyDataGrid" AutoGenerateColumns="False"
                        AlternationCount="2" SelectionMode="Single" Margin="2,0,10,2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding  Path=NombreCajero}" IsReadOnly="True" Header="Nombre cajero" Width="Auto" />
@@ -91,17 +91,34 @@
                         Text="Rango de Reporte"
                         FontSize="20"/>
 
-                    <DatePicker
+                    <ComboBox x:Name="cbTipoReporte"
+                     Margin="15,0,15,2"
+                     Height="38"
+                     Padding="4" FontFamily="Roboto" FontSize="13"
+                     materialDesign:HintAssist.Hint="Consulta"
+                     Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                     Grid.Row="1">
+
+                        <ComboBoxItem IsSelected="True" >Lista</ComboBoxItem>
+                        <ComboBoxItem>Mas vendido</ComboBoxItem>
+                        <ComboBoxItem>Menos vendido</ComboBoxItem>
+                        <ComboBoxItem>Mayor diferencia</ComboBoxItem>
+                        <ComboBoxItem>Menor diferencia</ComboBoxItem>
+                        
+                        
+                    </ComboBox>
+
+                    <!--<DatePicker
                         Grid.Row="1"
                         Margin="58,12,59,62"
                         Name="LocaleDatePickerDe"
-                        materialDesign:HintAssist.Hint="De" />
+                        materialDesign:HintAssist.Hint="De" />-->
 
-                    <DatePicker
+                    <!--<DatePicker
                         Grid.Row="1"
                         Margin="58,62,59,12"
                         Name="LocaleDatePickerHasta"
-                        materialDesign:HintAssist.Hint="Hasta" />
+                        materialDesign:HintAssist.Hint="Hasta" />-->
 
                     <Button
                     Grid.Row="2"
@@ -111,7 +128,7 @@
                     ToolTip="MaterialDesignOutlinedButton"
                     Margin="14,44,150,24"
                     Foreground="#F2A533"
-                    BorderBrush="#F2A533" Click="btImprimir_Click" Content="Crear reporte"/>
+                    BorderBrush="#F2A533" Click="btGenerarReporte_Click" Content="Crear reporte"/>
 
                     <Button
                     Grid.Row="2"
