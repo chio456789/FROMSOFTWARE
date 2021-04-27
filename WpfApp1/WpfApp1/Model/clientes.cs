@@ -27,5 +27,7 @@ namespace WpfApp1.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<orden> orden { get; set; }
+        public virtual clientes clientes1 { get; set; }
+        public virtual clientes clientes2 { get; set; }
     }
 }

@@ -735,6 +735,10 @@
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
           <FunctionImport Name="CP_reporteProducto" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteProducto_Result)" />
+          <FunctionImport Name="CP_RepMasVendido" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMasVendido_Result)" />
+          <FunctionImport Name="CP_RepMayorDiferencia" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMayorDiferencia_Result)" />
+          <FunctionImport Name="CP_RepMenorDiferencia" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMenorDiferencia_Result)" />
+          <FunctionImport Name="CP_RepMenosVendido" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMenosVendido_Result)" />
           <FunctionImport Name="cp_ReporteVentas" ReturnType="Collection(puntoDeVentaDB_testModel.cp_ReporteVentas_Result)" />
         </EntityContainer>
         <ComplexType Name="CP_reporteProducto_Result">

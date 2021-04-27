@@ -30,6 +30,7 @@
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__orden__nitClient__4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__factura__codOrde__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="puntoDeVentaDB_testModel.FK__productos__codCa__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="puntoDeVentaDB_testModel.FK_clientes_clientes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

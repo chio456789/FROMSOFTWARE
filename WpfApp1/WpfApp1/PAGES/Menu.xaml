@@ -9,6 +9,7 @@
       d:DesignHeight="620" d:DesignWidth="1038"
       Background="White"
       Title="Page1Menu">
+    
 
     <Grid>
         <Grid>
@@ -53,31 +54,31 @@
                        
                             <ScrollViewer Grid.Row="1" Margin="0,5,0,0" Background="#aaaaaa">
                                 <StackPanel x:Name="muestra">
-                                <StackPanel Margin="20 0">
-                                    <ItemsControl x:Name="ListaMenu" ItemsSource="{Binding Items}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Border Margin="3" Width="200" Height="250" BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
-                                                    <StackPanel>
-                                                        <Grid Margin="5">
-                                                            <Grid.RowDefinitions>
-                                                                <RowDefinition Height="auto"></RowDefinition>
-                                                                <RowDefinition Height="*"></RowDefinition>
-                                                                <RowDefinition Height="auto"></RowDefinition>
-                                                            </Grid.RowDefinitions>
-                                                            <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
-
-                                                            </Image>
-
-
-                                                            <Grid Grid.Row="1">
+                                    <StackPanel Margin="20 0">
+                                        <ItemsControl x:Name="ListaMenu" ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="3" Width="200" Height="250" BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
+                                                        <StackPanel>
+                                                            <Grid Margin="5">
                                                                 <Grid.RowDefinitions>
                                                                     <RowDefinition Height="auto"></RowDefinition>
-                                                                    <RowDefinition ></RowDefinition>
+                                                                    <RowDefinition Height="*"></RowDefinition>
+                                                                    <RowDefinition Height="auto"></RowDefinition>
                                                                 </Grid.RowDefinitions>
-                                                                <TextBlock Text="{Binding Nombre}" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
-                                                                <TextBlock Text="{Binding Descripcion}" Grid.Row="1" Margin="10,0" Foreground="#606060"></TextBlock>
-                                                            </Grid>
+                                                                <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
+
+                                                                </Image>
+
+
+                                                                <Grid Grid.Row="1">
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="auto"></RowDefinition>
+                                                                        <RowDefinition ></RowDefinition>
+                                                                    </Grid.RowDefinitions>
+                                                                    <TextBlock Text="{Binding Nombre}" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
+                                                                    <TextBlock Text="{Binding Descripcion}" Grid.Row="1" Margin="10,0" Foreground="#606060"></TextBlock>
+                                                                </Grid>
 
                                                             <Grid Grid.Row="2" Margin="0,0,0,5">
                                                                 <Grid.ColumnDefinitions>
@@ -107,18 +108,18 @@
                                                 </Border>
                                             </DataTemplate>
                                            
-                                        </ItemsControl.ItemTemplate>
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
+                                            </ItemsControl.ItemTemplate>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
                                         
-                                    </ItemsControl>
+                                        </ItemsControl>
                     
                                     
 
-                                </StackPanel>
+                                    </StackPanel>
 
                                
                                     <!--<Grid Width="200" Height="250" Margin="3">
