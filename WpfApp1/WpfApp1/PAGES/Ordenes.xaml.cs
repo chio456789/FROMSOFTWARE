@@ -32,12 +32,8 @@ namespace WpfApp1.Pages
         }
 
         private void BtnProsOrden_Click(object sender, RoutedEventArgs e)
-        {/*
-            OrdenesCs or = new OrdenesCs();
-            if (or.EstadoDeLaOrden("asd"))
-            {
-                GridEndOrden.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            */
+        {
+            
         }
     }
 }

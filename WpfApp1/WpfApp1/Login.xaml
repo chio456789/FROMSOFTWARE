@@ -52,7 +52,7 @@
             <Grid Grid.Row="4">
                 <Button x:Name="BtnSalirLogin" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="15" Width="35" Height="35" ToolTip="Salir al escritorio" Padding="0" Click="BtnSalirLogin_Click"
                         >
-                    <materialDesign:PackIcon Kind="ArrowRightBoldBoxOutline"  Foreground="#707070" Height="35" Width="auto"></materialDesign:PackIcon>
+                    <materialDesign:PackIcon Kind="ArrowRightBoldBoxOutline"  Foreground="#707070" Height="35" Width="auto" ToolTip="Cerrar la aplicación"></materialDesign:PackIcon>
                 </Button>
             </Grid>
         </Grid>
