@@ -51,9 +51,9 @@ namespace WpfApp1
         private void btActualizarUsuario_Click(object sender, RoutedEventArgs e)
         {
             Usuario_emp use = new Usuario_emp();
-
             Empleado em3 = new Empleado();
             Usuarios ui = new Usuarios();
+            
             em3.Nombre = tbNombre.Text;
             em3.ApellidoPaterno = tbApellido.Text;
             em3.Direccion = tbDireccion.Text;

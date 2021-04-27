@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Model;
 
 namespace WpfApp1
 {
@@ -20,9 +21,12 @@ namespace WpfApp1
     /// </summary>
     public partial class Page1Menu : Page
     {
+
+        puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
+        clientes cli = new clientes();
         public Page1Menu()
         {           
-            InitializeComponent();
+            InitializeComponent();      
             refresh();           
         }
         private void refresh()
@@ -59,8 +63,32 @@ namespace WpfApp1
 
         private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
         {
-            ConfirmarOrden terminarO = new ConfirmarOrden();
-            terminarO.ShowDialog();
+            
+            using (Model.puntoDeVentaDB_testEntities db = new Model.puntoDeVentaDB_testEntities())
+            {
+                var oCliente = new Model.clientes();
+                oCliente.nitCliente = txtnitCliente.Text;
+                oCliente.nombreCliente = txtnombreCliente.Text;
+                oCliente.apellidoCliente = txtapellidoCliente.Text;
+
+
+                db.clientes.Add(oCliente);
+                db.SaveChanges();
+                txtnitCliente.Clear();
+                txtnombreCliente.Clear();
+                txtapellidoCliente.Clear();
+            }
+            //ConfirmarOrden terminarO = new ConfirmarOrden();
+            //terminarO.ShowDialog();
+
+        }
+
+        private void BtnSeleccionarOrden_Click(object sender, RoutedEventArgs e)
+        {
+            cli = bd.clientes.Find(txtnitCliente.Text);
+            txtnitCliente.Text = cli.nitCliente;
+            txtnombreCliente.Text = cli.nombreCliente;
+            txtapellidoCliente.Text = cli.apellidoCliente;
         }
     }
 

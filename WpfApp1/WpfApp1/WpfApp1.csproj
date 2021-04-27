@@ -165,6 +165,8 @@
       <DependentUpon>Reportes.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Cargo.cs" />
+    <Compile Include="ViewModel\Cliente.cs" />
+    <Compile Include="ViewModel\Cliente_ord.cs" />
     <Compile Include="ViewModel\Empleado.cs" />
     <Compile Include="ViewModel\PerfilClientes.cs" />
     <Compile Include="ViewModel\PerfilUser.cs" />

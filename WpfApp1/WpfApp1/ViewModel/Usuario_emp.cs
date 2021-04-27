@@ -113,6 +113,10 @@ namespace WpfApp1.ViewModel
             }
 
         }
+
+       
+
+
         public bool UpdateEmpleado(Empleado emp3)
         {
             try

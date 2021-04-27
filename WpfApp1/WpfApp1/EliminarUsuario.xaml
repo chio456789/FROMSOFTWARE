@@ -25,7 +25,7 @@
                 </Grid.ColumnDefinitions>
                 <Button
                     Grid.Column="0"
-                    x:Name="btEliminar"                    
+                    x:Name="btEliminarCliente"                    
                     Margin="34,20,18,0"
                     Foreground="White"
                     Background="#06D51B"

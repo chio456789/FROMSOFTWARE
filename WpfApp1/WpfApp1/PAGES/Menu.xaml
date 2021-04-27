@@ -821,35 +821,48 @@
                             <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Detalle factura</TextBlock>
                             <StackPanel Height="120" Grid.Row="1">
                                 <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cleinte" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
+                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Name="txtnitCliente"/>
+                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Name="txtnombreCliente"/>
                                 <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
+                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Name= "txtapellidoCliente"/>
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <DataGrid x:Name="DGFactura" AutoGenerateColumns="True" IsReadOnly="True" Grid.Row="1" Grid.Column="1" >
+                            <!--<DataGrid x:Name="DGFactura" AutoGenerateColumns="True" IsReadOnly="True" SelectionChanged="DGFactura_SelectionChanged" Margin="0,-10,0,0" >
                                 <DataGrid.Columns>
-
                                 </DataGrid.Columns>
-                            </DataGrid>
+                            </DataGrid>-->
                         </Grid>
                         <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="BtnTerminarOrden" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="110" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Finalizar e imprimir factura" Background="#F2A533" BorderBrush="#727272" FontSize="16" Click="BtnTerminarOrden_Click">Finalizar
+                            <Button x:Name="BtnTerminarOrden" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="75" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Finalizar e imprimir factura" Background="#F2A533" BorderBrush="#727272" FontSize="12" Click="BtnTerminarOrden_Click" RenderTransformOrigin="0.586,0.5">Finalizar
                                 <Button.Effect>
                                     <DropShadowEffect Direction="240" ShadowDepth="2" BlurRadius="8" Opacity=".5"></DropShadowEffect>
                                 </Button.Effect>
                             </Button>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+          
+
+                            <StackPanel Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="18" Foreground="#FF403F3F">Total:</TextBlock>
                                 <TextBox Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
                             </StackPanel>
+
+                            <StackPanel Grid.Column="1" >
+                                <Button x:Name="BtnSeleccionarOrden" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="75" materialDesign:ButtonAssist.CornerRadius="3" 
+                                 Background="Blue" BorderBrush="#727272" FontSize="12" Click="BtnSeleccionarOrden_Click" RenderTransformOrigin="1.854,1.033" Content="Buscar">
+                                    <Button.Effect>
+                                        <DropShadowEffect Direction="240" ShadowDepth="2" BlurRadius="8" Opacity=".5"/>
+                                    </Button.Effect>
+                                </Button>
+                            </StackPanel>
+
                         </Grid>
                     </Grid>
                 </Grid>

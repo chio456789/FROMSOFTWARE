@@ -256,12 +256,12 @@
                                         Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBox
+                                    <TextBox x:Name="btbusquedaCliente"
                                     Grid.Column="1"
                                     materialDesign:HintAssist.Hint="Buscar"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0"
-                                    MinWidth="200" />
+                                    MinWidth="200" TextChanged="btbusquedaCliente_TextChanged" />
                                     <Button
                                     Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="328,0,0,0" Height="Auto">
                                         <materialDesign:PackIcon
@@ -291,11 +291,11 @@
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Editar" Click="EditCliente" 
+                                <Button Content="Editar" Click="EditarCliente" 
                                         Style="{StaticResource MaterialDesignOutlinedButton}"
                                         ToolTip="MaterialDesignOutlinedButton"
                                         Foreground="#F2A533"
-                                        BorderBrush="#F2A533"/>
+                                        BorderBrush="#F2A533" CommandParameter="{Binding nitCliente}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -306,7 +306,7 @@
                                         Style="{StaticResource MaterialDesignOutlinedButton}"
                                         ToolTip="MaterialDesignOutlinedButton"
                                         Foreground="#F83A3A"
-                                        BorderBrush="#F83A3A"/>
+                                        BorderBrush="#F83A3A" CommandParameter="{Binding nitCliente}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
