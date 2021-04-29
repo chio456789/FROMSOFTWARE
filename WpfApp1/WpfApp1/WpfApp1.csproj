@@ -186,9 +186,6 @@
     <Compile Include="Model\promocionesProductos.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\usuario.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -208,6 +205,8 @@
       <DependentUpon>Reportes.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Cargo.cs" />
+    <Compile Include="ViewModel\Cliente.cs" />
+    <Compile Include="ViewModel\Cliente_ord.cs" />
     <Compile Include="ViewModel\Empleado.cs" />
     <Compile Include="ViewModel\FacturaOrden.cs" />
     <Compile Include="ViewModel\Orden.cs" />

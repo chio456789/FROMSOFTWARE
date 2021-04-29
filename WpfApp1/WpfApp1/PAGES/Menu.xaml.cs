@@ -33,6 +33,9 @@ namespace WpfApp1
 
         decimal? valor = 0;
 
+
+        puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
+        clientes cli = new clientes();
         public Page1Menu()
         {           
             InitializeComponent();
@@ -170,10 +173,23 @@ namespace WpfApp1
        
         private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
         {
-            /*ConfirmarOrden terminarO = new ConfirmarOrden();
-            terminarO.ShowDialog();*/
+            
+            using (Model.puntoDeVentaDB_testEntities db = new Model.puntoDeVentaDB_testEntities())
+            {
+                var oCliente = new Model.clientes();
+                oCliente.nitCliente = txtnitCliente.Text;
+                oCliente.nombreCliente = txtnombreCliente.Text;
+                oCliente.apellidoCliente = txtapellidoCliente.Text;
 
-         //inicio guardar factura ---------------------------------
+
+                db.clientes.Add(oCliente);
+                db.SaveChanges();
+                txtnitCliente.Clear();
+                txtnombreCliente.Clear();
+                txtapellidoCliente.Clear();
+            }
+            //ConfirmarOrden terminarO = new ConfirmarOrden();
+            //terminarO.ShowDialog();
             TotalFactura tf = new TotalFactura();
             FacturaOrden fo = new FacturaOrden();
 
@@ -189,6 +205,21 @@ namespace WpfApp1
                 MessageBox.Show("Error al guardar la factura");
             }
 
+        }
+
+        private void BtnSeleccionarOrden_Click(object sender, RoutedEventArgs e)
+        {
+            cli = bd.clientes.Find(txtnitCliente.Text);
+            txtnitCliente.Text = cli.nitCliente;
+            txtnombreCliente.Text = cli.nombreCliente;
+            txtapellidoCliente.Text = cli.apellidoCliente;
+            /*ConfirmarOrden terminarO = new ConfirmarOrden();
+            terminarO.ShowDialog();*/
+
+         //inicio guardar factura ---------------------------------
+            
+         //fin guardar factura---------------------------------
+        }
          
         }
         

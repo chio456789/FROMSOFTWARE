@@ -31,6 +31,8 @@ namespace WpfApp1
 
         private void btEliminar_Click(object sender, RoutedEventArgs e)
         {
+            
+           
 
         }
     }

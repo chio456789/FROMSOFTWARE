@@ -26,7 +26,16 @@ namespace WpfApp1
 
         private void btEliminarCliente_Click(object sender, RoutedEventArgs e)
         {
+            String nitCliente = (string)((Button)sender).CommandParameter;
 
+            using (Model.puntoDeVentaDB_testEntities db = new Model.puntoDeVentaDB_testEntities())
+            {
+                var oCliente = db.clientes.Find(nitCliente);
+                db.clientes.Remove(oCliente);
+                db.SaveChanges();
+                this.Close();
+
+            }
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
