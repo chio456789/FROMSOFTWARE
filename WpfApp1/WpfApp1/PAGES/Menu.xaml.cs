@@ -41,11 +41,11 @@ namespace WpfApp1
 
         private void GetProductos()
         {
-            List<Items> ls = new List<Items>();
+            List<Items> ln = new List<Items>();
             using (puntoDeVentaDB_testEntities d = new puntoDeVentaDB_testEntities())
             {
-                ls = (
-                    from dm in d.productos select new Items
+               var ls = (
+                    from dm in d.productos select new 
                     {
                         Nombre= dm.nombreProd,
                         Descripcion = dm.descripcionProd,
@@ -74,6 +74,7 @@ namespace WpfApp1
             string v = select.ToString();
             hu = Int32.Parse(v) ;
 
+
         }
         private  void BtnProdAgregar1(object sender, RoutedEventArgs e)
         {
@@ -92,7 +93,7 @@ namespace WpfApp1
                 string yy = prueba.descripcionProd;
 
 
-                listaOr.Add(new OrdenVm(hu, mm, yy));
+                listaOr.Add(new OrdenVm(hu, mm, yy,Int32.Parse(id.ToString())));
 
                
                 valor += ov.subtotalItem(hu, mm);
@@ -170,17 +171,72 @@ namespace WpfApp1
         {
             /*ConfirmarOrden terminarO = new ConfirmarOrden();
             terminarO.ShowDialog();*/
+            string carnet = tbCarnetCliente.Text;
+            puntoDeVentaDB_testEntities nuevo = new puntoDeVentaDB_testEntities();
+            clientes nm = new clientes();
+            orden kl = new orden();
+            ordenProductos jk = new ordenProductos();
+            
+            var q= nuevo.clientes.Find(carnet);
 
          //inicio guardar factura ---------------------------------
             TotalFactura tf = new TotalFactura();
             FacturaOrden fo = new FacturaOrden();
 
+            
+
+
             tf.TotalFac = Convert.ToDecimal(tbTotal.Text);
             tf.UltimoReg = tf.encontrarUltimaOrden();
 
+            //**********guardar cliente
+
+
+            
+
+            if (q == null)
+            {
+                MessageBox.Show("no existe este cliente");
+                nm.nitCliente = tbCarnetCliente.Text;
+                nm.nombreCliente = tbNombreCliente.Text;
+                nm.apellidoCliente = tbApellidoCliente.Text;
+                nuevo.clientes.Add(nm);
+                nuevo.SaveChanges();
+                MessageBox.Show("guardado cliente");
+                kl.nitClienteFK = tbCarnetCliente.Text;
+                kl.estadoOrden = true;
+                nuevo.orden.Add(kl);
+                nuevo.SaveChanges();
+                MessageBox.Show("orden guardada");
+               
+
+                foreach (var mn in listaOr)
+                {
+                    jk.codOrdenFK = tf.UltimoReg;
+                    jk.codProductoFK = mn.cod_Producto;
+                    jk.cantidad = mn.cantidad;
+                    nuevo.ordenProductos.Add(jk);
+                    nuevo.SaveChanges();
+                   
+
+                }
+                MessageBox.Show("listaguardadda");
+
+
+            }
+
+
+
             if (fo.guardarFactura(tf))
             {
+
                 MessageBox.Show("Factura Guardada");
+                tbTotal.Text = "";
+                listaOr.Clear();
+                tbCarnetCliente.Text = "";
+                tbApellidoCliente.Text = "";
+                tbNombreCliente.Text = "";
+
             }
             else
             {

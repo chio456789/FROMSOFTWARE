@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Model;
 using WpfApp1.ViewModel;
 
 namespace WpfApp1.Pages
@@ -24,6 +25,7 @@ namespace WpfApp1.Pages
         public Ordenes()
         {
             InitializeComponent();
+            listarOrdenesNuevas();
         }
 
         private void BtnEndOrden_Click(object sender, RoutedEventArgs e)
@@ -34,6 +36,28 @@ namespace WpfApp1.Pages
         private void BtnProsOrden_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        public void listarOrdenesNuevas()
+        {
+            List<string> ls = new List<string>();
+            using (var d = new puntoDeVentaDB_testEntities())
+            {
+                var q = (
+                    from sm in d.orden where sm.codOrden == 8
+                    let queryable = (from nn in d.ordenProductos where nn.orden.codOrden == 8 select nn.productos.nombreProd)
+                    select new
+                    {
+                        orden = sm.codOrden,
+                        ordenes = queryable.ToList()
+                    }
+                    ).ToList();
+               
+
+                listaOrdenesNuevas.ItemsSource = q;
+
+            }
+
         }
 
         private void BtnProdAgregar1(object sender, RoutedEventArgs e)

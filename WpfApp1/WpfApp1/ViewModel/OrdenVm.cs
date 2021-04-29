@@ -12,16 +12,18 @@ namespace WpfApp1.ViewModel
 
         public string descripcion { get; set; }
         public Decimal? precioUnitario { get; set; }
+
+        public int cod_Producto { get; set; }
         
 
         public Decimal? subtotal { get; set; }
 
-        public OrdenVm(int? cantidad, decimal? precioUnitario, string descripcion)
+        public OrdenVm(int? cantidad, decimal? precioUnitario, string descripcion, int codprod)
         {
             this.cantidad = cantidad;
             this.descripcion = descripcion;
             this.precioUnitario = precioUnitario;
-            
+            this.cod_Producto = codprod;
             this.subtotal = this.cantidad*this.precioUnitario;
         }
 
@@ -35,5 +37,7 @@ namespace WpfApp1.ViewModel
         {
             this.descripcion = string.Empty;
         }
+
+
     }
 }

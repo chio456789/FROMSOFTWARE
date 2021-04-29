@@ -167,7 +167,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__orden__nitClient__4316F928">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
+          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="clientes">
@@ -190,7 +192,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ordenProd__codPr__778AC167">
+        <Association Name="FK__ordenProd__codPr__3A81B327">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -250,7 +252,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__promocion__codPr__6B24EA82">
+        <Association Name="FK__promocion__codPr__3E52440B">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -276,15 +278,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_empleado_empleado">
-          <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
-          <End Role="empleado1" Type="Self.empleado" Multiplicity="0..1" />
+        <Association Name="FK_clientes_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="clientes1" Type="Self.clientes" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="empleado">
-              <PropertyRef Name="ciEmpleado" />
+            <Principal Role="clientes">
+              <PropertyRef Name="nitCliente" />
             </Principal>
-            <Dependent Role="empleado1">
-              <PropertyRef Name="ciEmpleado" />
+            <Dependent Role="clientes1">
+              <PropertyRef Name="nitCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="codUsuario" />
+            </Principal>
+            <Dependent Role="usuario1">
+              <PropertyRef Name="codUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -323,7 +337,7 @@
             <End Role="orden" EntitySet="orden" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
+          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
             <End Role="productos" EntitySet="productos" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
@@ -343,7 +357,7 @@
             <End Role="promocion" EntitySet="promocion" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
+          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
             <End Role="productos" EntitySet="productos" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
@@ -351,9 +365,13 @@
             <End Role="empleado" EntitySet="empleado" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
-          <AssociationSet Name="FK_empleado_empleado" Association="Self.FK_empleado_empleado">
-            <End Role="empleado" EntitySet="empleado" />
-            <End Role="empleado1" EntitySet="empleado" />
+          <AssociationSet Name="FK_clientes_clientes" Association="Self.FK_clientes_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="clientes1" EntitySet="clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_usuario" Association="Self.FK_usuario_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuario1" EntitySet="usuario" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -370,7 +388,7 @@
           <Property Name="codProductoFK" Type="Int32" />
           <Property Name="cantidad" Type="Int32" />
           <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="ordenProductos" ToRole="productos" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="ordenProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="ordenPromocion">
           <Key>
@@ -391,7 +409,7 @@
           <Property Name="codPromocionFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
           <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="promocionesProductos" ToRole="productos" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="promocionesProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="cargoLaboral">
           <Key>
@@ -418,8 +436,6 @@
           <Property Name="eliminar" Type="Boolean" />
           <NavigationProperty Name="cargoLaboral" Relationship="Self.FK__empleado__codCar__3F466844" FromRole="empleado" ToRole="cargoLaboral" />
           <NavigationProperty Name="usuario" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="empleado" ToRole="usuario" />
-          <NavigationProperty Name="empleado1" Relationship="Self.FK_empleado_empleado" FromRole="empleado" ToRole="empleado1" />
-          <NavigationProperty Name="empleado2" Relationship="Self.FK_empleado_empleado" FromRole="empleado1" ToRole="empleado" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -432,6 +448,8 @@
           <Property Name="eliminar" Type="Boolean" />
           <NavigationProperty Name="empleado" Relationship="Self.FK__usuario__ciEmple__403A8C7D" FromRole="usuario" ToRole="empleado" />
           <NavigationProperty Name="orden" Relationship="Self.FK__orden__codUsuari__4222D4EF" FromRole="usuario" ToRole="orden" />
+          <NavigationProperty Name="usuario1" Relationship="Self.FK_usuario_usuario" FromRole="usuario" ToRole="usuario1" />
+          <NavigationProperty Name="usuario2" Relationship="Self.FK_usuario_usuario" FromRole="usuario1" ToRole="usuario" />
         </EntityType>
         <EntityType Name="clientes">
           <Key>
@@ -442,6 +460,8 @@
           <Property Name="apellidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="eliminar" Type="Boolean" />
           <NavigationProperty Name="orden" Relationship="Self.FK__orden__nitClient__4316F928" FromRole="clientes" ToRole="orden" />
+          <NavigationProperty Name="clientes1" Relationship="Self.FK_clientes_clientes" FromRole="clientes" ToRole="clientes1" />
+          <NavigationProperty Name="clientes2" Relationship="Self.FK_clientes_clientes" FromRole="clientes1" ToRole="clientes" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -493,8 +513,8 @@
           <Property Name="disponibilidadProd" Type="Boolean" />
           <Property Name="imagenProd" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="productos" ToRole="ordenProductos" />
-          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="productos" ToRole="promocionesProductos" />
+          <NavigationProperty Name="ordenProductos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="productos" ToRole="ordenProductos" />
+          <NavigationProperty Name="promocionesProductos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="productos" ToRole="promocionesProductos" />
           <NavigationProperty Name="categorias" Relationship="Self.FK__productos__codCa__3C69FB99" FromRole="productos" ToRole="categorias" />
         </EntityType>
         <EntityType Name="promocion">
@@ -524,7 +544,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ordenProd__codPr__778AC167">
+        <Association Name="FK__ordenProd__codPr__3A81B327">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="ordenProductos" Type="Self.ordenProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -572,7 +592,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__promocion__codPr__6B24EA82">
+        <Association Name="FK__promocion__codPr__3E52440B">
           <End Role="productos" Type="Self.productos" Multiplicity="0..1" />
           <End Role="promocionesProductos" Type="Self.promocionesProductos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -610,18 +630,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_empleado_empleado">
-          <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
-          <End Role="empleado1" Type="Self.empleado" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="empleado">
-              <PropertyRef Name="ciEmpleado" />
-            </Principal>
-            <Dependent Role="empleado1">
-              <PropertyRef Name="ciEmpleado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__orden__codUsuari__4222D4EF">
           <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
@@ -634,8 +642,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_usuario_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+          <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="codUsuario" />
+            </Principal>
+            <Dependent Role="usuario1">
+              <PropertyRef Name="codUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__orden__nitClient__4316F928">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
+          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="orden" Type="Self.orden" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="clientes">
@@ -643,6 +665,18 @@
             </Principal>
             <Dependent Role="orden">
               <PropertyRef Name="nitClienteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clientes_clientes">
+          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+          <End Role="clientes1" Type="Self.clientes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="clientes">
+              <PropertyRef Name="nitCliente" />
+            </Principal>
+            <Dependent Role="clientes1">
+              <PropertyRef Name="nitCliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -687,7 +721,7 @@
             <End Role="orden" EntitySet="orden" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__ordenProd__codPr__778AC167" Association="Self.FK__ordenProd__codPr__778AC167">
+          <AssociationSet Name="FK__ordenProd__codPr__3A81B327" Association="Self.FK__ordenProd__codPr__3A81B327">
             <End Role="productos" EntitySet="productos" />
             <End Role="ordenProductos" EntitySet="ordenProductos" />
           </AssociationSet>
@@ -703,7 +737,7 @@
             <End Role="promocion" EntitySet="promocion" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
-          <AssociationSet Name="FK__promocion__codPr__6B24EA82" Association="Self.FK__promocion__codPr__6B24EA82">
+          <AssociationSet Name="FK__promocion__codPr__3E52440B" Association="Self.FK__promocion__codPr__3E52440B">
             <End Role="productos" EntitySet="productos" />
             <End Role="promocionesProductos" EntitySet="promocionesProductos" />
           </AssociationSet>
@@ -715,17 +749,21 @@
             <End Role="empleado" EntitySet="empleado" />
             <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
-          <AssociationSet Name="FK_empleado_empleado" Association="Self.FK_empleado_empleado">
-            <End Role="empleado" EntitySet="empleado" />
-            <End Role="empleado1" EntitySet="empleado" />
-          </AssociationSet>
           <AssociationSet Name="FK__orden__codUsuari__4222D4EF" Association="Self.FK__orden__codUsuari__4222D4EF">
             <End Role="usuario" EntitySet="usuario" />
             <End Role="orden" EntitySet="orden" />
           </AssociationSet>
+          <AssociationSet Name="FK_usuario_usuario" Association="Self.FK_usuario_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="usuario1" EntitySet="usuario" />
+          </AssociationSet>
           <AssociationSet Name="FK__orden__nitClient__4316F928" Association="Self.FK__orden__nitClient__4316F928">
             <End Role="clientes" EntitySet="clientes" />
             <End Role="orden" EntitySet="orden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clientes_clientes" Association="Self.FK_clientes_clientes">
+            <End Role="clientes" EntitySet="clientes" />
+            <End Role="clientes1" EntitySet="clientes" />
           </AssociationSet>
           <AssociationSet Name="FK__factura__codOrde__412EB0B6" Association="Self.FK__factura__codOrde__412EB0B6">
             <End Role="orden" EntitySet="orden" />

@@ -8,258 +8,143 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="620    " d:DesignWidth="1038"
       Title="Ordenes">
-    <Page.Resources>
-        <Grid x:Key="AficheOrden">
-            <Grid Background="#FEC047" Width="214" Height="260" Margin="2">
-                <Grid.Effect>
-                    <DropShadowEffect Direction="220" ShadowDepth="3" BlurRadius="6" Opacity=".7"></DropShadowEffect>
-                </Grid.Effect>
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                        <RowDefinition Height="70"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="50"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <WrapPanel Orientation="Vertical">
-                            <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="14">Orden:</TextBlock>
-                            <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="15">Cliente:</TextBlock>
-                        </WrapPanel>
 
-                        <Button Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="#585858" Background="Transparent" ToolTip="MaterialDesignFloatingActionDarkButton" BorderThickness="30" Width="50" Height="50" Click="BtnEndOrden_Click">
-                            <materialDesign:PackIcon Kind="CheckBold" Height="auto" Width="40" Foreground="#585858"/>
-                        </Button>
-                    </Grid>
-
-                    <WrapPanel Grid.Row="1" Orientation="Vertical" Margin="0,5">
-                        <TextBlock Foreground="#3E3E3E" FontWeight="Bold" Margin="0 2">Descripción:</TextBlock>
-                        <TextBlock FontSize="11" Foreground="#585858">- (2) Hamburguesa doble</TextBlock>
-                        <TextBlock FontSize="11" Foreground="#585858">- (1) Pizza hawaiana</TextBlock>
-                        <TextBlock FontSize="11" Foreground="#585858">- (1) Cocacola 1l</TextBlock>
-                        <TextBlock FontSize="11" Foreground="#585858">- (1) Guarnición de papas</TextBlock>
-                    </WrapPanel>
-                    <Grid Grid.Row="2">
-                        <TextBlock>Observaciones:</TextBlock>
-                        <TextBox BorderBrush="#585858">
-
-                        </TextBox>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Grid>
-    </Page.Resources>
-
-    <Grid Background="White">
-        <Border BorderBrush="#585858" BorderThickness="1" Opacity=".5"></Border>
-        <Grid Margin="6">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid>
-                <Grid Background="#585858">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <TextBlock Text="Ordenes" TextAlignment="Center" VerticalAlignment="Center" Margin="10" FontSize="29" Foreground="White" FontFamily="Roboto"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Grid Width="auto" HorizontalAlignment="Right" Margin="0,0,50,0">
-                            <StackPanel Margin="0,14,0,0" Orientation="Horizontal">
-                                <materialDesign:ColorZone Mode="Standard" Padding="8 4 8 4" CornerRadius="2"  materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="300" Height="29">
+    <Grid>
+        <ScrollViewer Height="268" VerticalAlignment="Bottom" Margin="0,0,0,10">
+            <StackPanel>
+                <ItemsControl x:Name="listaOrdenesNuevas">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#FEC047" Width="214" Height="260" Margin="0,0,-5,6" HorizontalAlignment="Right" d:LayoutOverrides="Width, Height" VerticalAlignment="Bottom">
+                                <Border.Effect>
+                                    <DropShadowEffect Direction="220" ShadowDepth="3" BlurRadius="6" Opacity=".7"></DropShadowEffect>
+                                </Border.Effect>
+                                <Grid Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="70"></RowDefinition>
+                                    </Grid.RowDefinitions>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
-                                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Buscar" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" BorderThickness="0" MinWidth="200" />
-                                        <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="0,0,0,0" Height="Auto" HorizontalAlignment="Right">
-                                            <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                                        <WrapPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding orden}" FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="14">Orden:</TextBlock>
+                                            <!--<TextBlock Text="{Binding cliente}" FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="15">Cliente:</TextBlock>-->
+                                            <ItemsControl ItemsSource="{Binding ordenes}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <WrapPanel>
+
+                                                            <TextBlock Text="{Binding ordenes.nombreProd}"  FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="14">
+                                                                desc
+                                                            </TextBlock>
+                                                          
+                                                        </WrapPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </WrapPanel>
+
+                                        <Button Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="#585858" Background="Transparent" ToolTip="MaterialDesignFloatingActionDarkButton" BorderThickness="30" Width="50" Height="50" Click="BtnEndOrden_Click">
+                                            <materialDesign:PackIcon Kind="CheckBold" Height="auto" Width="40" Foreground="#585858"/>
                                         </Button>
                                     </Grid>
-                                </materialDesign:ColorZone>
-                            </StackPanel>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid Grid.Row="1" Margin="0,10,0,0">
-                <ScrollViewer>
-                    <WrapPanel>
-                        <StackPanel x:Name="muestra">
-                            <StackPanel Margin="20 0">
-                                <ItemsControl x:Name="ListaMenu" ItemsSource="{Binding Items}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Margin="3" Width="200" Height="250" BorderBrush="#E8330B" BorderThickness="1" CornerRadius="3" Background="White">
-                                                <StackPanel>
-                                                    <Grid Margin="5">
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="auto"></RowDefinition>
-                                                            <RowDefinition Height="*"></RowDefinition>
-                                                            <RowDefinition Height="auto"></RowDefinition>
-                                                        </Grid.RowDefinitions>
-                                                        <Image Source="folco-masi-EkzeCqcx_Zc-unsplash.png" Height="100" Stretch="Fill">
 
-                                                        </Image>
-
-
-                                                        <Grid Grid.Row="1">
-                                                            <Grid.RowDefinitions>
-                                                                <RowDefinition Height="auto"></RowDefinition>
-                                                                <RowDefinition ></RowDefinition>
-                                                            </Grid.RowDefinitions>
-                                                            <TextBlock Text="{Binding Nombre}" Foreground="#1D1D1D" Margin="0,5" FontFamily="Roboto" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center"></TextBlock>
-                                                            <TextBlock Text="{Binding Descripcion}" Grid.Row="1" Margin="10,0" Foreground="#606060"></TextBlock>
-                                                        </Grid>
-
-                                                        <Grid Grid.Row="2" Margin="0,0,0,5">
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition></ColumnDefinition>
-                                                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                                            </Grid.ColumnDefinitions>
-                                                            <TextBox x:Name="chio"></TextBox>
-                                                            <ComboBox  DisplayMemberPath="Item"  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0">
-                                                                <ComboBoxItem>1</ComboBoxItem>
-                                                                <ComboBoxItem>2</ComboBoxItem>
-                                                                <ComboBoxItem>3</ComboBoxItem>
-                                                                <ComboBoxItem>4</ComboBoxItem>
-                                                                <ComboBoxItem>5</ComboBoxItem>
-                                                                <ComboBoxItem>6</ComboBoxItem>
-                                                                <ComboBoxItem>7</ComboBoxItem>
-                                                                <ComboBoxItem>8</ComboBoxItem>
-                                                                <ComboBoxItem>9</ComboBoxItem>
-                                                                <ComboBoxItem>10</ComboBoxItem>
-                                                            </ComboBox>
-                                                            <Button x:Name="BtnProdAgregar" 
-                                                                    Grid.Column="1" Background="White" 
-                                                                    BorderBrush="#06D51B" FontSize="12" 
-                                                                    FontFamily="Roboto" 
-                                                                    Foreground="#06D51B" 
-                                                                    Style="{StaticResource MaterialDesignRaisedButton}" 
-                                                                    Click="BtnProdAgregar1"
-                                                            materialDesign:ButtonAssist.CornerRadius="3" 
-                                                                    ToolTip="Agregarás la cantidad seleccionada a la factura" 
-                                                                    HorizontalAlignment="Center" 
-                                                                    VerticalAlignment="Center"
-                                                                    Padding="4" Height="30" 
-                                                                    Width="60" Margin="10,0" 
-                                                                    CommandParameter="{Binding Path=CodProd}">Agregar
-                                                            </Button>
-                                                        </Grid>
-                                                    </Grid>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-
-                                    </ItemsControl.ItemTemplate>
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                </ItemsControl>
-                            </StackPanel>
-
-                            <ItemsControl>
-                                <DataTemplate x:Name="as">
-                                    <ComboBox x:Uid="df">
-
-                                    </ComboBox>
-                                </DataTemplate>
-                            </ItemsControl>
-
-                        </StackPanel>
-                        <!--<Grid Background="#FEC047" Width="214" Height="260" Margin="2">
-                            <Grid.Effect>
-                                <DropShadowEffect Direction="220" ShadowDepth="3" BlurRadius="6" Opacity=".7"></DropShadowEffect>
-                            </Grid.Effect>
-                            <Grid Margin="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="70"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition Width="50"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <WrapPanel Orientation="Vertical">
-                                        <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="14">Orden:</TextBlock>
-                                        <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="15">Cliente:</TextBlock>
+                                    <WrapPanel Grid.Row="1" Orientation="Vertical" Margin="0,5">
+                                        <TextBlock Foreground="#3E3E3E" FontWeight="Bold" Margin="0 2">Descripción:</TextBlock>
+                                        <TextBlock FontSize="11" Foreground="#585858">- (2) Hamburguesa doble</TextBlock>
+                                        <TextBlock FontSize="11" Foreground="#585858">- (1) Pizza hawaiana</TextBlock>
+                                        <TextBlock FontSize="11" Foreground="#585858">- (1) Cocacola 1l</TextBlock>
+                                        <TextBlock FontSize="11" Foreground="#585858">- (1) Guarnición de papas</TextBlock>
                                     </WrapPanel>
+                                    <Grid Grid.Row="2">
+                                        <TextBlock>Observaciones:</TextBlock>
+                                        <TextBox BorderBrush="#585858">
 
-                                    <Button Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="#585858" Background="Transparent" ToolTip="MaterialDesignFloatingActionDarkButton" BorderThickness="30" Width="50" Height="50" Click="BtnEndOrden_Click">
-                                        <materialDesign:PackIcon Kind="CheckBold" Height="auto" Width="40" Foreground="#585858"/>
-                                    </Button>
+                                        </TextBox>
+                                    </Grid>
                                 </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                
+            </StackPanel>
+          
+        </ScrollViewer>
 
-                                <WrapPanel Grid.Row="1" Orientation="Vertical" Margin="0,5">
-                                    <TextBlock Foreground="#3E3E3E" FontWeight="Bold" Margin="0 2">Descripción:</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (2) Hamburguesa doble</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (1) Pizza hawaiana</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (1) Cocacola 1l</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (1) Guarnición de papas</TextBlock>
-                                </WrapPanel>
-                                <Grid Grid.Row="2">
-                                    <TextBlock>Observaciones:</TextBlock>
-                                    <TextBox BorderBrush="#585858">
 
-                                    </TextBox>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid Background="#FFFFFF" Width="214" Height="260" Margin="2">
-                            <Grid.Effect>
-                                <DropShadowEffect Direction="220" ShadowDepth="3" BlurRadius="6" Opacity=".7"></DropShadowEffect>
-                            </Grid.Effect>
-                            <Grid Margin="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="70"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition Width="50"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <WrapPanel Orientation="Vertical">
-                                        <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="14">Orden:</TextBlock>
-                                        <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="15">Cliente:</TextBlock>
+        <!--datagrid para ordenes nuevas****************************************************************************************-->
+
+        <ScrollViewer Height="268" VerticalAlignment="Bottom" Margin="0,0,0,10">
+            <StackPanel>
+                <ItemsControl x:Name="listaOrdenesPendientes">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#FFFFFF" Width="214" Height="260" HorizontalAlignment="Right" d:LayoutOverrides="Width, Height" VerticalAlignment="Bottom">
+                                <Border.Effect>
+                                    <DropShadowEffect Direction="220" ShadowDepth="3" BlurRadius="6" Opacity=".7"></DropShadowEffect>
+                                </Border.Effect>
+                                <Grid Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="70"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="50"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <WrapPanel Orientation="Vertical">
+                                            <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="14">Orden:</TextBlock>
+                                            <TextBlock FontFamily="roboto" FontWeight="Bold" Foreground="#3E3E3E" FontSize="15">Cliente:</TextBlock>
+                                        </WrapPanel>
+                                        <Button  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="#585858" Background="Transparent" ToolTip="MaterialDesignFloatingActionDarkButton" BorderThickness="30" Width="50" Height="50" Click="BtnProsOrden_Click">
+                                            <materialDesign:PackIcon Kind="ArrowRightBoldOutline" Height="auto" Width="40" Foreground="#585858"/>
+                                        </Button>
+                                    </Grid>
+
+                                    <WrapPanel Grid.Row="1" Orientation="Vertical" Margin="0,5">
+                                        <TextBlock Foreground="#3E3E3E" FontWeight="Bold" Margin="0 2">Descripción:</TextBlock>
+                                        <TextBlock Text="{Binding productos}" FontSize="11" Foreground="#585858">- (2) Hamburguesa doble</TextBlock>
+                                        <!--<TextBlock FontSize="11" Foreground="#585858">- (1) Pizza hawaiana</TextBlock>
+                                        <TextBlock FontSize="11" Foreground="#585858">- (1) Cocacola 1l</TextBlock>
+                                        <TextBlock FontSize="11" Foreground="#585858">- (1) Guarnición de papas</TextBlock>-->
                                     </WrapPanel>
-                                    <Button  Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionDarkButton}" BorderBrush="#585858" Background="Transparent" ToolTip="MaterialDesignFloatingActionDarkButton" BorderThickness="30" Width="50" Height="50" Click="BtnProsOrden_Click">
-                                        <materialDesign:PackIcon Kind="ArrowRightBoldOutline" Height="auto" Width="40" Foreground="#585858"/>
-                                    </Button>
+                                    <Grid Grid.Row="2">
+                                        <TextBlock>Observaciones:</TextBlock>
+                                        <TextBox BorderBrush="#585858">
+
+                                        </TextBox>
+                                    </Grid>
                                 </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
 
-                                <WrapPanel Grid.Row="1" Orientation="Vertical" Margin="0,5">
-                                    <TextBlock Foreground="#3E3E3E" FontWeight="Bold" Margin="0 2">Descripción:</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (2) Hamburguesa doble</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (1) Pizza hawaiana</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (1) Cocacola 1l</TextBlock>
-                                    <TextBlock FontSize="11" Foreground="#585858">- (1) Guarnición de papas</TextBlock>
-                                </WrapPanel>
-                                <Grid Grid.Row="2">
-                                    <TextBlock>Observaciones:</TextBlock>
-                                    <TextBox BorderBrush="#585858">
+            </StackPanel>
 
-                                    </TextBox>
-                                </Grid>
-                            </Grid>
-                        </Grid>-->
+        </ScrollViewer>
+        
 
-                    </WrapPanel>
-                </ScrollViewer>
-            </Grid>
-        </Grid>
+
+
     </Grid>
+
+
 </Page>

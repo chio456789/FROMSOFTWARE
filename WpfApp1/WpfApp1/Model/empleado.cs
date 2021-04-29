@@ -33,7 +33,5 @@ namespace WpfApp1.Model
         public virtual cargoLaboral cargoLaboral { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuario> usuario { get; set; }
-        public virtual empleado empleado1 { get; set; }
-        public virtual empleado empleado2 { get; set; }
     }
 }
