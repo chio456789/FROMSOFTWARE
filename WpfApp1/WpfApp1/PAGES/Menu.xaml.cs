@@ -26,11 +26,16 @@ namespace WpfApp1
     {
         WrapPanel sta = new WrapPanel();
 
+        int cont = 0;
+
         private ObservableCollection<OrdenVm> listaOr = new ObservableCollection<OrdenVm>();
         public static int hu=0;
 
         decimal? valor = 0;
 
+
+        puntoDeVentaDB_testEntities bd = new puntoDeVentaDB_testEntities();
+        clientes cli = new clientes();
         public Page1Menu()
         {           
             InitializeComponent();
@@ -92,6 +97,8 @@ namespace WpfApp1
                 decimal? mm = prueba.precioProd;
                 string yy = prueba.descripcionProd;
 
+                cont++;
+                listaOr.Add(new OrdenVm(cont,hu, mm, yy));
 
                 listaOr.Add(new OrdenVm(hu, mm, yy,Int32.Parse(id.ToString())));
 
@@ -166,7 +173,7 @@ namespace WpfApp1
         {
 
         }
-
+       
         private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
         {
             /*ConfirmarOrden terminarO = new ConfirmarOrden();
@@ -179,7 +186,14 @@ namespace WpfApp1
             
             var q= nuevo.clientes.Find(carnet);
 
-         //inicio guardar factura ---------------------------------
+                db.clientes.Add(oCliente);
+                db.SaveChanges();
+                txtnitCliente.Clear();
+                txtnombreCliente.Clear();
+                txtapellidoCliente.Clear();
+            }
+            //ConfirmarOrden terminarO = new ConfirmarOrden();
+            //terminarO.ShowDialog();
             TotalFactura tf = new TotalFactura();
             FacturaOrden fo = new FacturaOrden();
 
@@ -243,8 +257,47 @@ namespace WpfApp1
                 MessageBox.Show("Error al guardar la factura");
             }
 
+        }
+
+        private void BtnSeleccionarOrden_Click(object sender, RoutedEventArgs e)
+        {
+            cli = bd.clientes.Find(txtnitCliente.Text);
+            txtnitCliente.Text = cli.nitCliente;
+            txtnombreCliente.Text = cli.nombreCliente;
+            txtapellidoCliente.Text = cli.apellidoCliente;
+            /*ConfirmarOrden terminarO = new ConfirmarOrden();
+            terminarO.ShowDialog();*/
+
+         //inicio guardar factura ---------------------------------
+            
          //fin guardar factura---------------------------------
         }
+         
+        }
+        
+        private void btBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            FacturaOrden f = new FacturaOrden();
+            Decimal? total = Decimal.Parse(tbTotal.Text);
+            Decimal? s = 0;
+            s = f.borrarFila((int)((Button)sender).CommandParameter, listaOr);
+
+            tbTotal.Text = (total - s).ToString();
+
+            if ((total - s) == 0)
+            {
+                valor = 0;
+            }
+            else
+            {
+                
+                valor -= (total - s);
+            }
+            
+        }
+
+        //fin guardar factura---------------------------------
+
     }
 
 }

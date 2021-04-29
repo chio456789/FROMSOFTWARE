@@ -80,6 +80,7 @@
           <Property Name="codFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="codOrdenFK" Type="int" />
           <Property Name="totalFactura" Type="money" />
+          <Property Name="fecha" Type="datetime2" Precision="7" />
           <Property Name="eliminar" Type="bit" />
         </EntityType>
         <EntityType Name="orden">
@@ -290,20 +291,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_usuario_usuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
-          <End Role="usuario1" Type="Self.usuario" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="usuario">
-              <PropertyRef Name="codUsuario" />
-            </Principal>
-            <Dependent Role="usuario1">
-              <PropertyRef Name="codUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Function Name="CP_reporteProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="cp_ReporteVentas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_fechaParaDiaDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaDia" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="CP_fechaParaMesDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaMes" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="CP_fechaParaSemanaDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fechaSemana" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="CP_RepMasVendido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_RepMayorDiferencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_RepMenorDiferencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_RepMenosVendido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_reporteEnRangoDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha_1" Type="datetime2" Mode="In" />
+          <Parameter Name="fecha_2" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="CP_reporteProductoDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CP_reporteProductosFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecha_1" Type="datetime2" Mode="In" />
+          <Parameter Name="fecha_2" Type="datetime2" Mode="In" />
+        </Function>
+        <Function Name="cp_ReporteVentasDB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="puntoDeVentaDB_testModelStoreContainer">
           <EntitySet Name="ordenProductos" EntityType="Self.ordenProductos" Schema="cp" store:Type="Tables" />
           <EntitySet Name="ordenPromocion" EntityType="Self.ordenPromocion" Schema="cp" store:Type="Tables" />
@@ -387,8 +397,8 @@
           <Property Name="codOrdenFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
           <Property Name="cantidad" Type="Int32" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__398D8EEE" FromRole="ordenProductos" ToRole="orden" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__3A81B327" FromRole="ordenProductos" ToRole="productos" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__ordenProd__codOr__787EE5A0" FromRole="ordenProductos" ToRole="orden" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__ordenProd__codPr__778AC167" FromRole="ordenProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="ordenPromocion">
           <Key>
@@ -408,8 +418,8 @@
           <Property Name="idPromProd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="codPromocionFK" Type="Int32" />
           <Property Name="codProductoFK" Type="Int32" />
-          <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__3D5E1FD2" FromRole="promocionesProductos" ToRole="promocion" />
-          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__3E52440B" FromRole="promocionesProductos" ToRole="productos" />
+          <NavigationProperty Name="promocion" Relationship="Self.FK__promocion__codPr__6A30C649" FromRole="promocionesProductos" ToRole="promocion" />
+          <NavigationProperty Name="productos" Relationship="Self.FK__promocion__codPr__6B24EA82" FromRole="promocionesProductos" ToRole="productos" />
         </EntityType>
         <EntityType Name="cargoLaboral">
           <Key>
@@ -471,7 +481,8 @@
           <Property Name="codOrdenFK" Type="Int32" />
           <Property Name="totalFactura" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="eliminar" Type="Boolean" />
-          <NavigationProperty Name="orden" Relationship="Self.FK__factura__codOrde__412EB0B6" FromRole="factura" ToRole="orden" />
+          <NavigationProperty Name="orden" Relationship="Self.FK__factura__codOrde__398D8EEE" FromRole="factura" ToRole="orden" />
+          <Property Name="fecha" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="orden">
           <Key>
@@ -773,9 +784,64 @@
             <End Role="categorias" EntitySet="categorias" />
             <End Role="productos" EntitySet="productos" />
           </AssociationSet>
+          <FunctionImport Name="CP_RepMasVendido" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMasVendido_Result)" />
+          <FunctionImport Name="CP_RepMayorDiferencia" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMayorDiferencia_Result)" />
+          <FunctionImport Name="CP_RepMenorDiferencia" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMenorDiferencia_Result)" />
+          <FunctionImport Name="CP_RepMenosVendido" ReturnType="Collection(puntoDeVentaDB_testModel.CP_RepMenosVendido_Result)" />
           <FunctionImport Name="CP_reporteProducto" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteProducto_Result)" />
           <FunctionImport Name="cp_ReporteVentas" ReturnType="Collection(puntoDeVentaDB_testModel.cp_ReporteVentas_Result)" />
+          <FunctionImport Name="CP_reporteProductosFecha" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteProductosFecha_Result)">
+            <Parameter Name="fecha_1" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CP_reporteProductoDB" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteProductoDB_Result)" />
+          <FunctionImport Name="cp_ReporteVentasDB" ReturnType="Collection(puntoDeVentaDB_testModel.cp_ReporteVentasDB_Result)" />
+          <FunctionImport Name="CP_reporteEnRangoDB" ReturnType="Collection(puntoDeVentaDB_testModel.CP_reporteEnRangoDB_Result)">
+            <Parameter Name="fecha_1" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CP_fechaParaMesDB" ReturnType="Collection(puntoDeVentaDB_testModel.CP_fechaParaMesDB_Result)">
+          <Parameter Name="fechaMes" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CP_fechaParaDiaDB" ReturnType="Collection(puntoDeVentaDB_testModel.CP_fechaParaDiaDB_Result)">
+          <Parameter Name="fechaDia" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CP_fechaParaSemanaDB" ReturnType="Collection(puntoDeVentaDB_testModel.CP_fechaParaSemanaDB_Result)">
+            <Parameter Name="fechaSemana" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="CP_RepMasVendido_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_RepMayorDiferencia_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_RepMenorDiferencia_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_RepMenosVendido_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
         <ComplexType Name="CP_reporteProducto_Result">
           <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="Cantidad" Nullable="true" />
@@ -788,6 +854,64 @@
           <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
           <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_reporteProductosFecha_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_reporteProductoDB_Result">
+          <Property Type="String" Name="Producto" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="String" Name="Cateforia" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Costo" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="cp_ReporteVentasDB_Result">
+          <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_reporteEnRangoDB_Result">
+          <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_fechaParaMesDB_Result">
+          <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_fechaParaDiaDB_Result">
+          <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="CP_fechaParaSemanaDB_Result">
+          <Property Type="String" Name="NombreCajero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ApellidoCajero" Nullable="false" MaxLength="101" />
+          <Property Type="Int32" Name="Cantidad" Nullable="true" />
+          <Property Type="DateTime" Name="fecha" Nullable="true" />
           <Property Type="Decimal" Name="Precio" Nullable="true" Precision="19" />
           <Property Type="Decimal" Name="Total" Nullable="true" Precision="19" />
         </ComplexType>
@@ -875,6 +999,7 @@
           <EntitySetMapping Name="factura">
             <EntityTypeMapping TypeName="puntoDeVentaDB_testModel.factura">
               <MappingFragment StoreEntitySet="factura">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="codFactura" ColumnName="codFactura" />
                 <ScalarProperty Name="codOrdenFK" ColumnName="codOrdenFK" />
                 <ScalarProperty Name="totalFactura" ColumnName="totalFactura" />
@@ -934,9 +1059,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CP_reporteProducto" FunctionName="puntoDeVentaDB_testModel.Store.CP_reporteProducto">
+          <FunctionImportMapping FunctionImportName="CP_RepMasVendido" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMasVendido">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_reporteProducto_Result">
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMasVendido_Result">
                 <ScalarProperty Name="Producto" ColumnName="Producto" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
@@ -946,12 +1071,123 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="cp_ReporteVentas" FunctionName="puntoDeVentaDB_testModel.Store.cp_ReporteVentas">
+          <FunctionImportMapping FunctionImportName="CP_RepMayorDiferencia" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMayorDiferencia">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.cp_ReporteVentas_Result">
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMayorDiferencia_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_RepMenorDiferencia" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMenorDiferencia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMenorDiferencia_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_RepMenosVendido" FunctionName="puntoDeVentaDB_testModel.Store.CP_RepMenosVendido">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_RepMenosVendido_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_reporteProductosFecha" FunctionName="puntoDeVentaDB_testModel.Store.CP_reporteProductosFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_reporteProductosFecha_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_reporteProductoDB" FunctionName="puntoDeVentaDB_testModel.Store.CP_reporteProductoDB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_reporteProductoDB_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Cateforia" ColumnName="Cateforia" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cp_ReporteVentasDB" FunctionName="puntoDeVentaDB_testModel.Store.cp_ReporteVentasDB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.cp_ReporteVentasDB_Result">
                 <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
                 <ScalarProperty Name="ApellidoCajero" ColumnName="ApellidoCajero" />
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_reporteEnRangoDB" FunctionName="puntoDeVentaDB_testModel.Store.CP_reporteEnRangoDB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_reporteEnRangoDB_Result">
+                <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
+                <ScalarProperty Name="ApellidoCajero" ColumnName="ApellidoCajero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_fechaParaMesDB" FunctionName="puntoDeVentaDB_testModel.Store.CP_fechaParaMesDB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_fechaParaMesDB_Result">
+                <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
+                <ScalarProperty Name="ApellidoCajero" ColumnName="ApellidoCajero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_fechaParaDiaDB" FunctionName="puntoDeVentaDB_testModel.Store.CP_fechaParaDiaDB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_fechaParaDiaDB_Result">
+                <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
+                <ScalarProperty Name="ApellidoCajero" ColumnName="ApellidoCajero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CP_fechaParaSemanaDB" FunctionName="puntoDeVentaDB_testModel.Store.CP_fechaParaSemanaDB">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="puntoDeVentaDB_testModel.CP_fechaParaSemanaDB_Result">
+                <ScalarProperty Name="NombreCajero" ColumnName="NombreCajero" />
+                <ScalarProperty Name="ApellidoCajero" ColumnName="ApellidoCajero" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
               </ComplexTypeMapping>

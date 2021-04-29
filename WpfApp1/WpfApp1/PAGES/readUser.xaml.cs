@@ -27,6 +27,8 @@ namespace WpfApp1
     public partial class Page2Menu : Page
     {
         private Usuario_emp dd = new Usuario_emp();
+        private Cliente_ord kk = new Cliente_ord();
+
 
         public Page2Menu()
         {
@@ -39,6 +41,7 @@ namespace WpfApp1
         public void refresh()
         {
             MyDataGrid.ItemsSource = PerfilUser.Listar();
+            MyDataGridCliente.ItemsSource = PerfilClientes.ListarClientes();
 
         }
 
@@ -59,6 +62,23 @@ namespace WpfApp1
 
             string id = (string)((Button)sender).CommandParameter;
 
+
+            if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
+            {
+                MessageBox.Show("Registro correctamente eliminado");
+            }
+            else
+            {
+                MessageBox.Show("No fue eliminado exitosamente");
+
+            }
+        }
+
+
+        private void btnBorrarCliente(object sender, RoutedEventArgs e)
+        {
+            string id = (string)((Button)sender).CommandParameter;
+
             if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
             {
                 MessageBox.Show("Registro correctamente eliminado");
@@ -69,6 +89,18 @@ namespace WpfApp1
 
             }
             refresh();
+        }
+
+        private void EditarCliente(object sender, RoutedEventArgs e)
+        {
+            string nitCliente = (string)((Button)sender).CommandParameter;
+
+            //MainWindow.staticmain.Content = new EditarUsuario(id);
+            EditarCliente ventanaEditar = new EditarCliente(nitCliente);
+            ventanaEditar.Show();
+
+            refresh();
+
         }
 
 
@@ -145,33 +177,40 @@ namespace WpfApp1
         //    }
         //}
 
-        //        //Datos del cliente 
 
-        public void refreshCliente()
-        {
-            MyDataGridCliente.ItemsSource = PerfilClientes.ListarClientes();
-        }
 
-        private void EditCliente(object sender, RoutedEventArgs e)
-        {
-            EditarCliente ventanaEditarCliente = new EditarCliente();
-            ventanaEditarCliente.Show();
-        }
+
+
+        //private void EditCliente(object sender, RoutedEventArgs e)
+        //{
+        //    EditarCliente ventanaEditarCliente = new EditarCliente(nitCliente);
+        //    ventanaEditarCliente.Show();
+        //}
 
         private void btnBorraClienter(object sender, RoutedEventArgs e)
         {
-            BorrarCliente ventanaBorrarCliente = new BorrarCliente();
-            ventanaBorrarCliente.Show();
+         
+
+            string nitCliente = (string)((Button)sender).CommandParameter;
+
+            if (kk.DeleteClient(nitCliente))
+            {
+                MessageBox.Show("Registro correctamente eliminado");
+            }
+            else
+            {
+                MessageBox.Show("No fue eliminado exitosamente");
+
+            }
+            refresh();
+
+
+
         }
-        //fin de datos del cliente
-        public class Item
+
+        private void btbusquedaCliente_TextChanged(object sender, TextChangedEventArgs e)
         {
-            public string Nombre { get; set; }
-            public string Apellido { get; set; }
-            public string CI { get; set; }
-            public string Direccion { get; set; }
-            public string Correo { get; set; }
-            public string Cargo { get; set; }
+
         }
     }
 }

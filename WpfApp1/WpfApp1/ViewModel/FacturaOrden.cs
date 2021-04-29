@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfApp1.Model;
 
 namespace WpfApp1.ViewModel
@@ -26,6 +28,28 @@ namespace WpfApp1.ViewModel
                 return false;
             }
            
+        }
+
+        public Decimal? borrarFila(int id, ObservableCollection<OrdenVm> listaOr)
+        {
+            int con = 0;
+            int aux = 0;
+            Decimal? precio = 0;
+            int? cant = 0;
+            foreach (var l in listaOr)
+            {
+
+                if (l.N == id)
+                {
+                    aux = con;
+                    cant = l.cantidad;
+                    precio = l.precioUnitario;
+                }
+                con++;
+
+            }
+            listaOr.RemoveAt(aux);
+            return cant * precio;
         }
 
     }

@@ -49,5 +49,68 @@ namespace WpfApp1.Model
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<cp_ReporteVentas_Result>("cp_ReporteVentas");
         }
+    
+        public virtual ObjectResult<CP_reporteProductosFecha_Result> CP_reporteProductosFecha(Nullable<System.DateTime> fecha_1, Nullable<System.DateTime> fecha_2)
+        {
+            var fecha_1Parameter = fecha_1.HasValue ?
+                new ObjectParameter("fecha_1", fecha_1) :
+                new ObjectParameter("fecha_1", typeof(System.DateTime));
+    
+            var fecha_2Parameter = fecha_2.HasValue ?
+                new ObjectParameter("fecha_2", fecha_2) :
+                new ObjectParameter("fecha_2", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_reporteProductosFecha_Result>("CP_reporteProductosFecha", fecha_1Parameter, fecha_2Parameter);
+        }
+    
+        public virtual ObjectResult<CP_reporteProductoDB_Result> CP_reporteProductoDB()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_reporteProductoDB_Result>("CP_reporteProductoDB");
+        }
+    
+        public virtual ObjectResult<cp_ReporteVentasDB_Result> cp_ReporteVentasDB()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<cp_ReporteVentasDB_Result>("cp_ReporteVentasDB");
+        }
+    
+        public virtual ObjectResult<CP_reporteEnRangoDB_Result> CP_reporteEnRangoDB(Nullable<System.DateTime> fecha_1, Nullable<System.DateTime> fecha_2)
+        {
+            var fecha_1Parameter = fecha_1.HasValue ?
+                new ObjectParameter("fecha_1", fecha_1) :
+                new ObjectParameter("fecha_1", typeof(System.DateTime));
+    
+            var fecha_2Parameter = fecha_2.HasValue ?
+                new ObjectParameter("fecha_2", fecha_2) :
+                new ObjectParameter("fecha_2", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_reporteEnRangoDB_Result>("CP_reporteEnRangoDB", fecha_1Parameter, fecha_2Parameter);
+        }
+    
+        public virtual ObjectResult<CP_fechaParaMesDB_Result> CP_fechaParaMesDB(Nullable<System.DateTime> fechaMes)
+        {
+            var fechaMesParameter = fechaMes.HasValue ?
+                new ObjectParameter("fechaMes", fechaMes) :
+                new ObjectParameter("fechaMes", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_fechaParaMesDB_Result>("CP_fechaParaMesDB", fechaMesParameter);
+        }
+    
+        public virtual ObjectResult<CP_fechaParaDiaDB_Result> CP_fechaParaDiaDB(Nullable<System.DateTime> fechaDia)
+        {
+            var fechaDiaParameter = fechaDia.HasValue ?
+                new ObjectParameter("fechaDia", fechaDia) :
+                new ObjectParameter("fechaDia", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_fechaParaDiaDB_Result>("CP_fechaParaDiaDB", fechaDiaParameter);
+        }
+    
+        public virtual ObjectResult<CP_fechaParaSemanaDB_Result> CP_fechaParaSemanaDB(Nullable<System.DateTime> fechaSemana)
+        {
+            var fechaSemanaParameter = fechaSemana.HasValue ?
+                new ObjectParameter("fechaSemana", fechaSemana) :
+                new ObjectParameter("fechaSemana", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CP_fechaParaSemanaDB_Result>("CP_fechaParaSemanaDB", fechaSemanaParameter);
+        }
     }
 }

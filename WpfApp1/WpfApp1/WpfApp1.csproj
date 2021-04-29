@@ -108,7 +108,40 @@
     <Compile Include="Model\clientes.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CP_fechaParaDiaDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_fechaParaMesDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_fechaParaSemanaDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMasVendido_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMayorDiferencia_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMenorDiferencia_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_RepMenosVendido_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_reporteEnRangoDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_reporteProductoDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_reporteProductosFecha_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CP_reporteProducto_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\cp_ReporteVentasDB_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\cp_ReporteVentas_Result.cs">
@@ -172,6 +205,8 @@
       <DependentUpon>Reportes.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Cargo.cs" />
+    <Compile Include="ViewModel\Cliente.cs" />
+    <Compile Include="ViewModel\Cliente_ord.cs" />
     <Compile Include="ViewModel\Empleado.cs" />
     <Compile Include="ViewModel\FacturaOrden.cs" />
     <Compile Include="ViewModel\Orden.cs" />

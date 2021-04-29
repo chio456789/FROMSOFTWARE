@@ -18,6 +18,7 @@ namespace WpfApp1.Model
         public Nullable<int> codOrdenFK { get; set; }
         public Nullable<decimal> totalFactura { get; set; }
         public Nullable<bool> eliminar { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
     
         public virtual orden orden { get; set; }
     }

@@ -88,7 +88,7 @@
                                                                 <TextBox x:Name="chio"></TextBox>
                                                                 <ComboBox  Width="80" Height="30" FontSize="12" materialDesign:HintAssist.Hint="Cantidad"
                                                                       Name="cbc"  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cantidad_change"  >
-                                                                    <ComboBoxItem Content="1" Tag="1" ></ComboBoxItem>
+                                                                    <ComboBoxItem IsSelected="True" Content="1" Tag="1" ></ComboBoxItem>
                                                                     <ComboBoxItem Content="2" Tag="2"></ComboBoxItem>
                                                                     <ComboBoxItem Content="3" Tag="3"></ComboBoxItem>
                                                                     <ComboBoxItem Content="4" Tag="4"></ComboBoxItem>
@@ -176,12 +176,12 @@
                             </Grid.RowDefinitions>
                             <TextBlock FontFamily="Roboto" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#3e3e3e">Detalle factura</TextBlock>
                             <StackPanel Height="120" Grid.Row="1">
-                                <TextBox x:Name="tbCarnetCliente" Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox x:Name="tbNombreCliente" Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cleinte" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
-                                <TextBox x:Name="tbApellidoCliente" Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13"/>
+                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="NIT o carnet" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Name="txtnitCliente"/>
+                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Nombre cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Name="txtnombreCliente"/>
+                                <TextBox Grid.Row="1" materialDesign:HintAssist.Hint="Apellido cliente" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                    VerticalAlignment="Center" MaxWidth="246" Height="38" FontSize="13" Name= "txtapellidoCliente"/>
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1">
@@ -190,7 +190,8 @@
                                
                        
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn  IsReadOnly="True" Header="Cant." Binding="{Binding cantidad}" Width="Auto" />
+                                    <DataGridTextColumn  IsReadOnly="True" Header="num." Binding="{Binding N}" Width="Auto" />
+                                    <DataGridTextColumn  IsReadOnly="True" Header="Cant." Binding="{Binding cantidad}" Width="Auto" />
                                         <DataGridTextColumn Binding="{Binding descripcion}" Header="Descripcion" Width="Auto" IsReadOnly="True" />
                                         <DataGridTextColumn Binding="{Binding precioUnitario}" Header="P/u" Width="Auto" IsReadOnly="True"/>
                                         <DataGridTextColumn Binding="{Binding subtotal}" Header="SubTot" Width="Auto" IsReadOnly="True"/>
@@ -199,7 +200,7 @@
                                         <DataGridTemplateColumn Header="Quitar">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Content="Borrar" CommandParameter="{Binding}" />
+                                                <Button Content="Borrar" CommandParameter="{Binding Path=N}" Click="btBorrar_Click"/>
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
@@ -212,17 +213,31 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="BtnTerminarOrden" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="110" materialDesign:ButtonAssist.CornerRadius="3" 
-                            ToolTip="Finalizar e imprimir factura" Background="#F2A533" BorderBrush="#727272" FontSize="16" Click="BtnTerminarOrden_Click">Finalizar
+                            <Button x:Name="BtnTerminarOrden" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="75" materialDesign:ButtonAssist.CornerRadius="3" 
+                            ToolTip="Finalizar e imprimir factura" Background="#F2A533" BorderBrush="#727272" FontSize="12" Click="BtnTerminarOrden_Click" RenderTransformOrigin="0.586,0.5">Finalizar
                                 <Button.Effect>
                                     <DropShadowEffect Direction="240" ShadowDepth="2" BlurRadius="8" Opacity=".5"></DropShadowEffect>
                                 </Button.Effect>
                             </Button>
-                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+          
+
+                            <StackPanel Grid.Column="2" Orientation="Horizontal">
                                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="18" Foreground="#FF403F3F">Total:</TextBlock>
                                 <TextBox x:Name="tbTotal" Grid.Column="1" Width="70" Height="30" materialDesign:TransitionAssist.DisableTransitions="True" VerticalAlignment="Center" IsReadOnly="True" ></TextBox>
                             </StackPanel>
+
+                            <StackPanel Grid.Column="1" >
+                                <Button x:Name="BtnSeleccionarOrden" Style="{StaticResource MaterialDesignRaisedButton}" MaxHeight="30" Height="30" MaxWidth="75" materialDesign:ButtonAssist.CornerRadius="3" 
+                                 Background="Blue" BorderBrush="#727272" FontSize="12" Click="BtnSeleccionarOrden_Click" RenderTransformOrigin="1.854,1.033" Content="Buscar">
+                                    <Button.Effect>
+                                        <DropShadowEffect Direction="240" ShadowDepth="2" BlurRadius="8" Opacity=".5"/>
+                                    </Button.Effect>
+                                </Button>
+                            </StackPanel>
+
                         </Grid>
                     </Grid>
                 </Grid>

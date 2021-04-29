@@ -275,12 +275,12 @@
                                         Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <TextBox
+                                    <TextBox x:Name="btbusquedaCliente"
                                     Grid.Column="1"
                                     materialDesign:HintAssist.Hint="Buscar"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     BorderThickness="0"
-                                    MinWidth="200" />
+                                    MinWidth="200" TextChanged="btbusquedaCliente_TextChanged" />
                                     <Button
                                     Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1" Margin="328,0,0,0" Height="Auto">
                                         <materialDesign:PackIcon
@@ -310,20 +310,22 @@
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Click="EditCliente" Background="#383838" BorderBrush="Transparent" Padding="8" VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" ToolTip="Editar cliente" materialDesign:ButtonAssist.CornerRadius="3">
-                                    <materialDesign:PackIcon Kind="FileDocumentEdit" Foreground="#FEBA34"></materialDesign:PackIcon>
-                                </Button>
+                                <Button Content="Editar" Click="EditarCliente" 
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="MaterialDesignOutlinedButton"
+                                        Foreground="#F2A533"
+                                        BorderBrush="#F2A533" CommandParameter="{Binding nitCliente}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Quitar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Click="btnBorraClienter" Background="#383838" BorderBrush="Transparent" Padding="8" VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" ToolTip="Eliminar cliente" materialDesign:ButtonAssist.CornerRadius="3">
-                                    <materialDesign:PackIcon Kind="Delete" Foreground="#FEBA34"></materialDesign:PackIcon>
-                                </Button>
+                                <Button Content="Borrar" Click="btnBorraClienter" 
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="MaterialDesignOutlinedButton"
+                                        Foreground="#F83A3A"
+                                        BorderBrush="#F83A3A" CommandParameter="{Binding nitCliente}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
