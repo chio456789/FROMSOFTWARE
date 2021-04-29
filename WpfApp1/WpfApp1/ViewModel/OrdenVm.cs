@@ -8,6 +8,8 @@ namespace WpfApp1.ViewModel
 {
     public class OrdenVm
     {
+
+        public int? N { get; set; }
         public int? cantidad { get; set; }
 
         public string descripcion { get; set; }
@@ -15,14 +17,24 @@ namespace WpfApp1.ViewModel
         
 
         public Decimal? subtotal { get; set; }
-
-        public OrdenVm(int? cantidad, decimal? precioUnitario, string descripcion)
+        public OrdenVm(int? cont, int? cantidad, decimal? precioUnitario, string descripcion)
         {
+            this.N = cont;
             this.cantidad = cantidad;
             this.descripcion = descripcion;
             this.precioUnitario = precioUnitario;
             
             this.subtotal = this.cantidad*this.precioUnitario;
+        }
+
+        public OrdenVm()
+        {
+            this.descripcion = string.Empty;
+        }
+
+        public OrdenVm(int? cont)
+        {
+            this.N = cont;
         }
 
         public decimal? subtotalItem(int? cantidad, decimal? precioUnitario)
@@ -31,9 +43,6 @@ namespace WpfApp1.ViewModel
             return a;
         }
 
-        public OrdenVm()
-        {
-            this.descripcion = string.Empty;
-        }
+        
     }
 }

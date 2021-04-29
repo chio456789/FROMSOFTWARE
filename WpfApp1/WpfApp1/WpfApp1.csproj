@@ -108,6 +108,15 @@
     <Compile Include="Model\clientes.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CP_fechaParaDiaDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_fechaParaMesDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_fechaParaSemanaDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CP_RepMasVendido_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -120,7 +129,19 @@
     <Compile Include="Model\CP_RepMenosVendido_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CP_reporteEnRangoDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_reporteProductoDB_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CP_reporteProductosFecha_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CP_reporteProducto_Result.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\cp_ReporteVentasDB_Result.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\cp_ReporteVentas_Result.cs">

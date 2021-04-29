@@ -59,6 +59,7 @@ namespace WpfApp1
 
             string id = (string)((Button)sender).CommandParameter;
 
+
             if (dd.DeleteUser(id) && dd.DeleteEmpleado(id))
             {
                 MessageBox.Show("Registro correctamente eliminado");

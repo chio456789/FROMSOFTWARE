@@ -28,18 +28,24 @@
             <Grid Grid.Row="0">
                 <Border Grid.Row="0" Grid.Column="0" Background="#585858" Margin="6,7,10,0" CornerRadius="2" Height="50" VerticalAlignment="Top">
                     <TextBlock Text="Reportes productos" TextAlignment="Left" VerticalAlignment="Center" Margin="10,8" FontSize="29" Foreground="White" FontFamily="Roboto"/>
-
                 </Border>
-
+                <Button 
+                    x:Name="btRestaurarProductos"                    
+                    Margin="623,15,30,9"
+                    Content="Restaurar"
+                    Foreground="#F2A533"
+                    Background="White"
+                    BorderBrush="#F2A533" Click="btRestaurarProductos_Click"></Button>
             </Grid>
             <Grid Grid.Row="1" Margin="6,2,0,0">
                 <DataGrid x:Name="MyDataGridReportProduc" x:Uid="MyDataGridReportProduc" AutoGenerateColumns="False"
                        AlternationCount="2" SelectionMode="Single" Margin="2,0,10,2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=Producto}" IsReadOnly="True" Header="Producto" Width="Auto" />
-                        <DataGridTextColumn Binding="{Binding Path=Cantidad}" Header="Unidades vendidas" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=Cantidad}" Header="Und. vendidas" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Cateforia}" Header="Categorias" Width="Auto" IsReadOnly="True" />
-                        <DataGridTextColumn Binding="{Binding Path=Costo}" Header="Costo" Width="Auto" />
+                        <DataGridTextColumn Binding="{Binding Path=fecha}" Header="Fecha" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=Costo}" Header="Costo" Width="Auto" IsReadOnly="True"/>
                         <DataGridTextColumn Binding="{Binding Path=precio}" Header="Precio" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Total}" Header="Total $" Width="Auto" IsReadOnly="True" />
                     </DataGrid.Columns>
@@ -48,8 +54,14 @@
             <Grid Grid.Row="2">
                 <Border Grid.Row="0" Grid.Column="0" Background="#585858" Margin="6,10,10,0" CornerRadius="2" Height="50" VerticalAlignment="Top">
                     <TextBlock Text="Reportes ventas" TextAlignment="Left" VerticalAlignment="Center" Margin="10,10,10,10" FontSize="29" Foreground="White" FontFamily="Roboto"/>
-
                 </Border>
+                <Button 
+                    x:Name="btRestaurarVentas"                    
+                    Margin="623,19,30,11"
+                    Content="Restaurar"
+                    Foreground="#F2A533"
+                    Background="White"
+                    BorderBrush="#F2A533" Click="btRestaurarVentas_Click"></Button>
             </Grid>
             <Grid Grid.Row="3" Margin="6,2,0,7">
                 <DataGrid x:Name="MyDataGridVentas" x:Uid="MyDataGrid" AutoGenerateColumns="False"
@@ -60,6 +72,7 @@
                         <!--<DataGridTextColumn Binding="{Binding Path=HoraEntrada}" Header="Hora entrada" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=HoraSalida}" Header="Hora salida" Width="Auto" />-->
                         <DataGridTextColumn Binding="{Binding Path=Cantidad}" Header="Cantidad" Width="Auto" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=fecha}" Header="Fecha" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Precio}" Header="Precio" Width="Auto" IsReadOnly="True" />
                         <DataGridTextColumn Binding="{Binding Path=Total}" Header="Total $" Width="Auto" IsReadOnly="True" />
                     </DataGrid.Columns>
@@ -111,7 +124,7 @@
                     <DatePicker
                         Grid.Row="1"
                         Margin="58,12,59,62"
-                        Name="LocaleDatePickerDe"
+                        Name="LocaleDatePickerDe"                       
                         materialDesign:HintAssist.Hint="De" />
 
                     <DatePicker
@@ -175,6 +188,10 @@
                             <TabItem Header="Día">
                                 <WrapPanel>
                                     <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="87*"/>
+                                            <ColumnDefinition Width="163*"/>
+                                        </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <RowDefinition/>
                                             <RowDefinition/>
@@ -183,26 +200,26 @@
                                             Grid.Row="0"
                                             Margin="54,60,54,0"
                                             Name="LocaleDatePickerDia"
-                                            materialDesign:HintAssist.Hint="Día" Width="142" />
+                                            materialDesign:HintAssist.Hint="Día" Width="142" Grid.ColumnSpan="2" />
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btImprimirDia"
+                                            x:Name="btCrearReporteDia"
                                             FontSize="10"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="10,41,137,33"
                                             Foreground="#F2A533"
-                                            BorderBrush="#F2A533" Click="btImprimirDia_Click" Content="Crear reporte"/>
+                                            BorderBrush="#F2A533" Click="btCrearReporteDia_Click" Content="Crear reporte" Grid.ColumnSpan="2"/>
 
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btCrearReporteDia"
+                                            x:Name="btImprimirDia"
                                             FontSize="12"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
-                                            Margin="137,41,10,33"
+                                            Margin="49.667,41,10,33"
                                             Foreground="#36DE84"
-                                            BorderBrush="#36DE84" Click="btCrearReporteDia_Click" Content="Imprimir"/>
+                                            BorderBrush="#36DE84" Click="btImprimirDia_Click" Content="Imprimir" Grid.Column="1"/>
 
                                     </Grid>
 
@@ -223,23 +240,23 @@
                                             materialDesign:HintAssist.Hint="Semana" Width="142" />
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btImprimirSemana"
+                                            x:Name="btCrearReporteSemana"
                                             FontSize="10"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="10,41,137,33"
                                             Foreground="#F2A533"
-                                            BorderBrush="#F2A533" Click="btImprimirSemana_Click" Content="Crear reporte"/>
+                                            BorderBrush="#F2A533" Click="btCrearReporteSemana_Click" Content="Crear reporte"/>
 
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btCrearReporteSemana"
+                                            x:Name="btImprimirSemana"
                                             FontSize="12"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="137,41,10,33"
                                             Foreground="#36DE84"
-                                            BorderBrush="#36DE84" Click="btCrearReporteSemana_Click" Content="Imprimir"/>
+                                            BorderBrush="#36DE84" Click="btImprimirSemana_Click" Content="Imprimir"/>
 
                                     </Grid>
 
@@ -259,23 +276,23 @@
                                             materialDesign:HintAssist.Hint="Mes" Width="142" />
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btImprimirMes"
+                                            x:Name="btCrearReporteMes"
                                             FontSize="10"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="10,41,137,33"
                                             Foreground="#F2A533"
-                                            BorderBrush="#F2A533" Click="btImprimirMes_Click" Content="Crear reporte"/>
+                                            BorderBrush="#F2A533" Click="btCrearReporteMes_Click" Content="Crear reporte"/>
 
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btCrearReporteMes"
+                                            x:Name="btImprimirMes"
                                             FontSize="12"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="137,41,10,33"
                                             Foreground="#36DE84"
-                                            BorderBrush="#36DE84" Click="btCrearReporteMes_Click" Content="Imprimir"/>
+                                            BorderBrush="#36DE84" Click="btImprimirMes_Click" Content="Imprimir"/>
 
                                     </Grid>
 
@@ -300,23 +317,23 @@
                                             materialDesign:HintAssist.Hint="Hasta" Width="142" />
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btImprimirRango"
+                                            x:Name="btCrearReporteRango"
                                             FontSize="10"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="10,41,137,33"
                                             Foreground="#F2A533"
-                                            BorderBrush="#F2A533" Click="btImprimirRango_Click" Content="Crear reporte"/>
+                                            BorderBrush="#F2A533" Click="btCrearReporteRango_Click" Content="Crear reporte"/>
 
                                         <Button
                                             Grid.Row="1"
-                                            x:Name="btCrearReporteRango"
+                                            x:Name="btImprimirRango"
                                             FontSize="12"
                                             Style="{StaticResource MaterialDesignOutlinedButton}"
                                             ToolTip="MaterialDesignOutlinedButton"
                                             Margin="137,41,10,33"
                                             Foreground="#36DE84"
-                                            BorderBrush="#36DE84" Click="btCrearReporteRango_Click" Content="Imprimir"/>
+                                            BorderBrush="#36DE84" Click="btImprimirRango_Click" Content="Imprimir"/>
 
                                     </Grid>
 

@@ -10,16 +10,14 @@
 namespace WpfApp1.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class factura
+    public partial class CP_fechaParaMesDB_Result
     {
-        public int codFactura { get; set; }
-        public Nullable<int> codOrdenFK { get; set; }
-        public Nullable<decimal> totalFactura { get; set; }
-        public Nullable<bool> eliminar { get; set; }
+        public string NombreCajero { get; set; }
+        public string ApellidoCajero { get; set; }
+        public Nullable<int> Cantidad { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
-    
-        public virtual orden orden { get; set; }
+        public Nullable<decimal> Precio { get; set; }
+        public Nullable<decimal> Total { get; set; }
     }
 }

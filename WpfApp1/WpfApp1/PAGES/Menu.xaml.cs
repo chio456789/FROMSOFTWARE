@@ -26,6 +26,8 @@ namespace WpfApp1
     {
         WrapPanel sta = new WrapPanel();
 
+        int cont = 0;
+
         private ObservableCollection<OrdenVm> listaOr = new ObservableCollection<OrdenVm>();
         public static int hu=0;
 
@@ -91,8 +93,8 @@ namespace WpfApp1
                 decimal? mm = prueba.precioProd;
                 string yy = prueba.descripcionProd;
 
-
-                listaOr.Add(new OrdenVm(hu, mm, yy));
+                cont++;
+                listaOr.Add(new OrdenVm(cont,hu, mm, yy));
 
                
                 valor += ov.subtotalItem(hu, mm);
@@ -165,7 +167,7 @@ namespace WpfApp1
         {
 
         }
-
+       
         private void BtnTerminarOrden_Click(object sender, RoutedEventArgs e)
         {
             /*ConfirmarOrden terminarO = new ConfirmarOrden();
@@ -187,8 +189,32 @@ namespace WpfApp1
                 MessageBox.Show("Error al guardar la factura");
             }
 
-         //fin guardar factura---------------------------------
+         
         }
+        
+        private void btBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            FacturaOrden f = new FacturaOrden();
+            Decimal? total = Decimal.Parse(tbTotal.Text);
+            Decimal? s = 0;
+            s = f.borrarFila((int)((Button)sender).CommandParameter, listaOr);
+
+            tbTotal.Text = (total - s).ToString();
+
+            if ((total - s) == 0)
+            {
+                valor = 0;
+            }
+            else
+            {
+                
+                valor -= (total - s);
+            }
+            
+        }
+
+        //fin guardar factura---------------------------------
+
     }
 
 }
